@@ -1,0 +1,7 @@
+[push]
+	default = current
+[credential]
+	helper = osxkeychain
+[user]
+	name = Devon Estes
+	email = devon.c.estes@gmail.com

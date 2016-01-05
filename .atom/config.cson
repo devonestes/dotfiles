@@ -1,0 +1,47 @@
+"*":
+  "exception-reporting":
+    userId: "4b9416ec-7633-c238-e494-e5064b76efb6"
+  welcome:
+    showOnStartup: false
+  editor:
+    fontSize: 22
+    invisibles: {}
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+  core:
+    audioBeep: false
+    disabledPackages: [
+      "package-generator"
+      "open-on-github"
+      "language-xml"
+      "language-toml"
+      "language-property-list"
+      "language-php"
+      "language-perl"
+      "language-objective-c"
+      "language-mustache"
+      "language-make"
+      "language-less"
+      "language-java"
+      "language-csharp"
+      "language-clojure"
+      "language-c"
+      "dev-live-reload"
+      "background-tips"
+      "about"
+      "archive-view"
+      "linter-coffeelint"
+    ]
+  "save-session":
+    dataSaveFolder: "/Users/devoncestes/.atom/packages/save-session/projects"
+  fonts:
+    fontFamily: "Meslo"
+  "linter-sass-lint": {}
+  "linter-scss-lint": {}
+  "linter-rubocop": {}
+  "atom-beautify":
+    _analyticsUserId: "d2e503da-bbef-48d4-b2b3-40e00dc01ee7"
+  autosave:
+    enabled: true
+  tabs:
+    usePreviewTabs: true
