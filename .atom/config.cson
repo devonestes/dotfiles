@@ -4,7 +4,7 @@
   welcome:
     showOnStartup: false
   editor:
-    fontSize: 22
+    fontSize: 21
     invisibles: {}
     softWrap: true
     softWrapAtPreferredLineLength: true
