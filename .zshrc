@@ -211,3 +211,7 @@ function heroku_pg_pull(){
     echo "Aborted"
   fi
 }
+
+kill_processes() {
+  ps -ef | grep $1 | grep -v grep | awk '{print $2}' | xargs kill
+}
