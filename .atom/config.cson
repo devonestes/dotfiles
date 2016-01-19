@@ -1,13 +1,8 @@
 "*":
-  "exception-reporting":
-    userId: "4b9416ec-7633-c238-e494-e5064b76efb6"
-  welcome:
-    showOnStartup: false
-  editor:
-    fontSize: 21
-    invisibles: {}
-    softWrap: true
-    softWrapAtPreferredLineLength: true
+  "atom-beautify":
+    _analyticsUserId: "d2e503da-bbef-48d4-b2b3-40e00dc01ee7"
+  autosave:
+    enabled: true
   core:
     audioBeep: false
     disabledPackages: [
@@ -32,16 +27,21 @@
       "archive-view"
       "linter-coffeelint"
     ]
-  "save-session":
-    dataSaveFolder: "/Users/devoncestes/.atom/packages/save-session/projects"
+  editor:
+    fontSize: 21
+    invisibles: {}
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+  "exception-reporting":
+    userId: "4b9416ec-7633-c238-e494-e5064b76efb6"
   fonts:
     fontFamily: "Meslo"
+  "linter-rubocop": {}
   "linter-sass-lint": {}
   "linter-scss-lint": {}
-  "linter-rubocop": {}
-  "atom-beautify":
-    _analyticsUserId: "d2e503da-bbef-48d4-b2b3-40e00dc01ee7"
-  autosave:
-    enabled: true
+  "save-session":
+    dataSaveFolder: "/Users/devoncestes/.atom/packages/save-session/projects"
   tabs:
     usePreviewTabs: true
+  welcome:
+    showOnStartup: false

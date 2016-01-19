@@ -10,6 +10,7 @@
 .bash_history
 .bin
 .bundle
+.byebug_hist
 .cache
 .CFUserTextEncoding
 .dropbox
@@ -19,7 +20,10 @@
 .git
 .guard_history
 .heroku
+.hex
+.mix
 .netrc
+.npm
 .psql_history
 .rbenv
 .ssh
