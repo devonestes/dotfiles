@@ -36,6 +36,8 @@
     userId: "4b9416ec-7633-c238-e494-e5064b76efb6"
   fonts:
     fontFamily: "Meslo"
+  linter:
+    errorPanelHeight: 73
   "linter-rubocop": {}
   "linter-sass-lint": {}
   "linter-scss-lint": {}
