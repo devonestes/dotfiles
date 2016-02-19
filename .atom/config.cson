@@ -45,5 +45,6 @@
     dataSaveFolder: "/Users/devoncestes/.atom/packages/save-session/projects"
   tabs:
     usePreviewTabs: true
+  "tree-view": {}
   welcome:
     showOnStartup: false
