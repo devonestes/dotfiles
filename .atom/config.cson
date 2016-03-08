@@ -28,7 +28,7 @@
       "linter-coffeelint"
     ]
   editor:
-    fontSize: 21
+    fontSize: 22
     invisibles: {}
     softWrap: true
     softWrapAtPreferredLineLength: true
