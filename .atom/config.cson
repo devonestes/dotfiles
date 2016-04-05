@@ -1,6 +1,7 @@
 "*":
   "atom-beautify":
     _analyticsUserId: "d2e503da-bbef-48d4-b2b3-40e00dc01ee7"
+  "autocomplete-go": {}
   autosave:
     enabled: true
   core:
