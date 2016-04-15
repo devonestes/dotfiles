@@ -29,6 +29,8 @@
 .ssh
 .subversion
 .Trash
+.vim/*
+.viminfo
 .zcompdump
 .zcompdump-Devon’s MacBook Air-5.0.8
 .zcompdump-Devon’s MacBook Air-5.2
