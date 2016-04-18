@@ -68,6 +68,10 @@ set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
+set autoread      " Automatically refresh anytime something else changes a file
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
 
 " Softtabs, 2 spaces
 set tabstop=2
@@ -91,11 +95,14 @@ nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Down> ddp
 nnoremap <Up> ddkP
-nnoremap <leader>d :Dash<CR>
+
 vnoremap <Left> :echoe "Use h"<CR>
 vnoremap <Right> :echoe "Use l"<CR>
 vnoremap <Up> :echoe "Use k"<CR>
 vnoremap <Down> :echoe "Use j"<CR>
+
+" Open Dash with <leader-d
+nnoremap <leader>d :Dash<CR>
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
