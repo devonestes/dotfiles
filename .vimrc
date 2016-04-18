@@ -32,6 +32,11 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'ap/vim-css-color'
 Plugin 'rizzatti/dash.vim'
 Plugin 'vim-airline/vim-airline'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'ngmy/vim-rubocop'
+Plugin 'tpope/vim-endwise'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'jiangmiao/auto-pairs'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -104,6 +109,7 @@ nnoremap <C-H> <C-W><C-H>
 
 " Set NERDtree to open automatically
 autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Enabling Solarized dark color scheme
 syntax enable
@@ -120,3 +126,5 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_ruby_rubocop_args = '-a'
