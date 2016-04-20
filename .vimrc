@@ -35,7 +35,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ngmy/vim-rubocop'
 Plugin 'tpope/vim-endwise'
-Plugin 'tomtom/tcomment_vim'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'jiangmiao/auto-pairs'
 
 " All of your Plugins must be added before the following line
