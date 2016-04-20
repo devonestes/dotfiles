@@ -101,8 +101,14 @@ vnoremap <Right> :echoe "Use l"<CR>
 vnoremap <Up> :echoe "Use k"<CR>
 vnoremap <Down> :echoe "Use j"<CR>
 
-" Open Dash with <leader-d
+" Open Dash with <leader>-d
 nnoremap <leader>d :Dash<CR>
+
+" Set faster folding commands
+set foldmethod=indent
+set nofoldenable
+noremap <leader>f zc
+nnoremap <leader>uf za
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
