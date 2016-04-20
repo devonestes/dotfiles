@@ -68,6 +68,7 @@ set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
+:au FocusLost * silent! wa   " Autosave all buffers when window loses focus
 set autoread      " Automatically refresh anytime something else changes a file
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
@@ -136,7 +137,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_ruby_checkers = ['rubocop']
