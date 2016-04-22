@@ -91,6 +91,9 @@ set colorcolumn=+1
 set number
 set numberwidth=5
 
+" Automatically delete trailing whitespace
+autocmd BufWritePre *.rb :%s/\s\+$//e
+
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
