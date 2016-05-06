@@ -108,6 +108,9 @@ vnoremap <Down> :echoe "Use j"<CR>
 " Open Dash with <leader>-d
 nnoremap <leader>d :Dash<CR>
 
+" Toggle NERDTree with <leader>-nt
+nnoremap <leader>nt :NERDTreeToggle<CR>
+
 " Set faster folding commands
 set foldmethod=indent
 set nofoldenable
