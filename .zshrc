@@ -195,10 +195,11 @@ function heroku_pg_pull(){
   read local_database_name\?"> "
   echo
   if [ "$local_database_name" "==" "$2" ]; then
+    heroku pg:backups capture -a $1
     curl -o heroku_pg_pull_latest_backup.dump `heroku pg:backups public-url -a $1`;
     dropdb $2
     createdb $2 -U `whoami` -h localhost -w
-    pg_restore --verbose --clean --no-acl --no-owner -h localhost -U `whoami` -d $2 heroku_pg_pull_latest_backup.dump;
+    pg_restore --if-exists --verbose --clean --no-acl --no-owner -h localhost -U `whoami` -d $2 heroku_pg_pull_latest_backup.dump;
     rm heroku_pg_pull_latest_backup.dump;
   else
     echo "Aborted"
