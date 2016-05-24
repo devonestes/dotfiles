@@ -54,3 +54,5 @@ Public
 sandbox
 .config/pgcli/*.*
 .local/*.*
+.config/pgcli/history
+.local/
