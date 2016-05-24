@@ -52,4 +52,5 @@ Music
 Pictures
 Public
 sandbox
-.config/pgcli/*
+.config/pgcli/*.*
+.local/*.*
