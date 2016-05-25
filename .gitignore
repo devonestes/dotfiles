@@ -52,7 +52,6 @@ Music
 Pictures
 Public
 sandbox
-.config/pgcli/*.*
-.local/*.*
 .config/pgcli/history
+.config/pgcli/log
 .local/

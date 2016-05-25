@@ -124,6 +124,10 @@ set splitright
 " Add some custom words to avoid common misspellings
 iab bandwith bandwidth
 
+" Add some shortcuts for rails.vim helpers
+nnoremap <leader>ga :AS<CR>
+nnoremap <leader>gr :RS<CR>
+
 " Easier navigation between panes - Ctrl-h, Ctrl-j, Ctrl-k, & Ctrl-l
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
