@@ -128,6 +128,9 @@ iab bandwith bandwidth
 nnoremap <leader>ga :AS<CR>
 nnoremap <leader>gr :RS<CR>
 
+" Auto-indent and format!
+nnorema <leader>fmt gg=G
+
 " Easier navigation between panes - Ctrl-h, Ctrl-j, Ctrl-k, & Ctrl-l
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
