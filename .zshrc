@@ -120,6 +120,7 @@ alias goto_rbenv="cd ~/.rbenv"
 alias esh="cd ~/esh"
 alias sdr="cd ~/esh/SDR"
 alias irt="cd ~/esh/IRT"
+alias ecto="cd ~/esh/ecto"
 alias taric="cd ~/esh/taric && be unicorn -p 3001"
 alias exercism_go='cd ~/golang/src/exercism/go'
 alias exercism_dir='cd ~/exercism'
