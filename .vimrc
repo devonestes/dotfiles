@@ -124,6 +124,9 @@ set splitright
 " Add some custom words to avoid common misspellings
 iab bandwith bandwidth
 
+" Add ability to copy to OS clipboard instead of buffer
+nnoremap <leader>yc :w !pbcopy<CR>
+
 " Add some shortcuts for rails.vim helpers
 nnoremap <leader>ga :AS<CR>
 nnoremap <leader>gr :RS<CR>
