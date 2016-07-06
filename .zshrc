@@ -136,6 +136,7 @@ alias jack_compiler='~/sandbox/nand2tetris/tools/JackCompiler.sh'
 alias text_comparer='~/sandbox/nand2tetris/tools/TextComparer.sh'
 alias vm_emulator='~/sandbox/nand2tetris/tools/VMEumulator.sh'
 alias psql='pgcli'
+alias gb='git branch -v'
 
 ###########################
 # CUSTOM SCRIPTS
