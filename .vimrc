@@ -111,6 +111,9 @@ nnoremap <leader>d :Dash<CR>
 " Toggle NERDTree with <leader>-nt
 nnoremap <leader>nt :NERDTreeToggle<CR>
 
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
+
 " Set faster folding commands
 set foldmethod=indent
 set nofoldenable
