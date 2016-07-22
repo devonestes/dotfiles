@@ -55,3 +55,4 @@ sandbox
 .config/pgcli/history
 .config/pgcli/log
 .local/
+.NERDTreeBookmarks
