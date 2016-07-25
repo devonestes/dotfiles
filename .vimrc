@@ -143,6 +143,10 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Set comment stuff
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+
 " Enabling Solarized dark color scheme
 syntax enable
 set background=dark
