@@ -134,6 +134,9 @@ nnoremap <leader>yc :w !pbcopy<CR>
 nnoremap <leader>ga :AS<CR>
 nnoremap <leader>gr :RS<CR>
 
+" Add shortcut for pulling line up to previous line
+nnoremap <leader>J kJx
+
 " Auto-indent and format!
 nnorema <leader>fmt gg=G
 

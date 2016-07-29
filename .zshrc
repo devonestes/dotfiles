@@ -137,6 +137,7 @@ alias text_comparer='~/sandbox/nand2tetris/tools/TextComparer.sh'
 alias vm_emulator='~/sandbox/nand2tetris/tools/VMEumulator.sh'
 alias psql='pgcli'
 alias gb='git branch -v'
+alias gs='git status'
 
 ###########################
 # CUSTOM SCRIPTS
