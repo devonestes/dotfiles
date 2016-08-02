@@ -144,11 +144,6 @@ alias gs='git status'
 ###########################
 
 esh_update() {
-  cd ~/esh/SDR
-  echo "updating SDR"
-  git checkout master
-  gpo
-  git_prune
   cd ~/esh/ecto
   echo "Updating Ecto"
   git checkout master
@@ -156,6 +151,11 @@ esh_update() {
   git_prune
   cd ~/esh/IRT
   echo "updating IRT"
+  git checkout master
+  gpo
+  git_prune
+  cd ~/esh/SDR
+  echo "updating SDR"
   git checkout master
   gpo
   git_prune
