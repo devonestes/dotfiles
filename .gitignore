@@ -12,6 +12,7 @@
 .bundle
 .byebug_hist
 .cache
+.config/heroku/*
 .CFUserTextEncoding
 .dropbox
 .DS_Store
@@ -22,10 +23,12 @@
 .heroku
 .hex
 .mix
+.lesshst
 .netrc
 .npm
 .psql_history
 .rbenv
+.rediscli_history
 .ssh
 .subversion
 .Trash
