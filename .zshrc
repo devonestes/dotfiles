@@ -121,6 +121,7 @@ alias esh="cd ~/esh"
 alias sdr="cd ~/esh/SDR"
 alias irt="cd ~/esh/IRT"
 alias ecto="cd ~/esh/ecto"
+alias berks="cd ~/esh/berks"
 alias taric="cd ~/esh/taric && be unicorn -p 3001"
 alias exercism_go='cd ~/golang/src/exercism/go'
 alias exercism_dir='cd ~/exercism'
@@ -151,6 +152,11 @@ esh_update() {
   git_prune
   cd ~/esh/IRT
   echo "updating IRT"
+  git checkout master
+  gpo
+  git_prune
+  cd ~/esh/berks
+  echo "updating berks"
   git checkout master
   gpo
   git_prune
