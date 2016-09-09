@@ -1,3 +1,7 @@
+[alias]
+  l = log --pretty=oneline -n 100 --graph --abbrev-commit
+[color]
+  ui = auto
 [push]
 	default = current
 [credential]
