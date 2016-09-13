@@ -223,3 +223,16 @@ function heroku_pg_pull(){
 kill_processes() {
   ps -ef | grep $1 | grep -v grep | awk '{print $2}' | xargs kill
 }
+
+fork_db() {
+  echo "WARNING! You are about to fork the production database and hook it up"
+  echo "to '$1'"
+  echo "If you want to continue, enter again the name of the review app"
+  read review_app_name\?"> "
+  echo
+  if [ "$review_app_name" "==" "$1" ]; then
+    heroku addons:create heroku-postgresql:standard-0 --fork `heroku pg:credentials DATABASE -a esh-irt-v2-production | grep 'postgres[-\.\/\w:@]*'` -a $1
+  else
+    echo "Aborted"
+  fi
+}
