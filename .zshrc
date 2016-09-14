@@ -231,7 +231,7 @@ fork_db() {
   read review_app_name\?"> "
   echo
   if [ "$review_app_name" "==" "$1" ]; then
-    heroku addons:create heroku-postgresql:standard-0 --fork `heroku pg:credentials DATABASE -a esh-irt-v2-production | grep 'postgres[-\.\/\w:@]*'` -a $1 | grep 'HEROKU_POSTGRESQL_[A-Z]*' | xargs -I % heroku pg:promote % -a $1 
+    heroku addons:create heroku-postgresql:standard-0 --fork `heroku pg:credentials DATABASE -a esh-irt-v2-production | grep 'postgres[-\.\/\w:@]*'` -a $1 | grep 'HEROKU_POSTGRESQL_[A-Z]*' | sed 's/Created post.* //' | sed 's/_URL//' | xargs -I % heroku pg:promote % -a $1 
   else
     echo "Aborted"
   fi
