@@ -89,6 +89,7 @@ set colorcolumn=+1
 
 " Numbers
 set relativenumber
+set number
 set numberwidth=5
 
 " Automatically delete trailing whitespace
