@@ -235,6 +235,7 @@ fork_db() {
     sleep 45
     heroku pg:wait -a $1
     heroku run rake db:migrate -a $1
+    heroku run rake db_ecto:migrate -a $1
   else
     echo "Aborted"
   fi
