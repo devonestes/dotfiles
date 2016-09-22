@@ -145,25 +145,20 @@ alias gs='git status'
 ###########################
 
 esh_update() {
-  cd ~/esh/ecto
   echo "Updating Ecto"
+  cd ~/esh/ecto
   git checkout master
-  gpo
+  git pull origin master
   git_prune
-  cd ~/esh/IRT
-  echo "updating IRT"
-  git checkout master
-  gpo
-  git_prune
-  cd ~/esh/berks
-  echo "updating berks"
-  git checkout master
-  gpo
-  git_prune
-  cd ~/esh/SDR
   echo "updating SDR"
+  cd ~/esh/SDR
   git checkout master
-  gpo
+  git pull origin master
+  git_prune
+  echo "updating IRT"
+  cd ~/esh/IRT
+  git checkout master
+  git pull origin master
   git_prune
 }
 
@@ -236,6 +231,7 @@ fork_db() {
     heroku pg:wait -a $1
     heroku run rake db:migrate -a $1
     heroku run rake db_ecto:migrate -a $1
+    heroku pg:credentials DATABASE -a $1
   else
     echo "Aborted"
   fi
