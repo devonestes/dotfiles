@@ -26,6 +26,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-rails'
 Plugin 'scrooloose/syntastic'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'janko-m/vim-test'
 Plugin 'fatih/vim-go'
 Plugin 'slim-template/vim-slim'
 Plugin 'elixir-lang/vim-elixir'
@@ -139,13 +140,17 @@ nnoremap <leader>gr :RS<CR>
 nnoremap <leader>J kJx
 
 " Auto-indent and format!
-nnorema <leader>fmt gg=G
+nnoremap <leader>fmt gg=G
 
 " Easier navigation between panes - Ctrl-h, Ctrl-j, Ctrl-k, & Ctrl-l
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Shortcuts for vim-test
+nnoremap <leader>tf :TestFile<CR>
+nnoremap <leader>tn :TestNearest<CR>
 
 " Set comment stuff
 let g:NERDSpaceDelims = 1
