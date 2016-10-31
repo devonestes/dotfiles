@@ -227,6 +227,7 @@ fork_db() {
   echo
   if [ "$review_app_name" "==" "$1" ]; then
     heroku addons:create heroku-postgresql:standard-0 --fork `heroku pg:credentials DATABASE -a esh-irt-v2-production | grep 'postgres[-\.\/\w:@]*'` -a $1 | grep 'HEROKU_POSTGRESQL_[A-Z]*' | sed 's/Created post.* //' | sed 's/_URL//' | xargs -I % heroku pg:promote % -a $1 
+    heroku config:get DATABASE_URL -a $1 | xargs -I % heroku config:set ECTO_DB_URL=% -a $1
     sleep 45
     heroku pg:wait -a $1
     heroku run rake db:migrate -a $1
