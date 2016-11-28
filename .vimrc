@@ -153,6 +153,10 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <leader>tf :TestFile<CR>
 nnoremap <leader>tn :TestNearest<CR>
 
+" Toggle paste and nopaste mode
+nnoremap <leader>p :set paste<CR>
+nnoremap <leader>np :set nopaste<CR>
+
 " Set comment stuff
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
@@ -167,6 +171,9 @@ colorscheme solarized
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+" Set clipboard to be system clipboard by default
+set clipboard=unnamed
 
 " config to run tests via Dispatch
 let test#strategy = "dispatch"
