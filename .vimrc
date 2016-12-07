@@ -96,6 +96,10 @@ set numberwidth=5
 
 " Automatically delete trailing whitespace
 autocmd BufWritePre *.rb :%s/\s\+$//e
+autocmd BufWritePre *.exs :%s/\s\+$//e
+autocmd BufWritePre *.ex :%s/\s\+$//e
+autocmd BufWritePre *.js :%s/\s\+$//e
+autocmd BufWritePre *.coffee :%s/\s\+$//e
 
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
