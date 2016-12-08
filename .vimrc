@@ -31,6 +31,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'c-brenn/phoenix.vim'
 Plugin 'tpope/vim-projectionist'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'neomake/neomake'
   " Run Neomake when I open or save any buffer
   augroup localneomake
