@@ -33,6 +33,7 @@ Plugin 'neomake/neomake'
   " Run Neomake when I save any buffer
   augroup localneomake
     autocmd! BufWritePost * Neomake
+    autocmd! BufEnter * Neomake
   augroup END
   
   let g:neomake_ruby_enabled_makers = ['mri', 'rubocop']
