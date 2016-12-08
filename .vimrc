@@ -24,13 +24,15 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-rails'
-Plugin 'sheerun/vim-polyglot'
 Plugin 'slashmili/alchemist.vim'
 Plugin 'janko-m/vim-test'
 Plugin 'rizzatti/dash.vim'
 Plugin 'vim-airline/vim-airline'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'c-brenn/phoenix.vim'
+Plugin 'tpope/vim-projectionist'
 Plugin 'neomake/neomake'
-  " Run Neomake when I save any buffer
+  " Run Neomake when I open or save any buffer
   augroup localneomake
     autocmd! BufWritePost * Neomake
     autocmd! BufEnter * Neomake
