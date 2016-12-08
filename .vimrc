@@ -17,30 +17,53 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-fugitive'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-rails'
-Plugin 'scrooloose/syntastic'
-Plugin 'vim-ruby/vim-ruby'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'slashmili/alchemist.vim'
 Plugin 'janko-m/vim-test'
-Plugin 'fatih/vim-go'
-Plugin 'slim-template/vim-slim'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'ap/vim-css-color'
 Plugin 'rizzatti/dash.vim'
 Plugin 'vim-airline/vim-airline'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'ngmy/vim-rubocop'
-Plugin 'tpope/vim-endwise'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'jiangmiao/auto-pairs'
+Plugin 'neomake/neomake'
+  " Run Neomake when I save any buffer
+  augroup localneomake
+    autocmd! BufWritePost * Neomake
+  augroup END
+  
+  let g:neomake_ruby_enabled_makers = ['mri', 'rubocop']
+
+  " Configure a nice credo setup, courtesy https://github.com/neomake/neomake/pull/300
+  let g:neomake_elixir_enabled_makers = ['mix', 'mycredo']
+  function! NeomakeCredoErrorType(entry)
+    if a:entry.type ==# 'F'      " Refactoring opportunities
+      let l:type = 'W'
+    elseif a:entry.type ==# 'D'  " Software design suggestions
+      let l:type = 'I'
+    elseif a:entry.type ==# 'W'  " Warnings
+      let l:type = 'W'
+    elseif a:entry.type ==# 'R'  " Readability suggestions
+      let l:type = 'I'
+    elseif a:entry.type ==# 'C'  " Convention violation
+      let l:type = 'W'
+    else
+      let l:type = 'M'           " Everything else is a message
+    endif
+    let a:entry.type = l:type
+  endfunction
+
+  let g:neomake_elixir_mycredo_maker = {
+        \ 'exe': 'mix',
+        \ 'args': ['credo', 'list', '%:p', '--format=oneline'],
+        \ 'errorformat': '[%t] %. %f:%l:%c %m,[%t] %. %f:%l %m',
+        \ 'postprocess': function('NeomakeCredoErrorType')
+        \ }
+  let g:neomake_warning_sign={'text': '⚠️', 'texthl': 'NeomakeErrorMsg'}
+  let g:neomake_error_sign={'text': '‼️', 'texthl': 'NeomakeErrorMsg'}
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -120,15 +143,6 @@ nnoremap <leader>d :Dash<CR>
 " Toggle NERDTree with <leader>-nt
 nnoremap <leader>nt :NERDTreeToggle<CR>
 
-" Switch between the last two files
-nnoremap <leader><leader> <c-^>
-
-" Set faster folding commands
-set foldmethod=indent
-set nofoldenable
-noremap <leader>f zc
-nnoremap <leader>uf za
-
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
@@ -136,18 +150,12 @@ set splitright
 " Add some custom words to avoid common misspellings
 iab bandwith bandwidth
 
-" Add ability to copy to OS clipboard instead of buffer
-nnoremap <leader>yc :w !pbcopy<CR>
-
 " Add some shortcuts for rails.vim helpers
 nnoremap <leader>ga :AS<CR>
 nnoremap <leader>gr :RS<CR>
 
 " Add shortcut for pulling line up to previous line
 nnoremap <leader>J kJx
-
-" Auto-indent and format!
-nnoremap <leader>fmt gg=G
 
 " Easier navigation between panes - Ctrl-h, Ctrl-j, Ctrl-k, & Ctrl-l
 nnoremap <C-J> <C-W><C-J>
@@ -163,32 +171,17 @@ nnoremap <leader>tn :TestNearest<CR>
 nnoremap <leader>p :set paste<CR>
 nnoremap <leader>np :set nopaste<CR>
 
-" Set comment stuff
-let g:NERDSpaceDelims = 1
-let g:NERDCompactSexyComs = 1
-
 " Enabling Solarized dark color scheme
 syntax enable
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
 
-" Syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 " Set clipboard to be system clipboard by default
 set clipboard=unnamed
 
 " config to run tests via Dispatch
 let test#strategy = "dispatch"
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_ruby_checkers = ['rubocop']
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
@@ -201,4 +194,3 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
-
