@@ -139,7 +139,7 @@ alias vm_emulator='~/sandbox/nand2tetris/tools/VMEumulator.sh'
 alias psql='pgcli'
 alias gb='git branch -v'
 alias gs='git status'
-alias vim='mvim -v'
+alias vim='mvim -v -w ~/.vimlog "$@"'
 
 ###########################
 # CUSTOM SCRIPTS
