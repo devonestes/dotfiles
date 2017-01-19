@@ -1,9 +1,0 @@
-[2016-12-12 21:07:22.915] [info] [console_user_server] version 0.90.68
-[2016-12-12 21:07:24.200] [info] [console_user_server] grabber_client_ is connected
-[2016-12-12 21:07:24.201] [info] [console_user_server] core_configuration_ was loaded.
-[2016-12-12 21:07:25.203] [info] [console_user_server] system_preferences::values is updated.
-[2016-12-12 21:07:25.487] [info] [console_user_server] core_configuration_ was loaded.
-[2016-12-12 21:07:28.746] [info] [console_user_server] core_configuration_ was loaded.
-[2016-12-12 21:07:34.829] [info] [console_user_server] core_configuration_ was loaded.
-[2016-12-12 21:08:46.395] [info] [console_user_server] core_configuration_ was loaded.
-[2016-12-12 21:13:53.377] [info] [console_user_server] core_configuration_ was loaded.

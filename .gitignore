@@ -16,6 +16,7 @@
 .CFUserTextEncoding
 .dropbox
 .DS_Store
+.erlang.cookie
 .exercism.json
 .gem
 .git
@@ -34,6 +35,7 @@
 .Trash
 .vim/*
 .viminfo
+.vimlog
 .zcompdump
 .zcompdump-Devon’s MacBook Air-5.0.8
 .zcompdump-Devon’s MacBook Air-5.2

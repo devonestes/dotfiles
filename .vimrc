@@ -125,6 +125,12 @@ set relativenumber
 set number
 set numberwidth=5
 
+" Folding
+set foldmethod=indent
+set foldlevelstart=99
+nnoremap <leader>f zc
+nnoremap <leader>uf zo
+
 " Automatically delete trailing whitespace
 autocmd BufWritePre *.rb :%s/\s\+$//e
 autocmd BufWritePre *.exs :%s/\s\+$//e
