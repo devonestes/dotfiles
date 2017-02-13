@@ -145,22 +145,15 @@ alias vim='mvim -v -w ~/.vimlog "$@"'
 # CUSTOM SCRIPTS
 ###########################
 
+update_repo() {
+  echo "Updating $1"
+  cd ~/esh/$1 && git checkout master && git pull origin master && git_prune
+}
+
 esh_update() {
-  echo "Updating Ecto"
-  cd ~/esh/ecto
-  git checkout master
-  git pull origin master
-  git_prune
-  echo "updating SDR"
-  cd ~/esh/SDR
-  git checkout master
-  git pull origin master
-  git_prune
-  echo "updating IRT"
-  cd ~/esh/IRT
-  git checkout master
-  git pull origin master
-  git_prune
+  update_repo "ecto"
+  update_repo "SDR"
+  update_repo "IRT"
 }
 
 run_oink() {
