@@ -226,6 +226,9 @@ fork_db() {
     heroku config:get DATABASE_URL -a $1 | xargs -I % heroku config:set ECTO_DB_URL=% -a $1
     heroku run rake db:migrate -a $1
     heroku run rake db_ecto:migrate -a $1
+    if [ $# -eq 2 ]; then
+      heroku run:detached rake esh:mass_update:run[$2] -a $1
+    fi
     heroku pg:credentials DATABASE -a $1
   else
     echo "Aborted"
