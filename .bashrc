@@ -47,3 +47,8 @@ alias ls='ls -Gh'
 
 # Force grep to always use the color option and show line numbers
 export GREP_OPTIONS='--color=always'
+
+# Aliases
+alias gs='git status'
+alias ga='git add'
+alias sandbox='cd ~/sandbox'
