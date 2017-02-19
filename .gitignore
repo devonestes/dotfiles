@@ -25,8 +25,11 @@
 .hex
 .mix
 .lesshst
+.NERDTreeBookmarks
 .netrc
 .npm
+.pgadmin_histoqueries
+.pgpass
 .psql_history
 .rbenv
 .rediscli_history
@@ -35,6 +38,8 @@
 .Trash
 .vim/*
 .viminfo
+.viminfo.tmp
+.viminfz.tmp
 .vimlog
 .zcompdump
 .zcompdump-Devon’s MacBook Air-5.0.8
@@ -55,9 +60,9 @@ mac
 Movies
 Music
 Pictures
+pgadmin.log
 Public
 sandbox
 .config/pgcli/history
 .config/pgcli/log
 .local/
-.NERDTreeBookmarks
