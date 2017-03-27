@@ -22,6 +22,7 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-rails'
@@ -106,12 +107,17 @@ set autoread      " Automatically refresh anytime something else changes a file
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
+set lazyredraw
 
 " Softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
 set shiftround
 set expandtab
+
+" Search stuff
+set incsearch           " search as characters are entered
+set hlsearch            " highlight matches
 
 " Use one space, not two, after punctuation.
 set nojoinspaces
