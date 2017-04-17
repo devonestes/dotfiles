@@ -119,6 +119,7 @@ alias sdr="cd ~/esh/SDR"
 alias irt="cd ~/esh/IRT"
 alias ecto="cd ~/esh/ecto"
 alias berks="cd ~/esh/berks"
+export BERKS="$HOME/esh/berks"
 alias taric="cd ~/esh/taric && be unicorn -p 3001"
 alias exercism_go='cd ~/golang/src/exercism/go'
 alias exercism_dir='cd ~/exercism'
@@ -217,14 +218,14 @@ fork_db() {
   read review_app_name\?"> "
   echo
   if [ "$review_app_name" "==" "$1" ]; then
-    heroku addons:create heroku-postgresql:standard-0 --fork `heroku pg:credentials DATABASE -a esh-irt-v2-production | grep 'postgres[-\.\/\w:@]*'` -a $1 | grep 'HEROKU_POSTGRESQL_[A-Z]*' | sed 's/Created post.* //' | sed 's/_URL//' | xargs -I % heroku pg:promote % -a $1 
+    db_name=$(heroku addons:create heroku-postgresql:standard-0 --fork `heroku pg:credentials DATABASE -a esh-irt-v2-production | grep 'postgres[-\.\/\w:@]*'` -a $1 | grep -m 1 -o "postgresql-[a-z]*-[0-9]*")
     sleep 45
     heroku pg:wait -a $1
+    heroku pg:promote "$db_name" -a $1 
     heroku config:get DATABASE_URL -a $1 | xargs -I % heroku config:set ECTO_DB_URL=% -a $1
-    heroku run rake db:migrate -a $1
     heroku run rake db_ecto:migrate -a $1
     if [ $# -eq 2 ]; then
-      heroku run:detached rake esh:mass_update:run[$2] -a $1
+      heroku run:detached rake "esh:mass_update:run[$2]" -a $1
     fi
     heroku pg:credentials DATABASE -a $1
   else
@@ -236,4 +237,13 @@ ecto_migration() {
   file_name=$(bundle exec rails g migration $1 | grep -o "db.*\.rb")
   new_file_name=$(echo $file_name | sed "s/db\/migrate/db_ecto\/migrate/g")
   mv $file_name $new_file_name
+}
+
+run_ecto_migration() {
+  dropdb pharaoh_test
+  createdb pharaoh_test
+  git checkout db_ecto/structure.sql
+  RAILS_ENV=test be rake app:db_ecto:structure:load
+  RAILS_ENV=test be rake app:db_ecto:migrate
+  sed -i "" "s/WITH NO DATA/WITH DATA/" db_ecto/structure.sql
 }
