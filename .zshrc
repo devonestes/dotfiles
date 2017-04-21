@@ -218,10 +218,12 @@ fork_db() {
   read review_app_name\?"> "
   echo
   if [ "$review_app_name" "==" "$1" ]; then
-    db_name=$(heroku addons:create heroku-postgresql:standard-0 --fork `heroku pg:credentials DATABASE -a esh-irt-v2-production | grep 'postgres[-\.\/\w:@]*'` -a $1 | grep -m 1 -o "postgresql-[a-z]*-[0-9]*")
+    old_db=$(heroku addons -a $1 | grep -m 1 -o "postgresql-[a-z]*-[0-9]*")
+    heroku addons:destroy "$old_db" -a $1
+    new_db=$(heroku addons:create heroku-postgresql:standard-0 --fork `heroku pg:credentials DATABASE -a esh-irt-v2-production | grep 'postgres[-\.\/\w:@]*'` -a $1 | grep -m 1 -o "postgresql-[a-z]*-[0-9]*")
     sleep 45
     heroku pg:wait -a $1
-    heroku pg:promote "$db_name" -a $1 
+    heroku pg:promote "$new_db" -a $1 
     heroku config:get DATABASE_URL -a $1 | xargs -I % heroku config:set ECTO_DB_URL=% -a $1
     heroku run rake db_ecto:migrate -a $1
     if [ $# -eq 2 ]; then
@@ -242,7 +244,7 @@ ecto_migration() {
 run_ecto_migration() {
   dropdb pharaoh_test
   createdb pharaoh_test
-  git checkout db_ecto/structure.sql
+  git checkout db_ecto/structure.sql master
   RAILS_ENV=test be rake app:db_ecto:structure:load
   RAILS_ENV=test be rake app:db_ecto:migrate
   sed -i "" "s/WITH NO DATA/WITH DATA/" db_ecto/structure.sql
