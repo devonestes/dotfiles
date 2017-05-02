@@ -36,6 +36,8 @@ Plugin 'c-brenn/phoenix.vim'
 Plugin 'tpope/vim-projectionist'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'neomake/neomake'
+Plugin 'ElmCast/elm-vim'
+
   " Run Neomake when I open or save any buffer
   augroup localneomake
     autocmd! BufWritePost * Neomake
@@ -43,6 +45,7 @@ Plugin 'neomake/neomake'
   augroup END
   
   let g:neomake_ruby_enabled_makers = ['mri', 'rubocop']
+  let g:neomake_elm_enabled_makers = ['elmMake']
 
   " Configure a nice credo setup, courtesy https://github.com/neomake/neomake/pull/300
   let g:neomake_elixir_enabled_makers = ['mix', 'mycredo']

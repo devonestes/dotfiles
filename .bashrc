@@ -3,82 +3,196 @@
 #################################################################
 
 # Rbenv autocomplete and shims
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if which rbenv > /dev/null; then
+  eval "$(rbenv init -)"
+fi
 # Path for RBENV
 test -d "$HOME/.rbenv/" && PATH="$HOME/.rbenv/bin:$PATH"
 
 # Path for brew
 test -d /usr/local/bin && export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
+
 # Path for Heroku
 test -d /usr/local/heroku/ && export PATH="/usr/local/heroku/bin:$PATH"
 
-# Load git completions
-git_completion_script=/usr/local/etc/bash_completion.d/git-completion.bash
-test -s $git_completion_script && source $git_completion_script
 
 
-#################################################################
-############################ COLORS #############################
-#################################################################
 
-# A more colorful prompt.
-# \[\e[0m\] resets the color to default color
-ColorReset='\[\e[0m\]'
-#  \e[0;31m\ sets the color to red
-ColorRed='\[\e[0;31m\]'
-# \e[0;32m\ sets the color to green
-ColorGreen='\[\e[0;32m\]'
 
-# PS1 is the variable for the prompt you see everytime you hit enter.
-git_prompt_script=/usr/local/etc/bash_completion.d/git-prompt.sh
-if [ -s $git_prompt_script ]; then
-  # if git-prompt is installed, use it (ie. to install it use:
-  # `brew install git`)
-  source $git_prompt_script
-  export GIT_PS1_SHOWDIRTYSTATE=1
-  # set the prompt to display current working directory in red along with git branch
-  export PS1="\n$ColorRed\W$ColorReset\$(__git_ps1) :> "
-else
-  # otherwise omit git from the prompt
-  export PS1="\n$ColorRed\W$ColorReset :> "
-fi
 
-# Colors ls should use for folders, files, symlinks etc, see `man ls` and
-# search for LSCOLORS
-export LSCOLORS=ExGxFxdxCxDxDxaccxaeex
 
-# Force grep to always use the color option and show line numbers
-export GREP_OPTIONS='--color=always'
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ##################################################################
 ############################ ALIASES #############################
 ##################################################################
 
-# Force ls to use colors (G) and use humanized file sizes (h)
-alias ls='ls -Gh'
-alias git='hub'
+# Force ls to show everything (a), use colors (G) and use humanized file sizes (h)
+alias ls='ls -aGh'
+
+# I do these so frequently, that it makes sense to not have to type out the
+# whole command every time I do it. Also, I really only ever use the verbose
+# mode for `git branch`, so I can set that flag automatically.
 alias gs='git status'
 alias ga='git add'
 alias gb='git branch -v'
+
+# I do this a lot and don't want to type it out all the time.
+alias hrc='heroku run rails console' 
+
+# This is the directory where I keep all my non-work code, including my open
+# source stuff, so I go there frequently. It's also where all the code for this
+# workshop lives, so it's a convenient alias to have for me.
 alias sandbox='cd ~/sandbox'
+
+# Ok, now it's your turn! Remember that git repo that I had you clone somewhere
+# on your filesystem a few minutes ago? Write your own alias for that project!
+# The alias should be called `scenic`, since that's the name of the gem that
+# we'll be adding a script or two to.
+alias scenic='cd ~/sandbox/scenic'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ##################################################################
 ########################### FUNCTIONS ############################
 ##################################################################
 
-git_prune() {
-  git fetch origin --prune
-  git checkout master
-  git branch --merged master | grep -v "* master" | xargs -n 1 git branch -d
+cls() {
+  cd "$1"
+  ls
 }
 
-update_repo() {
-  echo "Updating $1"
-  cd ~/esh/$1 && git checkout master && git pull origin master && git_prune
+mkcd() {
+  mkdir "$1"
+  cd "$1"
 }
 
-esh_update() {
-  update_repo "ecto"
-  update_repo "SDR"
-  update_repo "IRT"
+catman() {
+  man "$1" | cat
 }
+
+todo() {
+  todo_file=~/.todo_file.txt
+  if test ! -f "$todo_file"
+  then
+    touch "$todo_file"
+  fi
+  catman test
+
+  case "$1" in
+    "list")
+      cat -n "$todo_file"
+      ;;
+    "add")
+      echo "$2" >> "$todo_file"
+      ;;
+    "complete")
+      to_write=$(grep -v "$2" "$todo_file")
+      echo "$to_write" > "$todo_file"
+      ;;
+    *)
+      echo "OTHER"
+      ;;
+  esac
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#todo() {
+  #file=~/.todo_file.txt
+  #if test ! -f "$file"
+  #then
+    #echo "NOT FOUND"
+    #touch "$file"
+  #fi
+
+  #case "$1" in
+    #"list")
+      #cat -n "$file"
+      #;;
+    #"add")
+      #echo "$2" >> "$file"
+      #;;
+    #"complete")
+      #;;
+    #*)
+      #echo "I don't recognize that command"
+      #;;
+  #esac
+#}
