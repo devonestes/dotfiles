@@ -141,6 +141,8 @@ alias psql='pgcli'
 alias gb='git branch -v'
 alias gs='git status'
 alias vim='mvim -v -w ~/.vimlog "$@"'
+alias credo="cd ~/sandbox/credo"
+alias benchee="cd ~/sandbox/benchee"
 
 ###########################
 # CUSTOM SCRIPTS
@@ -248,7 +250,7 @@ ecto_migration() {
 run_ecto_migration() {
   dropdb pharaoh_test
   createdb pharaoh_test
-  git checkout db_ecto/structure.sql master
+  git checkout master db_ecto/structure.sql
   RAILS_ENV=test be rake app:db_ecto:structure:load
   RAILS_ENV=test be rake app:db_ecto:migrate
   sed -i "" "s/WITH NO DATA/WITH DATA/" db_ecto/structure.sql
