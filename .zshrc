@@ -243,8 +243,9 @@ fork_db() {
 
 ecto_migration() {
   file_name=$(bundle exec rails g migration $1 | grep -o "db.*\.rb")
-  new_file_name=$(echo $file_name | sed "s/db\/migrate/db_ecto\/migrate/g")
+  new_file_name=$(echo $file_name | sed "s/db\/migrate/db_ecto\/migrate/")
   mv $file_name $new_file_name
+  mvim -v $new_file_name
 }
 
 run_ecto_migration() {
