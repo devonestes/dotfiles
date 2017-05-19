@@ -144,6 +144,7 @@ alias gs='git status'
 alias vim='mvim -v -w ~/.vimlog "$@"'
 alias credo="cd ~/sandbox/credo"
 alias benchee="cd ~/sandbox/benchee"
+alias rc="be rails console"
 
 ###########################
 # CUSTOM SCRIPTS
