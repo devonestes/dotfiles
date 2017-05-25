@@ -190,6 +190,12 @@ git_prune() {
   git branch --merged master | grep -v "* master" | xargs -n 1 git branch -d
 }
 
+git_prune_branch() {
+  git fetch origin --prune
+  git checkout "$1"
+  git branch --merged "$1" | grep -v "$1" | xargs -n 1 git branch -d
+}
+
 # Postgres equivalent to heroku db:pull.
 # Pulls latest heroku pgbackups dump into local database
 #
