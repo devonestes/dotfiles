@@ -233,7 +233,7 @@ fork_db() {
   if [ "$review_app_name" "==" "$1" ]; then
     old_db=$(heroku addons -a $1 | grep -m 1 -o "postgresql-[a-z]*-[0-9]*")
     heroku addons:destroy "$old_db" -a $1 --confirm $1
-    new_db=$(heroku addons:create heroku-postgresql:standard-0 --fork `heroku pg:credentials DATABASE -a esh-irt-v2-production | grep 'postgres[-\.\/\w:@]*'` -a $1 | grep -m 1 -o "postgresql-[a-z]*-[0-9]*")
+    new_db=$(heroku addons:create heroku-postgresql:standard-0 --fork `heroku pg:credentials HEROKU_POSTGRESQL_BLUE_URL -a esh-irt-v2-production | grep 'postgres[-\.\/\w:@]*'` -a $1 | grep -m 1 -o "postgresql-[a-z]*-[0-9]*")
     sleep 45
     heroku pg:wait -a $1
     echo "Promoting $new_db"
