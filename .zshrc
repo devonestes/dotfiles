@@ -158,6 +158,7 @@ update_repo() {
 esh_update() {
   update_repo "ecto"
   update_repo "SDR"
+  update_repo "mochi"
   update_repo "IRT"
 }
 
