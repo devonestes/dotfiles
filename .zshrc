@@ -75,6 +75,9 @@ fi
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+#
+# Save iex history
+export ERL_AFLAGS="-kernel shell_history enabled"
 
 ###########################
 # PATH VARIABLES
