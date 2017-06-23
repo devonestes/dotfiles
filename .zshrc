@@ -240,7 +240,7 @@ fork_db() {
     echo "Promoting $new_db"
     heroku pg:promote "$new_db" -a $1 
     heroku config:get DATABASE_URL -a $1 | xargs -I % heroku config:set ECTO_DB_URL=% -a $1
-    heroku run rake db_ecto:migrate -a $1
+    heroku run:detached rake db_ecto:migrate -a $1
     if [ $# -eq 2 ]; then
       heroku run:detached rake "esh:mass_update:run[$2]" -a $1
     fi
