@@ -36,7 +36,6 @@ Plugin 'c-brenn/phoenix.vim'
 Plugin 'tpope/vim-projectionist'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'neomake/neomake'
-Plugin 'ElmCast/elm-vim'
 
   " Run Neomake when I open or save any buffer
   augroup localneomake
