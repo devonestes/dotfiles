@@ -200,8 +200,11 @@ git_prune_branch() {
   git branch --merged "$1" | grep -v "$1" | xargs -n 1 git branch -d
 }
 
-gpu() {
-  git checkout master && git pull upstream master && git push origin master && git_prune
+gitpu() {
+  git checkout master
+  git pull upstream master
+  git push origin master
+  git_prune
 }
 
 # Postgres equivalent to heroku db:pull.
