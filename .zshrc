@@ -126,6 +126,7 @@ alias irt="cd ~/esh/IRT"
 alias ecto="cd ~/esh/ecto"
 alias berks="cd ~/esh/berks"
 export BERKS="$HOME/esh/berks"
+alias mochi="cd ~/esh/mochi"
 alias taric="cd ~/esh/taric && be unicorn -p 3001"
 alias exercism_go='cd ~/golang/src/exercism/go'
 alias exercism_dir='cd ~/exercism'
