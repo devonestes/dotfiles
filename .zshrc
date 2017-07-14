@@ -275,4 +275,6 @@ run_ecto_migration() {
   RAILS_ENV=test be rake app:db_ecto:structure:load
   RAILS_ENV=test be rake app:db_ecto:migrate
   sed -i "" "s/WITH NO DATA/WITH DATA/" db_ecto/structure.sql
+  sed -i "" "/SET row_security = off;/d" db_ecto/structure.sql
+  sed -i "" "/SET lock_timeout = 0;/d" db_ecto/structure.sql
 }
