@@ -69,3 +69,4 @@ sandbox
 .cargo/
 .elm/
 .rustup/
+.oracle_jre_usage/
