@@ -278,3 +278,7 @@ run_ecto_migration() {
   sed -i "" "/SET row_security = off;/d" db_ecto/structure.sql
   sed -i "" "/SET lock_timeout = 0;/d" db_ecto/structure.sql
 }
+
+psql_largest_relations() {
+  \psql pharaoh -c "SELECT nspname || '.' || relname AS relation, pg_size_pretty(pg_relation_size(C.oid)) AS size FROM pg_class C LEFT JOIN pg_namespace N ON (N.oid = C.relnamespace) WHERE nspname NOT IN ('pg_catalog', 'information_schema') ORDER BY pg_relation_size(C.oid) DESC LIMIT 20;"
+}
