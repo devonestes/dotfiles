@@ -149,6 +149,7 @@ alias vim='mvim -v -w ~/.vimlog "$@"'
 alias credo="cd ~/sandbox/credo"
 alias benchee="cd ~/sandbox/benchee"
 alias rc="be rails console"
+alias mc="iex -S mix"
 
 ###########################
 # CUSTOM SCRIPTS
