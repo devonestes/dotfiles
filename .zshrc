@@ -271,7 +271,6 @@ ecto_migration() {
 run_ecto_migration() {
   dropdb pharaoh_test
   createdb pharaoh_test
-  git checkout master db_ecto/structure.sql
   RAILS_ENV=test be rake app:db_ecto:structure:load
   RAILS_ENV=test be rake app:db_ecto:migrate
   sed -i "" "s/WITH NO DATA/WITH DATA/" db_ecto/structure.sql
