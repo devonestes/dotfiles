@@ -133,6 +133,9 @@ set relativenumber
 set number
 set numberwidth=5
 
+" Spell check
+set spell spelllang=en_us
+
 " Folding
 set foldmethod=indent
 set foldlevelstart=99
