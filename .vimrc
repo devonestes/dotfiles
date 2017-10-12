@@ -41,13 +41,13 @@ Plugin 'neomake/neomake'
   augroup localneomake
     autocmd! BufWritePost * Neomake
     autocmd! BufRead * Neomake
+    autocmd! User NeomakeJobFinished :e
   augroup END
-  
+
   let g:neomake_ruby_enabled_makers = ['mri', 'rubocop']
-  let g:neomake_elm_enabled_makers = ['elmMake']
 
   " Configure a nice credo setup, courtesy https://github.com/neomake/neomake/pull/300
-  let g:neomake_elixir_enabled_makers = ['mix', 'mycredo']
+  let g:neomake_elixir_enabled_makers = ['mix', 'mycredo', 'elixirformat']
   function! NeomakeCredoErrorType(entry)
     if a:entry.type ==# 'F'      " Refactoring opportunities
       let l:type = 'W'
@@ -73,6 +73,12 @@ Plugin 'neomake/neomake'
         \ }
   let g:neomake_warning_sign={'text': '⚠️', 'texthl': 'NeomakeErrorMsg'}
   let g:neomake_error_sign={'text': '‼️', 'texthl': 'NeomakeErrorMsg'}
+
+  let g:neomake_elixir_elixirformat_maker = {
+        \ 'exe': 'mix',
+        \ 'args': ['format', '%'],
+        \ 'postprocess': function('NeomakeCredoErrorType')
+        \ }
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -148,10 +154,6 @@ autocmd BufWritePre *.exs :%s/\s\+$//e
 autocmd BufWritePre *.ex :%s/\s\+$//e
 autocmd BufWritePre *.js :%s/\s\+$//e
 autocmd BufWritePre *.coffee :%s/\s\+$//e
-
-" Run elixir formatted on save
-autocmd BufWritePost *.exs silent :!mix format %
-autocmd BufWritePost *.ex silent :!mix format %
 
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
