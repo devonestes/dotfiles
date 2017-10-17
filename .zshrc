@@ -53,7 +53,7 @@ plugins=(git osx)
 
 # User configuration
 
-export PATH="/usr/local/heroku/bin:/usr/local/bin:/usr/local/sbin:~/bin:/Users/devoncestes/.rbenv/bin:/Users/devoncestes/.rbenv/shims:/Users/devoncestes/.rbenv/shims:/usr/local/bin:/Users/devoncestes/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/devoncestes/golang/bin:/usr/local/go/bin"
+export PATH="/Users/devoncestes/.asdf/bin:/Users/devoncestes/.asdf/shims:/usr/local/heroku/bin:/usr/local/sbin:~/bin/Users/devoncestes/.bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/devoncestes/golang/bin:/usr/local/go/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -83,14 +83,12 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 # PATH VARIABLES
 ###########################
 
-# Rbenv autocomplete and shims
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-# Path for RBENV
-test -d $HOME/.rbenv/ && PATH="$HOME/.rbenv/bin:$PATH"
-
 # Path for brew
 test -d /usr/local/bin && export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
+
+# Path for asdf
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
 
 # Path for Heroku
 test -d /usr/local/heroku/ && export PATH="/usr/local/heroku/bin:$PATH"
