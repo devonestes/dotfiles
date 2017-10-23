@@ -183,6 +183,9 @@ iab bandwith bandwidth
 nnoremap <leader>ga :AS<CR>
 nnoremap <leader>gr :RS<CR>
 
+" Add rubocop autocorrect command
+nnoremap <leader>rc :! bundle exec rubocop -a %<CR>
+
 " Add shortcut for pulling line up to previous line
 nnoremap <leader>J kJx
 
