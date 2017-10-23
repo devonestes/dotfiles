@@ -41,13 +41,12 @@ Plugin 'neomake/neomake'
   augroup localneomake
     autocmd! BufWritePost * Neomake
     autocmd! BufRead * Neomake
-    autocmd! User NeomakeJobFinished :e
   augroup END
 
   let g:neomake_ruby_enabled_makers = ['mri', 'rubocop']
 
   " Configure a nice credo setup, courtesy https://github.com/neomake/neomake/pull/300
-  let g:neomake_elixir_enabled_makers = ['mix', 'mycredo', 'elixirformat']
+  let g:neomake_elixir_enabled_makers = ['mix', 'mycredo']
   function! NeomakeCredoErrorType(entry)
     if a:entry.type ==# 'F'      " Refactoring opportunities
       let l:type = 'W'
@@ -73,12 +72,6 @@ Plugin 'neomake/neomake'
         \ }
   let g:neomake_warning_sign={'text': '⚠️', 'texthl': 'NeomakeErrorMsg'}
   let g:neomake_error_sign={'text': '‼️', 'texthl': 'NeomakeErrorMsg'}
-
-  let g:neomake_elixir_elixirformat_maker = {
-        \ 'exe': 'mix',
-        \ 'args': ['format', '%'],
-        \ 'postprocess': function('NeomakeCredoErrorType')
-        \ }
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -185,6 +178,9 @@ nnoremap <leader>gr :RS<CR>
 
 " Add rubocop autocorrect command
 nnoremap <leader>rc :! bundle exec rubocop -a %<CR>
+
+" Mix format current file
+nnoremap <leader>mf :! mix format %<CR>
 
 " Add shortcut for pulling line up to previous line
 nnoremap <leader>J kJx
