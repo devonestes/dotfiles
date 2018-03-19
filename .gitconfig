@@ -9,3 +9,5 @@
 [user]
 	name = Devon Estes
 	email = devon.c.estes@gmail.com
+[core]
+	excludesfile = /Users/devoncestes/.gitignore

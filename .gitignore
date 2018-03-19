@@ -71,3 +71,4 @@ sandbox
 .elm/
 .rustup/
 .oracle_jre_usage/
+.tool-versions-e
