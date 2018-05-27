@@ -281,9 +281,17 @@ psql_largest_relations() {
   \psql pharaoh -c "SELECT nspname || '.' || relname AS relation, pg_size_pretty(pg_relation_size(C.oid)) AS size FROM pg_class C LEFT JOIN pg_namespace N ON (N.oid = C.relnamespace) WHERE nspname NOT IN ('pg_catalog', 'information_schema') ORDER BY pg_relation_size(C.oid) DESC LIMIT 20;"
 }
 
-loop() {
-  while [ true ]; do
-    echo "$1" | sh
-    read
-  done
+function blue_reset() {
+  sudo killall coreaudiod
+  sudo killall bluetoothd
+  sudo renice -5 (pid bluetoothaudio)
+  defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Max (editable)" 80
+  defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" 80
+  defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool (editable)" 80
+  defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool Min (editable)" 80
+  defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool" 80
+  defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Max" 80
+  defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Min" 80
+  sudo renice -5 (pid coreaudiod)
+  sudo renice -5 (pid bluetoothd)
 }

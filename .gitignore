@@ -72,3 +72,10 @@ sandbox
 .rustup/
 .oracle_jre_usage/
 .tool-versions-e
+.pry_history
+.babel.json
+.config/configstore/
+.kodi
+.node-gyp
+.sh_history
+.yarnrc
