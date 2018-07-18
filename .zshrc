@@ -153,6 +153,10 @@ alias mc="iex -S mix"
 # CUSTOM SCRIPTS
 ###########################
 
+typeless() {
+  history | tail -n 20000 | sed "s/.*  //" | sort | uniq -c | sort -g | tail -n 100
+}
+
 update_repo() {
   echo "Updating $1"
   cd ~/esh/$1 && git checkout master && git pull origin master && git_prune
