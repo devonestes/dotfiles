@@ -108,6 +108,9 @@ export GOPATH=$HOME/golang
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
+# Default user for postgres
+export PGUSER=devoncestes
+
 ###########################
 # ALIASES
 ###########################
@@ -193,15 +196,14 @@ gitcf() {
 }
 
 git_prune() {
-  git fetch origin --prune
-  git checkout master
-  git branch --merged master | grep -v "* master" | xargs -n 1 git branch -d
+  git_prune_branch "master"
 }
 
 git_prune_branch() {
-  git fetch origin --prune
   git checkout "$1"
-  git branch --merged "$1" | grep -v "$1" | xargs -n 1 git branch -d
+  git fetch origin --prune
+  git fetch upstream --prune
+  git branch --merged "$1" | grep -v "* $1" | xargs -n 1 git branch -d
 }
 
 gitpu() {
