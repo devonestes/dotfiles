@@ -79,3 +79,6 @@ sandbox
 .node-gyp
 .sh_history
 .yarnrc
+.orchardpos.log
+.orchardpos/
+.virtualenvs

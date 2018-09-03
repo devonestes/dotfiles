@@ -172,6 +172,31 @@ esh_update() {
   update_repo "IRT"
 }
 
+orchard_update() {
+  pwd=`pwd`
+  cd ~/sandbox/potion
+  git checkout master
+  git pull upstream master
+  git push origin master
+  git_prune
+  cd ~/sandbox/potion_proxy
+  git checkout master
+  git pull upstream master
+  git push origin master
+  git_prune
+  cd ~/sandbox/orchard_office_frontend
+  git checkout master
+  git pull upstream master
+  git push origin master
+  git_prune
+  cd ~/sandbox/qtclient
+  git checkout master
+  git pull upstream master
+  git push origin master
+  git_prune
+  cd $pwd
+}
+
 run_oink() {
   cat log/production.log | cut -f 10- | grep 'rails\[' > log/production-oink.log
   oink log/production-oink.log -t 50
