@@ -1,0 +1,65 @@
+#!/usr/bin/osascript
+
+tell application "iTerm2"
+  activate
+
+  tell current window
+    create tab with default profile
+  end tell
+
+  tell current tab of current window
+      set _new_session to last item of sessions
+  end tell
+
+  tell _new_session
+      select
+      write text "cd ~/sandbox/potion"
+      write text "iex -S mix phx.server"
+  end tell
+
+  delay 10
+
+  tell current window
+    create tab with default profile
+  end tell
+
+  tell current tab of current window
+      set _new_session to last item of sessions
+  end tell
+
+  tell _new_session
+      select
+      write text "cd ~/sandbox/potion_proxy"
+      write text "DEVICE_ID=30303031-3030-3031-3030-303130303031 iex -S mix phx.server"
+  end tell
+
+  tell current window
+    create tab with default profile
+  end tell
+
+  tell current tab of current window
+      set _new_session to last item of sessions
+  end tell
+
+  tell _new_session
+      select
+      write text "cd ~/sandbox/orchard_office_frontend"
+      write text "yarn start"
+  end tell
+
+  tell current window
+    create tab with default profile
+  end tell
+
+  tell current tab of current window
+      set _new_session to last item of sessions
+  end tell
+
+  tell _new_session
+      select
+      write text "cd ~/sandbox/qtclient"
+      write text "pipenv shell"
+      delay 15
+      write text "DEVICE_ID=30303031-3030-3031-3030-303130303031 ./scripts/bootstrap.sh"
+  end tell
+end tell

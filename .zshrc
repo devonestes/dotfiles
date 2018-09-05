@@ -326,3 +326,7 @@ function blue_reset() {
   sudo renice -5 (pid coreaudiod)
   sudo renice -5 (pid bluetoothd)
 }
+
+start_orchard() {
+  ~/scripts/start_orchard
+}
