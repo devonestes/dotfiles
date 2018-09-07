@@ -119,22 +119,13 @@ alias sudo='sudo '
 alias be='bundle exec'
 alias edit_crontab='env EDITOR=nano crontab -e'
 alias sandbox="cd ~/sandbox"
-alias my_go="cd $GOPATH/src/github.com/devonestes"
-alias goto_rbenv="cd ~/.rbenv"
 alias esh="cd ~/esh"
 alias sdr="cd ~/esh/SDR"
 alias irt="cd ~/esh/IRT"
-alias ecto="cd ~/esh/ecto"
-alias berks="cd ~/esh/berks"
-export BERKS="$HOME/esh/berks"
-alias mochi="cd ~/esh/mochi"
-alias taric="cd ~/esh/taric && be unicorn -p 3001"
 alias exercism_go='cd ~/golang/src/exercism/go'
 alias exercism_dir='cd ~/exercism'
 alias killDS='find . -name *.DS_Store -type f -delete'
 alias gpo='git pull origin master'
-alias hlog='heroku logs -t -a irt-v3-production'
-alias hrc='heroku run rails c -a irt-v3-production'
 alias nand='cd ~/sandbox/nand2tetris'
 alias hardware_sim='~/sandbox/nand2tetris/tools/HardwareSimulator.sh'
 alias assembler='~/sandbox/nand2tetris/tools/Assembler.sh'
@@ -143,14 +134,15 @@ alias jack_compiler='~/sandbox/nand2tetris/tools/JackCompiler.sh'
 alias text_comparer='~/sandbox/nand2tetris/tools/TextComparer.sh'
 alias vm_emulator='~/sandbox/nand2tetris/tools/VMEumulator.sh'
 alias psql='pgcli'
-alias pharaoh='pgcli pharaoh'
 alias gb='git branch -v'
 alias gs='git status'
 alias vim='mvim -v -w ~/.vimlog "$@"'
-alias credo="cd ~/sandbox/credo"
 alias benchee="cd ~/sandbox/benchee"
-alias rc="be rails console"
 alias mc="iex -S mix"
+alias potion="cd ~/sandbox/potion"
+alias potion_db="cd ~/sandbox/potion/apps/potion_db"
+alias potion_web="cd ~/sandbox/potion/apps/potion_web"
+alias potion_proxy="cd ~/sandbox/potion_proxy"
 
 ###########################
 # CUSTOM SCRIPTS
