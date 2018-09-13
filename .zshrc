@@ -140,8 +140,11 @@ alias vim='mvim -v -w ~/.vimlog "$@"'
 alias benchee="cd ~/sandbox/benchee"
 alias mc="iex -S mix"
 alias potion="cd ~/sandbox/potion"
+alias pdb="cd ~/sandbox/potion/apps/potion_db"
 alias potion_db="cd ~/sandbox/potion/apps/potion_db"
+alias pw="cd ~/sandbox/potion/apps/potion_web"
 alias potion_web="cd ~/sandbox/potion/apps/potion_web"
+alias ppr="cd ~/sandbox/potion_proxy"
 alias potion_proxy="cd ~/sandbox/potion_proxy"
 
 ###########################
