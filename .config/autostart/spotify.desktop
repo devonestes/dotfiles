@@ -1,0 +1,17 @@
+[Desktop Entry]
+Type=Application
+Name=Spotify
+GenericName=Music Player
+Icon=spotify-client
+TryExec=spotify
+Exec=spotify %U
+Terminal=false
+MimeType=x-scheme-handler/spotify;
+Categories=Audio;Music;Player;AudioVideo;
+StartupWMClass=spotify
+X-GNOME-Autostart-enabled=true
+NoDisplay=false
+Hidden=false
+Name[en_US]=Spotify
+Comment[en_US]=No description
+X-GNOME-Autostart-Delay=5

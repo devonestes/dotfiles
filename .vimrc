@@ -26,12 +26,11 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-rails'
-Plugin 'slashmili/alchemist.vim'
 Plugin 'janko-m/vim-test'
 Plugin 'slim-template/vim-slim'
-Plugin 'rizzatti/dash.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'KabbAmine/zeavim.vim'
 Plugin 'c-brenn/phoenix.vim'
 Plugin 'tpope/vim-projectionist'
 Plugin 'Valloric/YouCompleteMe'
@@ -145,8 +144,6 @@ nnoremap <leader>uf zo
 autocmd BufWritePre *.rb :%s/\s\+$//e
 autocmd BufWritePre *.exs :%s/\s\+$//e
 autocmd BufWritePre *.ex :%s/\s\+$//e
-autocmd BufWritePre *.js :%s/\s\+$//e
-autocmd BufWritePre *.coffee :%s/\s\+$//e
 
 " Get off my lawn
 nnoremap <Left> :echoe "Use h"<CR>
@@ -159,8 +156,11 @@ vnoremap <Right> :echoe "Use l"<CR>
 vnoremap <Up> :echoe "Use k"<CR>
 vnoremap <Down> :echoe "Use j"<CR>
 
-" Open Dash with <leader>-d
-nnoremap <leader>d :Dash<CR>
+" Space for colon in normal mode
+nnoremap <space> :
+
+" Open Zeal with <leader>-d
+nnoremap <leader>d :Zeavim<CR>
 
 " Toggle NERDTree with <leader>-nt
 nnoremap <leader>nt :NERDTreeToggle<CR>
@@ -168,6 +168,9 @@ nnoremap <leader>nt :NERDTreeToggle<CR>
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
+
+" Split horizontal with <leader>-s
+nnoremap <leader>s :split<CR>
 
 " Add some custom words to avoid common misspellings
 iab bandwith bandwidth
@@ -180,7 +183,7 @@ nnoremap <leader>gr :RS<CR>
 nnoremap <leader>rc :! bundle exec rubocop -a %<CR>
 
 " Mix format current file
-nnoremap <leader>mf :! mix format %<CR>
+nnoremap <leader>mf :!mix format %<enter>:syntax sync fromstart<enter>:redraw!<enter>
 
 " Add shortcut for pulling line up to previous line
 nnoremap <leader>J kJx

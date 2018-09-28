@@ -1,5 +1,4 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/devoncestes/.oh-my-zsh
+export ZSH=/home/devon/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -49,12 +48,11 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx)
+plugins=(git)
 
 # User configuration
 
-export PATH="/Users/devoncestes/.asdf/bin:/Users/devoncestes/.asdf/shims:/usr/local/heroku/bin:/usr/local/sbin:~/bin/Users/devoncestes/.bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/devoncestes/golang/bin:/usr/local/go/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
+export PATH="/home/devon/.asdf/bin:/home/devon/.asdf/shims:/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:~/bin/home/devon/.bin:/usr/bin:/bin:/usr/sbin:/sbin:/home/devon/golang/bin:/usr/local/go/bin"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -80,36 +78,29 @@ fi
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 ###########################
+# KEYBINDINGS 
+###########################
+
+# make CapsLock behave like Ctrl:
+setxkbmap -option ctrl:nocaps
+
+# make short-pressed Ctrl behave like Escape:
+xcape -e 'Control_L=Escape'
+
+###########################
 # PATH VARIABLES
 ###########################
 
-# Path for brew
-test -d /usr/local/bin && export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
-
 # Path for asdf
+# Path to your oh-my-zsh installation.
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
 # Path for Heroku
 test -d /usr/local/heroku/ && export PATH="/usr/local/heroku/bin:$PATH"
 
-# Path for NVM
-export NVM_DIR="~/.nvm"
-
-# Path for Rust
-test -d "$HOME/.cargo/bin" && export PATH="$HOME/.cargo/bin:$PATH"
-
-# This loads NVM
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-
-# Go path settings
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/golang
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
-
 # Default user for postgres
-export PGUSER=devoncestes
+export PGUSER=devon
 
 ###########################
 # ALIASES
@@ -133,10 +124,10 @@ alias cpu_emulator='~/sandbox/nand2tetris/tools/CPUEmulator.sh'
 alias jack_compiler='~/sandbox/nand2tetris/tools/JackCompiler.sh'
 alias text_comparer='~/sandbox/nand2tetris/tools/TextComparer.sh'
 alias vm_emulator='~/sandbox/nand2tetris/tools/VMEumulator.sh'
-alias psql='pgcli'
+alias psql='pgcli -h 0.0.0.0'
 alias gb='git branch -v'
 alias gs='git status'
-alias vim='mvim -v -w ~/.vimlog "$@"'
+alias vim='vim -v -w ~/.vimlog "$@"'
 alias benchee="cd ~/sandbox/benchee"
 alias mc="iex -S mix"
 alias potion="cd ~/sandbox/potion"
@@ -150,6 +141,11 @@ alias potion_proxy="cd ~/sandbox/potion_proxy"
 ###########################
 # CUSTOM SCRIPTS
 ###########################
+
+headphones() {
+<<<"connect 30:35:AD:E4:D6:DD 
+    quit" bluetoothctl
+}
 
 typeless() {
   history | tail -n 20000 | sed "s/.*  //" | sort | uniq -c | sort -g | tail -n 100
@@ -211,7 +207,7 @@ gitcr() {
 
 gitcf() {
   git add .
-  git commit --fixup HEAD
+  git commit --no-verify --fixup HEAD
   GIT_EDITOR=: git rebase -i --autosquash HEAD~2
 }
 
@@ -307,21 +303,9 @@ psql_largest_relations() {
   \psql pharaoh -c "SELECT nspname || '.' || relname AS relation, pg_size_pretty(pg_relation_size(C.oid)) AS size FROM pg_class C LEFT JOIN pg_namespace N ON (N.oid = C.relnamespace) WHERE nspname NOT IN ('pg_catalog', 'information_schema') ORDER BY pg_relation_size(C.oid) DESC LIMIT 20;"
 }
 
-function blue_reset() {
-  sudo killall coreaudiod
-  sudo killall bluetoothd
-  sudo renice -5 (pid bluetoothaudio)
-  defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Max (editable)" 80
-  defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" 80
-  defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool (editable)" 80
-  defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool Min (editable)" 80
-  defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool" 80
-  defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Max" 80
-  defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Min" 80
-  sudo renice -5 (pid coreaudiod)
-  sudo renice -5 (pid bluetoothd)
-}
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/devon/sandbox/google-cloud-sdk/path.zsh.inc' ]; then source '/home/devon/sandbox/google-cloud-sdk/path.zsh.inc'; fi
 
-start_orchard() {
-  ~/scripts/start_orchard
-}
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/devon/sandbox/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/devon/sandbox/google-cloud-sdk/completion.zsh.inc'; fi
+if [ /home/devon/sandbox/google-cloud-sdk/bin/kubectl ]; then source <(kubectl completion zsh); fi

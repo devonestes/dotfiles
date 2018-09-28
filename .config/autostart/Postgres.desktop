@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=pg_ctl -s -l /dev/null start
+X-GNOME-Autostart-enabled=true
+NoDisplay=false
+Hidden=false
+Name[en_US]=Postgres
+Comment[en_US]=Start postgres and silence logs
+X-GNOME-Autostart-Delay=0

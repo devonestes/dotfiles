@@ -5,9 +5,11 @@
 [push]
 	default = current
 [credential]
-	helper = osxkeychain
+	helper = store --file ~/.my-git-credentials
 [user]
 	name = Devon Estes
 	email = devon.c.estes@gmail.com
 [core]
 	excludesfile = /Users/devoncestes/.gitignore
+[pager]
+	branch = false

@@ -1,0 +1,64 @@
+[global_config]
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+[keybindings]
+  close_term = <Primary>w
+  copy = <Primary>c
+  cycle_next = <Primary><Alt>3
+  new_tab = <Primary>t
+  next_tab = <Primary>Right
+  paste = <Primary>v
+  prev_tab = <Primary>Left
+  switch_to_tab_1 = <Primary>1
+  switch_to_tab_2 = <Primary>2
+  switch_to_tab_3 = <Primary>3
+  switch_to_tab_4 = <Primary>4
+  switch_to_tab_5 = <Primary>5
+  switch_to_tab_6 = <Primary>6
+  switch_to_tab_7 = <Primary>7
+  switch_to_tab_8 = <Primary>8
+  switch_to_tab_9 = <Primary>9
+[layouts]
+  [[default]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 960:500
+      size = 959, 1024
+      title = devon@devon-XPS-13-9370: ~
+      type = Window
+    [[[child1]]]
+      active_page = 0
+      labels = None, None
+      last_active_term = ccd914ff-03a2-4402-85ed-830031360b70, 8b1879e1-03cb-4555-a676-cf752276447a
+      order = 0
+      parent = child0
+      type = Notebook
+    [[[terminal2]]]
+      command = ""
+      order = 0
+      parent = child1
+      profile = default
+      type = Terminal
+      uuid = ccd914ff-03a2-4402-85ed-830031360b70
+    [[[terminal3]]]
+      command = ""
+      order = 1
+      parent = child1
+      profile = default
+      type = Terminal
+      uuid = 8b1879e1-03cb-4555-a676-cf752276447a
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#132738"
+    cursor_blink = False
+    cursor_color = "#f0cc09"
+    font = Source Code Pro for Powerline 14
+    foreground_color = "#ffffff"
+    palette = "#000000:#ff0000:#38de21:#ffe50a:#1460d2:#ff005d:#00bbbb:#bbbbbb:#555555:#f40e17:#3bd01d:#edc809:#5555ff:#ff55ff:#6ae3fa:#ffffff"
+    scrollback_infinite = True
+    show_titlebar = False
+    use_system_font = False
