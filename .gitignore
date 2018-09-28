@@ -64,8 +64,6 @@ Pictures
 pgadmin.log
 Public
 sandbox
-.config/pgcli/history
-.config/pgcli/log
 .local/
 .cargo/
 .elm/
@@ -85,6 +83,7 @@ sandbox
 .Private
 .Xauthority
 .ICEauthority
+.config/albert/core.db
 .config/caja/
 .config/dconf/
 .config/discord/
