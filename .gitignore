@@ -134,3 +134,6 @@ sandbox
 .zshrc.backup
 .zcompdump-aieo9024soe319a89dc0-5.2
 .pry_history
+.docker/
+.kube/
+.minikube/
