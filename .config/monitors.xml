@@ -36,4 +36,78 @@
       <output name="HDMI-2">
       </output>
   </configuration>
+  <configuration>
+      <clone>yes</clone>
+      <output name="eDP-1">
+          <vendor>SHP</vendor>
+          <product>0x1484</product>
+          <serial>0x00000000</serial>
+          <width>1920</width>
+          <height>1080</height>
+          <rate>60</rate>
+          <x>0</x>
+          <y>0</y>
+          <rotation>normal</rotation>
+          <reflect_x>no</reflect_x>
+          <reflect_y>no</reflect_y>
+          <primary>yes</primary>
+      </output>
+      <output name="DP-1">
+          <vendor>PHL</vendor>
+          <product>0x0000</product>
+          <serial>0x01010101</serial>
+          <width>1920</width>
+          <height>1080</height>
+          <rate>60</rate>
+          <x>1920</x>
+          <y>0</y>
+          <rotation>normal</rotation>
+          <reflect_x>no</reflect_x>
+          <reflect_y>no</reflect_y>
+          <primary>no</primary>
+      </output>
+      <output name="HDMI-1">
+      </output>
+      <output name="DP-2">
+      </output>
+      <output name="HDMI-2">
+      </output>
+  </configuration>
+  <configuration>
+      <clone>yes</clone>
+      <output name="eDP-1">
+          <vendor>SHP</vendor>
+          <product>0x1484</product>
+          <serial>0x00000000</serial>
+          <width>1920</width>
+          <height>1080</height>
+          <rate>60</rate>
+          <x>0</x>
+          <y>0</y>
+          <rotation>normal</rotation>
+          <reflect_x>no</reflect_x>
+          <reflect_y>no</reflect_y>
+          <primary>yes</primary>
+      </output>
+      <output name="DP-1">
+      </output>
+      <output name="HDMI-1">
+      </output>
+      <output name="DP-2">
+          <vendor>PHL</vendor>
+          <product>0x0000</product>
+          <serial>0x01010101</serial>
+          <width>1920</width>
+          <height>1080</height>
+          <rate>60</rate>
+          <x>1920</x>
+          <y>0</y>
+          <rotation>normal</rotation>
+          <reflect_x>no</reflect_x>
+          <reflect_y>no</reflect_y>
+          <primary>no</primary>
+      </output>
+      <output name="HDMI-2">
+      </output>
+  </configuration>
 </monitors>
