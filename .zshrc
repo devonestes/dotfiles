@@ -207,8 +207,7 @@ gitcr() {
 
 gitcf() {
   git add .
-  git commit --no-verify --fixup HEAD
-  GIT_EDITOR=: git rebase -i --autosquash HEAD~2
+  git commit --no-verify --amend --no-edit
 }
 
 git_prune() {
