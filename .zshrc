@@ -302,6 +302,12 @@ psql_largest_relations() {
   \psql pharaoh -c "SELECT nspname || '.' || relname AS relation, pg_size_pretty(pg_relation_size(C.oid)) AS size FROM pg_class C LEFT JOIN pg_namespace N ON (N.oid = C.relnamespace) WHERE nspname NOT IN ('pg_catalog', 'information_schema') ORDER BY pg_relation_size(C.oid) DESC LIMIT 20;"
 }
 
+blog() {
+  cd ~/sandbox
+  cd personal-website
+  vim .
+}
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/devon/sandbox/google-cloud-sdk/path.zsh.inc' ]; then source '/home/devon/sandbox/google-cloud-sdk/path.zsh.inc'; fi
 
