@@ -9,6 +9,7 @@
 [user]
 	name = Devon Estes
 	email = devon.c.estes@gmail.com
+	signingkey = 1E741A320219A18C5267BB7B19B6A5AC7E160744
 [core]
 	excludesfile = /Users/devoncestes/.gitignore
 [pager]
