@@ -13,4 +13,4 @@ NoDisplay=false
 Hidden=false
 Name[en_US]=Albert
 Comment[en_US]=A desktop agnostic launcher
-X-GNOME-Autostart-Delay=0
+X-GNOME-Autostart-Delay=5

@@ -15,4 +15,4 @@ NoDisplay=false
 Hidden=false
 Name[en_US]=Terminator
 Comment[en_US]=Multiple terminals in one window
-X-GNOME-Autostart-Delay=0
+X-GNOME-Autostart-Delay=3

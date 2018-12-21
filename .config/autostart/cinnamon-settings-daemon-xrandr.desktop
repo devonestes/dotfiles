@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Cinnamon Settings Daemon - xrandr
+Exec=/usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-xrandr
+OnlyShowIn=X-Cinnamon;
+NoDisplay=false
+X-GNOME-Autostart-Phase=Initialization
+X-GNOME-Autostart-Notify=true
+X-GNOME-AutoRestart=true
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Delay=1

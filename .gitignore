@@ -137,3 +137,10 @@ sandbox
 .docker/
 .kube/
 .minikube/
+.config/autostart/gnome-keyring-ssh.desktop
+.config/xviewer/
+.config/zoomus.conf
+.zoom/
+Videos/
+VirtualBox VMs/
+*.log

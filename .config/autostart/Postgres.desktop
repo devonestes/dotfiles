@@ -6,4 +6,4 @@ NoDisplay=false
 Hidden=false
 Name[en_US]=Postgres
 Comment[en_US]=Start postgres and silence logs
-X-GNOME-Autostart-Delay=0
+X-GNOME-Autostart-Delay=10
