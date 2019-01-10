@@ -144,3 +144,5 @@ sandbox
 Videos/
 VirtualBox VMs/
 *.log
+.config/rclone/
+.viminfy.tmp
