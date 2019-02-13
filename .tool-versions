@@ -1,5 +1,5 @@
 ruby 2.5.1
-elixir 1.7.1
+elixir 1.8.1-otp-21
 erlang 21.1
 python 3.7.0
 postgres 9.6.10

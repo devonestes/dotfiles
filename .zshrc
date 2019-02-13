@@ -52,7 +52,8 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/home/devon/.asdf/bin:/home/devon/.asdf/shims:/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:~/bin/home/devon/.bin:/usr/bin:/bin:/usr/sbin:/sbin:/home/devon/golang/bin:/usr/local/go/bin"
+export PATH="/home/devon/.cargo/bin:/home/devon/.asdf/bin:/home/devon/.asdf/shims:/usr/local/heroku/bin:/usr/local/sbin:/usr/local/bin:~/bin/home/devon/.bin:/usr/bin:/bin:/usr/sbin:/sbin:/home/devon/golang/bin:/usr/local/go/bin"
+
 
 source $ZSH/oh-my-zsh.sh
 
@@ -110,33 +111,19 @@ alias sudo='sudo '
 alias be='bundle exec'
 alias edit_crontab='env EDITOR=nano crontab -e'
 alias sandbox="cd ~/sandbox"
-alias esh="cd ~/esh"
-alias sdr="cd ~/esh/SDR"
-alias irt="cd ~/esh/IRT"
-alias exercism_go='cd ~/golang/src/exercism/go'
-alias exercism_dir='cd ~/exercism'
-alias killDS='find . -name *.DS_Store -type f -delete'
 alias gpo='git pull origin master'
 alias nand='cd ~/sandbox/nand2tetris'
-alias hardware_sim='~/sandbox/nand2tetris/tools/HardwareSimulator.sh'
-alias assembler='~/sandbox/nand2tetris/tools/Assembler.sh'
-alias cpu_emulator='~/sandbox/nand2tetris/tools/CPUEmulator.sh'
-alias jack_compiler='~/sandbox/nand2tetris/tools/JackCompiler.sh'
-alias text_comparer='~/sandbox/nand2tetris/tools/TextComparer.sh'
-alias vm_emulator='~/sandbox/nand2tetris/tools/VMEumulator.sh'
 alias psql='pgcli -h 0.0.0.0'
 alias gb='git branch -v'
 alias gs='git status'
 alias vim='vim -v -w ~/.vimlog "$@"'
 alias benchee="cd ~/sandbox/benchee"
 alias mc="iex -S mix"
-alias potion="cd ~/sandbox/potion"
+alias po="cd ~/sandbox/potion"
 alias pdb="cd ~/sandbox/potion/apps/potion_db"
-alias potion_db="cd ~/sandbox/potion/apps/potion_db"
 alias pw="cd ~/sandbox/potion/apps/potion_web"
-alias potion_web="cd ~/sandbox/potion/apps/potion_web"
 alias ppr="cd ~/sandbox/potion_proxy"
-alias potion_proxy="cd ~/sandbox/potion_proxy"
+alias heroku_deploy="git push heroku master -f && heroku run \"POOL_SIZE=2 mix ecto.migrate\""
 
 ###########################
 # CUSTOM SCRIPTS
@@ -149,18 +136,6 @@ headphones() {
 
 typeless() {
   history | tail -n 20000 | sed "s/.*  //" | sort | uniq -c | sort -g | tail -n 100
-}
-
-update_repo() {
-  echo "Updating $1"
-  cd ~/esh/$1 && git checkout master && git pull origin master && git_prune
-}
-
-esh_update() {
-  update_repo "ecto"
-  update_repo "SDR"
-  update_repo "mochi"
-  update_repo "IRT"
 }
 
 orchard_update() {
@@ -186,23 +161,6 @@ orchard_update() {
   git push origin master
   git_prune
   cd $pwd
-}
-
-run_oink() {
-  cat log/production.log | cut -f 10- | grep 'rails\[' > log/production-oink.log
-  oink log/production-oink.log -t 50
-  oink log/production-oink.log -r
-}
-
-gitcr() {
-  git_branch=$(Git branch 2>/dev/null| sed -n '/^\*/s/^\* //p')
-  RAILS_ENV=test rake db:drop db:create db:migrate
-  git add db/structure.sql
-  git commit --fixup HEAD
-  git checkout master
-  gpo
-  git checkout $git_branch
-  git rebase -i --autosquash master
 }
 
 gitcf() {
@@ -256,50 +214,8 @@ kill_processes() {
   ps -ef | grep $1 | grep -v grep | awk '{print $2}' | xargs kill
 }
 
-fork_db() {
-  echo "WARNING! You are about to fork the production database and hook it up"
-  echo "to '$1'"
-  echo "If you want to continue, enter again the name of the review app"
-  read review_app_name\?"> "
-  echo
-  if [ "$review_app_name" "==" "$1" ]; then
-    old_db=$(heroku addons -a $1 | grep -m 1 -o "postgresql-[a-z]*-[0-9]*")
-    heroku addons:destroy "$old_db" -a $1 --confirm $1
-    new_db=$(heroku addons:create heroku-postgresql:standard-0 --fork `heroku pg:credentials:url HEROKU_POSTGRESQL_BLUE_URL -a esh-irt-v2-production | grep 'postgres[-\.\/\w:@]*'` -a $1 | grep -m 1 -o "postgresql-[a-z]*-[0-9]*")
-    sleep 45
-    heroku pg:wait -a $1
-    echo "Promoting $new_db"
-    heroku pg:promote "$new_db" -a $1 
-    heroku config:get DATABASE_URL -a $1 | xargs -I % heroku config:set ECTO_DB_URL=% -a $1
-    heroku run:detached rake db_ecto:migrate -a $1
-    if [ $# -eq 2 ]; then
-      heroku run:detached rake "esh:mass_update:run[$2]" -a $1
-    fi
-    heroku pg:credentials:url DATABASE -a $1
-  else
-    echo "Aborted"
-  fi
-}
-
-ecto_migration() {
-  file_name=$(bundle exec rails g migration $1 | grep -o "db.*\.rb")
-  new_file_name=$(echo $file_name | sed "s/db\/migrate/db_ecto\/migrate/")
-  mv $file_name $new_file_name
-  mvim -v $new_file_name
-}
-
-run_ecto_migration() {
-  dropdb pharaoh_test
-  createdb pharaoh_test
-  RAILS_ENV=test be rake app:db_ecto:structure:load
-  RAILS_ENV=test be rake app:db_ecto:migrate
-  sed -i "" "s/WITH NO DATA/WITH DATA/" db_ecto/structure.sql
-  sed -i "" "/SET row_security = off;/d" db_ecto/structure.sql
-  sed -i "" "/SET lock_timeout = 0;/d" db_ecto/structure.sql
-}
-
 psql_largest_relations() {
-  \psql pharaoh -c "SELECT nspname || '.' || relname AS relation, pg_size_pretty(pg_relation_size(C.oid)) AS size FROM pg_class C LEFT JOIN pg_namespace N ON (N.oid = C.relnamespace) WHERE nspname NOT IN ('pg_catalog', 'information_schema') ORDER BY pg_relation_size(C.oid) DESC LIMIT 20;"
+  \psql $1 -c "SELECT nspname || '.' || relname AS relation, pg_size_pretty(pg_relation_size(C.oid)) AS size FROM pg_class C LEFT JOIN pg_namespace N ON (N.oid = C.relnamespace) WHERE nspname NOT IN ('pg_catalog', 'information_schema') ORDER BY pg_relation_size(C.oid) DESC LIMIT 20;"
 }
 
 blog() {

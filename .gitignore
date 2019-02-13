@@ -146,3 +146,10 @@ VirtualBox VMs/
 *.log
 .config/rclone/
 .viminfy.tmp
+.config/octobox-nativefier-8fa8c9/
+.config/yarn/
+.config/vlc/
+.multirust
+.pcsxr/
+.sem.yaml
+core
