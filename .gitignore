@@ -158,3 +158,4 @@ core
 .config/retroarch
 .emulationstation
 RetroPie/
+.password-store/
