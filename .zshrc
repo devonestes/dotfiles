@@ -124,6 +124,7 @@ alias pdb="cd ~/sandbox/potion/apps/potion_db"
 alias pw="cd ~/sandbox/potion/apps/potion_web"
 alias ppr="cd ~/sandbox/potion_proxy"
 alias heroku_deploy="git push heroku master -f && heroku run \"POOL_SIZE=2 mix ecto.migrate\""
+alias dropbox_upload="rclone sync /home/devon/Dropbox/save_stuff dropbox:save_stuff"
 
 ###########################
 # CUSTOM SCRIPTS
