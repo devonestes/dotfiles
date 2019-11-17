@@ -1,0 +1,248 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Options for saved report "Expense Accounts2", based on template "9bf1892805cb4336be6320fe48ce5446"
+(let ()
+ (define (options-gen)
+  (let ((options (gnc:report-template-new-options/report-guid "9bf1892805cb4336be6320fe48ce5446" "Expense Accounts")))
+
+; Section: General
+
+
+; Section: Accounts
+
+
+; Section: Display
+
+(let ((option (gnc:lookup-option options
+                                 "Display"
+                                 "Plot Height")))
+  ((lambda (option) (if option ((gnc:option-setter option) 685.0))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "Display"
+                                 "Maximum Slices")))
+  ((lambda (option) (if option ((gnc:option-setter option) 24.0))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "Display"
+                                 "Plot Width")))
+  ((lambda (option) (if option ((gnc:option-setter option) 820.0))) option))
+
+
+; Section: __report
+
+  options))
+ (gnc:define-report 
+  'version 1
+  'name "Expense Accounts2"
+  'report-guid "b7dc3f9da628fa16c5eb086420ddd251"
+  'parent-type "9bf1892805cb4336be6320fe48ce5446"
+  'options-generator options-gen
+  'menu-path (list gnc:menuname-custom)
+  'renderer (gnc:report-template-renderer/report-guid "9bf1892805cb4336be6320fe48ce5446" "Expense Accounts")))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Options for saved report "Account Summary", based on template "3298541c236b494998b236dfad6ad752"
+(let ()
+ (define (options-gen)
+  (let ((options (gnc:report-template-new-options/report-guid "3298541c236b494998b236dfad6ad752" "Account Summary")))
+
+; Section: General
+
+(let ((option (gnc:lookup-option options
+                                 "General"
+                                 "Stylesheet")))
+  ((lambda (option) (if option ((gnc:option-setter option) 'Easy))) option))
+
+
+; Section: Accounts
+
+(let ((option (gnc:lookup-option options
+                                 "Accounts"
+                                 "Levels of Subaccounts")))
+  ((lambda (option) (if option ((gnc:option-setter option) 'all))) option))
+
+
+; Section: Display
+
+(let ((option (gnc:lookup-option options
+                                 "Display"
+                                 "Include accounts with zero total balances")))
+  ((lambda (option) (if option ((gnc:option-setter option) #f))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "Display"
+                                 "Parent account balances")))
+  ((lambda (option) (if option ((gnc:option-setter option) 'recursive-bal))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "Display"
+                                 "Show accounting-style rules")))
+  ((lambda (option) (if option ((gnc:option-setter option) #t))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "Display"
+                                 "Account Balance")))
+  ((lambda (option) (if option ((gnc:option-setter option) #f))) option))
+
+
+; Section: Commodities
+
+  options))
+ (gnc:define-report 
+  'version 1
+  'name "Account Summary"
+  'report-guid "ecfbf9cc3ca21bddfb589291d9ea17cd"
+  'parent-type "3298541c236b494998b236dfad6ad752"
+  'options-generator options-gen
+  'menu-path (list gnc:menuname-custom)
+  'renderer (gnc:report-template-renderer/report-guid "3298541c236b494998b236dfad6ad752" "Account Summary")))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Options for saved report "Transaction Report by year", based on template "2fe3b9833af044abb929a88d5a59620f"
+(let ()
+ (define (options-gen)
+  (let ((options (gnc:report-template-new-options/report-guid "2fe3b9833af044abb929a88d5a59620f" "Transaction Report")))
+
+; Section: General
+
+(let ((option (gnc:lookup-option options
+                                 "General"
+                                 "Stylesheet")))
+  ((lambda (option) (if option ((gnc:option-setter option) 'Easy))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "General"
+                                 "End Date")))
+  ((lambda (option) (if option ((gnc:option-setter option) '(absolute 1451516400 . 0)))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "General"
+                                 "Start Date")))
+  ((lambda (option) (if option ((gnc:option-setter option) '(absolute 1420066800 . 0)))) option))
+
+
+; Section: Accounts
+
+(let ((option (gnc:lookup-option options
+                                 "Accounts"
+                                 "Accounts")))
+  ((lambda (option) (if option ((gnc:option-setter option) '("2fb19db00dc882627890d2e186155861" "a9ff7e6123679df346a55f522903e1a3" "7b03fcb04edd5bcb9988f86285e86624" "ff76baff7f42057ea7de827b0c50dec7")))) option))
+
+
+; Section: Display
+
+(let ((option (gnc:lookup-option options
+                                 "Display"
+                                 "Memo")))
+  ((lambda (option) (if option ((gnc:option-setter option) #f))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "Display"
+                                 "Num")))
+  ((lambda (option) (if option ((gnc:option-setter option) #f))) option))
+
+
+; Section: Sorting
+
+(let ((option (gnc:lookup-option options
+                                 "Sorting"
+                                 "Secondary Subtotal for Date Key")))
+  ((lambda (option) (if option ((gnc:option-setter option) 'none))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "Sorting"
+                                 "Primary Key")))
+  ((lambda (option) (if option ((gnc:option-setter option) 'date))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "Sorting"
+                                 "Primary Subtotal for Date Key")))
+  ((lambda (option) (if option ((gnc:option-setter option) 'none))) option))
+
+  options))
+ (gnc:define-report 
+  'version 1
+  'name "Transaction Report by year"
+  'report-guid "9384744ea4aefceb08443be2fad31fc1"
+  'parent-type "2fe3b9833af044abb929a88d5a59620f"
+  'options-generator options-gen
+  'menu-path (list gnc:menuname-custom)
+  'renderer (gnc:report-template-renderer/report-guid "2fe3b9833af044abb929a88d5a59620f" "Transaction Report")))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Options for saved report "Transaction Report", based on template "2fe3b9833af044abb929a88d5a59620f"
+(let ()
+ (define (options-gen)
+  (let ((options (gnc:report-template-new-options/report-guid "2fe3b9833af044abb929a88d5a59620f" "Transaction Report")))
+
+; Section: General
+
+(let ((option (gnc:lookup-option options
+                                 "General"
+                                 "Stylesheet")))
+  ((lambda (option) (if option ((gnc:option-setter option) 'Easy))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "General"
+                                 "End Date")))
+  ((lambda (option) (if option ((gnc:option-setter option) '(absolute 1451516400 . 0)))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "General"
+                                 "Start Date")))
+  ((lambda (option) (if option ((gnc:option-setter option) '(absolute 1420066800 . 0)))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "General"
+                                 "Common Currency")))
+  ((lambda (option) (if option ((gnc:option-setter option) #t))) option))
+
+
+; Section: Accounts
+
+(let ((option (gnc:lookup-option options
+                                 "Accounts"
+                                 "Accounts")))
+  ((lambda (option) (if option ((gnc:option-setter option) '("565dbeb2962063402a7b3e5093e63852" "cea9e414d607d3a2dbe0298c6dd1d171" "552fae0fb7bdec91aadf5c91159f0f7a" "54de439cdeee175d0b94ae083a07f6e6")))) option))
+
+
+; Section: Display
+
+(let ((option (gnc:lookup-option options
+                                 "Display"
+                                 "Memo")))
+  ((lambda (option) (if option ((gnc:option-setter option) #f))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "Display"
+                                 "Num")))
+  ((lambda (option) (if option ((gnc:option-setter option) #f))) option))
+
+
+; Section: Sorting
+
+(let ((option (gnc:lookup-option options
+                                 "Sorting"
+                                 "Secondary Subtotal for Date Key")))
+  ((lambda (option) (if option ((gnc:option-setter option) 'none))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "Sorting"
+                                 "Primary Key")))
+  ((lambda (option) (if option ((gnc:option-setter option) 'date))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "Sorting"
+                                 "Primary Subtotal for Date Key")))
+  ((lambda (option) (if option ((gnc:option-setter option) 'none))) option))
+
+  options))
+ (gnc:define-report 
+  'version 1
+  'name "Transaction Report"
+  'report-guid "23f01274d545ef177f09802ca146106d"
+  'parent-type "2fe3b9833af044abb929a88d5a59620f"
+  'options-generator options-gen
+  'menu-path (list gnc:menuname-custom)
+  'renderer (gnc:report-template-renderer/report-guid "2fe3b9833af044abb929a88d5a59620f" "Transaction Report")))
+

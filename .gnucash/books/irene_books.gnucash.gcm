@@ -1,0 +1,12 @@
+[Register 00000000000000000000000000000000]
+date_width=92
+trans-num_width=45
+reconcile_width=17
+transfer_width=200
+debit_width=79
+credit_width=79
+reg-run-balance_width=79
+
+[Top]
+BookGuid=c8a94811768aec9d053dcb0b185ceba4
+WindowCount=1

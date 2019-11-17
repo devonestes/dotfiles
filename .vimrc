@@ -209,7 +209,7 @@ let g:solarized_termcolors=256
 colorscheme solarized
 
 " Set clipboard to be system clipboard by default
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " config to run tests via Dispatch
 let test#strategy = "dispatch"

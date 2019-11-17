@@ -1,0 +1,79 @@
+[Desktop Entry]
+GenericName=Audio Recorder
+Categories=GNOME;AudioVideo;Recorder
+Exec=audio-recorder --show-window=1
+Icon=audio-recorder
+StartupNotify=true
+Terminal=false
+Type=Application
+X-GNOME-Autostart-enabled=true
+Keywords=Audio;Sound;Mic;Recorder;
+Name=Audio Recorder
+Name[de]=Anwendung zur Audio-Aufnahme
+Name[en_GB]=Audio Recorder
+Name[en_US]=Audio Recorder
+Name[es]=Applicación para grabar audio
+Name[fi_FI]=Ohjelma Äänen Tallennukseen
+Name[fr]=Enregistreur audio
+Name[hr]=Snimč zvuka
+Name[hu]=Hang felvevő alkalmazás
+Name[it]=Registratore audio
+Name[nb_NO]=Program for Lydopptak
+Name[pl]=Aplikacja do nagrywania dźwięku
+Name[pt]=Aplicação para Gravar Áudio
+Name[pt_BR]=Aplicação para Gravar Áudio
+Name[ru]=Программа аудиозаписи
+Name[sk]=Audio Recorder
+Name[sr]=Audio Recorder
+Name[tr]=Ses Kaydedici
+Name[uk]=Застосунки Audio Recorder
+Name[vi]=Trình ghi âm
+Comment=Easy-to-use audio recording tool
+Comment[de]=Leicht zu benutzendes Werkzeug für Audio-Aufnahmen
+Comment[en_GB]=Easy-to-use audio recording tool
+Comment[en_US]=Easy-to-use audio recording tool
+Comment[es]=Herramienta de grabación fácil de utilizar
+Comment[fi_FI]=Helppokäyttöinen ohjelma äänen nauhoitukseen
+Comment[fr]=Outil d'enregistrement audio facile à utiliser
+Comment[hr]=Snimč zvuka
+Comment[hu]=Egyszerűen használható audio rögzítő eszköz
+Comment[it]=Registratore audio
+Comment[nb_NO]=Et program for lydopptak
+Comment[pl]=Proste narzędzie do nagrywania audio
+Comment[pt]=Aplicativo para gravação de áudio fácil de usar
+Comment[pt_BR]=Ferramenta de gravação de fácil uso
+Comment[ru]=Легкий в использовании инструмент аудиозаписи
+Comment[sk]=Audio Recorder
+Comment[sr]=Audio Recorder
+Comment[tr]=Ses Kaydedici
+Comment[uk]=Легкий в застосуванні інструмент для аудіо запису
+Comment[vi]=Trình ghi âm
+Actions=StartRecording;StopRecording;PauseRecording;ShowWindow
+
+[Desktop Action StartRecording]
+Name=Start
+Name[fi_FI]=Aloita
+Name[nb_NO]=Start
+Exec=audio-recorder --command=start
+OnlyShowIn=Unity;GNOME;
+
+[Desktop Action StopRecording]
+Name=Stop
+Name[fi_FI]=Lopeta
+Name[nb_NO]=Stopp
+Exec=audio-recorder --command=stop
+OnlyShowIn=Unity;GNOME;
+
+[Desktop Action PauseRecording]
+Name=Pause
+Name[fi_FI]=Keskeytä väliaikaisesti
+Name[nb_NO]=Pause
+Exec=audio-recorder --command=pause
+OnlyShowIn=Unity;GNOME;
+
+[Desktop Action ShowWindow]
+Name=Show window
+Name[fi_FI]=Näytä ikkuna
+Name[nb_NO]=Vis applikasjon
+Exec=audio-recorder --command=show
+OnlyShowIn=Unity;GNOME;
