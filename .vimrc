@@ -5,87 +5,64 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-dispatch'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'tpope/vim-fugitive'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'Lokaltog/vim-powerline'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'tpope/vim-rails'
-Plugin 'janko-m/vim-test'
-Plugin 'slim-template/vim-slim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'KabbAmine/zeavim.vim'
-Plugin 'c-brenn/phoenix.vim'
-Plugin 'tpope/vim-projectionist'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'neomake/neomake'
+Plug 'sheerun/vim-polyglot'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'Lokaltog/vim-powerline'
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-airline/vim-airline'
+Plug 'elixir-lang/vim-elixir'
+Plug 'KabbAmine/zeavim.vim'
+Plug 'tpope/vim-projectionist'
+Plug 'neomake/neomake'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-  " Run Neomake when I open or save any buffer
-  augroup localneomake
-    autocmd! BufWritePost * Neomake
-    autocmd! BufRead * Neomake
-  augroup END
+" Run Neomake when I open or save any buffer
+augroup localneomake
+  autocmd! BufWritePost * Neomake
+  autocmd! BufRead * Neomake
+augroup END
 
-  let g:neomake_ruby_enabled_makers = ['mri', 'rubocop']
+let g:neomake_ruby_enabled_makers = ['mri', 'rubocop']
 
-  " Configure a nice credo setup, courtesy https://github.com/neomake/neomake/pull/300
-  let g:neomake_elixir_enabled_makers = ['mix', 'mycredo']
-  function! NeomakeCredoErrorType(entry)
-    if a:entry.type ==# 'F'      " Refactoring opportunities
-      let l:type = 'W'
-    elseif a:entry.type ==# 'D'  " Software design suggestions
-      let l:type = 'I'
-    elseif a:entry.type ==# 'W'  " Warnings
-      let l:type = 'W'
-    elseif a:entry.type ==# 'R'  " Readability suggestions
-      let l:type = 'I'
-    elseif a:entry.type ==# 'C'  " Convention violation
-      let l:type = 'W'
-    else
-      let l:type = 'M'           " Everything else is a message
-    endif
-    let a:entry.type = l:type
-  endfunction
+" Configure a nice credo setup, courtesy https://github.com/neomake/neomake/pull/300
+let g:neomake_elixir_enabled_makers = ['mix', 'mycredo']
+function! NeomakeCredoErrorType(entry)
+  if a:entry.type ==# 'F'      " Refactoring opportunities
+    let l:type = 'W'
+  elseif a:entry.type ==# 'D'  " Software design suggestions
+    let l:type = 'I'
+  elseif a:entry.type ==# 'W'  " Warnings
+    let l:type = 'W'
+  elseif a:entry.type ==# 'R'  " Readability suggestions
+    let l:type = 'I'
+  elseif a:entry.type ==# 'C'  " Convention violation
+    let l:type = 'W'
+  else
+    let l:type = 'M'           " Everything else is a message
+  endif
+  let a:entry.type = l:type
+endfunction
 
-  let g:neomake_elixir_mycredo_maker = {
-        \ 'exe': 'mix',
-        \ 'args': ['credo', 'list', '%:p', '--format=oneline'],
-        \ 'errorformat': '[%t] %. %f:%l:%c %m,[%t] %. %f:%l %m',
-        \ 'postprocess': function('NeomakeCredoErrorType')
-        \ }
-  let g:neomake_warning_sign={'text': '⚠️', 'texthl': 'NeomakeErrorMsg'}
-  let g:neomake_error_sign={'text': '‼️', 'texthl': 'NeomakeErrorMsg'}
+let g:neomake_elixir_mycredo_maker = {
+      \ 'exe': 'mix',
+      \ 'args': ['credo', 'list', '%:p', '--format=oneline'],
+      \ 'errorformat': '[%t] %. %f:%l:%c %m,[%t] %. %f:%l %m',
+      \ 'postprocess': function('NeomakeCredoErrorType')
+      \ }
+let g:neomake_warning_sign={'text': '⚠️', 'texthl': 'NeomakeErrorMsg'}
+let g:neomake_error_sign={'text': '‼️', 'texthl': 'NeomakeErrorMsg'}
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+call plug#end()
 
 " ######################
 "      CUSTOM SETUP
@@ -123,7 +100,7 @@ set hlsearch            " highlight matches
 set nojoinspaces
 
 " Make it obvious where 80 characters is
-set textwidth=80
+set textwidth=98
 set colorcolumn=+1
 
 " Numbers
@@ -141,7 +118,6 @@ nnoremap <leader>f zc
 nnoremap <leader>uf zo
 
 " Automatically delete trailing whitespace
-autocmd BufWritePre *.rb :%s/\s\+$//e
 autocmd BufWritePre *.exs :%s/\s\+$//e
 autocmd BufWritePre *.ex :%s/\s\+$//e
 
@@ -175,16 +151,6 @@ nnoremap <leader>s :split<CR>
 " Add some custom words to avoid common misspellings
 iab bandwith bandwidth
 
-" Add some shortcuts for rails.vim helpers
-nnoremap <leader>ga :AS<CR>
-nnoremap <leader>gr :RS<CR>
-
-" Add rubocop autocorrect command
-nnoremap <leader>rc :! bundle exec rubocop -a %<CR>
-
-" Mix format current file
-nnoremap <leader>mf :!mix format %<enter>:syntax sync fromstart<enter>:redraw!<enter>
-
 " Add shortcut for pulling line up to previous line
 nnoremap <leader>J kJx
 
@@ -193,10 +159,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-" Shortcuts for vim-test
-nnoremap <leader>tf :TestFile<CR>
-nnoremap <leader>tn :TestNearest<CR>
 
 " Toggle paste and nopaste mode
 nnoremap <leader>p :set paste<CR>
@@ -211,9 +173,6 @@ colorscheme solarized
 " Set clipboard to be system clipboard by default
 set clipboard=unnamedplus
 
-" config to run tests via Dispatch
-let test#strategy = "dispatch"
-
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   " Use Ag over Grep
@@ -225,3 +184,132 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+
+" if hidden is not set, TextEdit might fail.
+set hidden
+
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+" Better display for messages
+set cmdheight=2
+
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Or use `complete_info` if your vim support it, like:
+" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Create mappings for function text object, requires document symbols feature of languageserver.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+nmap <silent> <C-d> <Plug>(coc-range-select)
+xmap <silent> <C-d> <Plug>(coc-range-select)
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Using CocList
+" Show all diagnostics
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
