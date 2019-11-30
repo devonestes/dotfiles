@@ -136,43 +136,6 @@
       </output>
   </configuration>
   <configuration>
-      <clone>yes</clone>
-      <output name="eDP-1">
-          <vendor>SHP</vendor>
-          <product>0x1484</product>
-          <serial>0x00000000</serial>
-          <width>1920</width>
-          <height>1080</height>
-          <rate>0</rate>
-          <x>1024</x>
-          <y>0</y>
-          <rotation>normal</rotation>
-          <reflect_x>no</reflect_x>
-          <reflect_y>no</reflect_y>
-          <primary>yes</primary>
-      </output>
-      <output name="DP-1">
-          <vendor>AOC</vendor>
-          <product>0x2460</product>
-          <serial>0x00000430</serial>
-          <width>1920</width>
-          <height>1080</height>
-          <rate>60</rate>
-          <x>0</x>
-          <y>0</y>
-          <rotation>normal</rotation>
-          <reflect_x>no</reflect_x>
-          <reflect_y>no</reflect_y>
-          <primary>no</primary>
-      </output>
-      <output name="HDMI-1">
-      </output>
-      <output name="DP-2">
-      </output>
-      <output name="HDMI-2">
-      </output>
-  </configuration>
-  <configuration>
       <clone>no</clone>
       <output name="eDP-1">
           <vendor>SHP</vendor>
@@ -271,6 +234,43 @@
           <rate>60</rate>
           <x>1920</x>
           <y>0</y>
+          <rotation>normal</rotation>
+          <reflect_x>no</reflect_x>
+          <reflect_y>no</reflect_y>
+          <primary>no</primary>
+      </output>
+      <output name="HDMI-1">
+      </output>
+      <output name="DP-2">
+      </output>
+      <output name="HDMI-2">
+      </output>
+  </configuration>
+  <configuration>
+      <clone>yes</clone>
+      <output name="eDP-1">
+          <vendor>SHP</vendor>
+          <product>0x1484</product>
+          <serial>0x00000000</serial>
+          <width>1920</width>
+          <height>1080</height>
+          <rate>60</rate>
+          <x>0</x>
+          <y>0</y>
+          <rotation>normal</rotation>
+          <reflect_x>no</reflect_x>
+          <reflect_y>no</reflect_y>
+          <primary>yes</primary>
+      </output>
+      <output name="DP-1">
+          <vendor>AOC</vendor>
+          <product>0x2460</product>
+          <serial>0x00000430</serial>
+          <width>1920</width>
+          <height>1080</height>
+          <rate>60</rate>
+          <x>2816</x>
+          <y>312</y>
           <rotation>normal</rotation>
           <reflect_x>no</reflect_x>
           <reflect_y>no</reflect_y>

@@ -125,7 +125,7 @@ credit_width=79
 
 [Budget 473ccb869e48d28e6396bd5c05013f70]
 column_order=name;type;commodity;account-code;description;lastnum;present;present_report;balance;balance_report;balance-period;cleared;cleared_report;reconciled;reconciled_report;last-recon-date;future_min;future_min_report;total;total_report;total-period;account-color;notes;tax-info;placeholder;
-name_width=554
+name_width=737
 type_visible=false
 type_width=0
 commodity_visible=false
@@ -462,21 +462,84 @@ source_visible=true
 type_visible=true
 price_visible=true
 
-[Register 58130ae22c91b479cfe81626231bb64f]
-date_width=92
-num_width=45
-reconcile_width=17
-balance_width=79
-transfer_width=200
-debit_width=79
-credit_width=79
+[Register 32b1f6856142eab8a6c4ec791fc5d3c2]
+date_width=101
+reconcile_width=18
+transfer_width=213
+debit_width=88
+credit_width=88
+trans-num_width=50
+reg-run-balance_width=88
+
+[Register 0525cb38f02749ab47b54b9539c7012b]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register 56f2d659eca5b297308bf76af6b60e41]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register 4f47ffd67b71393892a64839bf765615]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register 1317d5c1c463d8641705d547ae3d0cc2]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register 00000000000000000000000000000000]
+date_width=101
+trans-num_width=50
+reconcile_width=18
+transfer_width=213
+debit_width=88
+credit_width=88
+reg-run-balance_width=88
+
+[Register 4b16b8c04b72ad40f764ac9646b281a6]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register cc5910cb1c70b5647cab4bdb8441e4c8]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
 
 [Window 1]
 PageCount=1
 FirstPage=1
 PageOrder=1;
-WindowPosition=0;0;
-WindowGeometry=1598;845;
+WindowPosition=3;0;
+WindowGeometry=1913;1015;
 WindowMaximized=false
 ToolbarVisible=true
 SummarybarVisible=true
@@ -488,8 +551,6 @@ PageName=Accounts
 AccountTypes=-1
 ShowHidden=false
 ShowZeroTotal=true
-SelectedAccount=Expenses:Clothing
+SelectedAccount=Assets:Ally bank
 OpenAccount1=Assets
-OpenAccount2=Expenses
-OpenAccount3=Income
-NumberOfOpenAccounts=3
+NumberOfOpenAccounts=1

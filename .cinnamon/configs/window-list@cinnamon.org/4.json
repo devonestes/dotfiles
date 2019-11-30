@@ -28,6 +28,12 @@
         "dependency": "enable-scrolling",
         "value": false
     },
+    "left-click-minimize": {
+        "type": "switch",
+        "default": true,
+        "description": "Left click to minimize window",
+        "value": true
+    },
     "middle-click-close": {
         "type": "switch",
         "default": true,
@@ -70,5 +76,5 @@
         "dependency": "window-preview",
         "value": 1
     },
-    "__md5__": "afda6fe664342bc40bbff3dc8032b47b"
+    "__md5__": "659b3ef40120523663a0c4ae61b83146"
 }
