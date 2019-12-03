@@ -119,6 +119,7 @@ image/vnd.wap.wbmp=xviewer.desktop
 image/x-gray=xviewer.desktop
 image/x-icb=xviewer.desktop
 x-scheme-handler/webcal=google-chrome.desktop
+x-scheme-handler/discord-424004941485572097=discord-424004941485572097.desktop
 
 [Added Associations]
 text/plain=vim.desktop;

@@ -535,9 +535,9 @@ debit_width=88
 credit_width=88
 
 [Window 1]
-PageCount=1
+PageCount=2
 FirstPage=1
-PageOrder=1;
+PageOrder=2;1;
 WindowPosition=3;0;
 WindowGeometry=1913;1015;
 WindowMaximized=false
@@ -551,6 +551,17 @@ PageName=Accounts
 AccountTypes=-1
 ShowHidden=false
 ShowZeroTotal=true
-SelectedAccount=Assets:Ally bank
+SelectedAccount=Expenses:Business:Housing
 OpenAccount1=Assets
-NumberOfOpenAccounts=1
+OpenAccount2=Expenses
+OpenAccount3=Expenses:Business
+OpenAccount4=Income
+NumberOfOpenAccounts=4
+
+[Page 2]
+PageType=GncPluginPageRegister
+PageName=Housing
+RegisterType=Account
+AccountName=Expenses:Business:Housing
+RegisterStyle=Ledger
+DoubleLineMode=false
