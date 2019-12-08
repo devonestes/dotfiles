@@ -535,11 +535,11 @@ debit_width=88
 credit_width=88
 
 [Window 1]
-PageCount=2
+PageCount=1
 FirstPage=1
-PageOrder=2;1;
-WindowPosition=3;0;
-WindowGeometry=1913;1015;
+PageOrder=1;
+WindowPosition=0;0;
+WindowGeometry=1600;835;
 WindowMaximized=false
 ToolbarVisible=true
 SummarybarVisible=true
@@ -557,11 +557,3 @@ OpenAccount2=Expenses
 OpenAccount3=Expenses:Business
 OpenAccount4=Income
 NumberOfOpenAccounts=4
-
-[Page 2]
-PageType=GncPluginPageRegister
-PageName=Housing
-RegisterType=Account
-AccountName=Expenses:Business:Housing
-RegisterStyle=Ledger
-DoubleLineMode=false

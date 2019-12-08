@@ -94,6 +94,7 @@ notes_width=0
 tax-info_visible=false
 tax-info_width=0
 placeholder_visible=false
+name_width=212
 
 [Register 6856b5a28301edeb1275d7c35053e53b]
 date_width=101
@@ -196,7 +197,7 @@ credit_width=88
 
 [Budget de0dfef3d51fd4a37473bf0f8b62a417]
 column_order=name;type;commodity;account-code;description;lastnum;present;present_report;balance;balance_report;balance-period;cleared;cleared_report;reconciled;reconciled_report;last-recon-date;future_min;future_min_report;total;total_report;total-period;account-color;notes;tax-info;placeholder;
-name_width=745
+name_width=771
 type_visible=false
 type_width=0
 commodity_visible=false
@@ -245,6 +246,51 @@ tax-info_visible=false
 tax-info_width=0
 placeholder_visible=false
 
+[Register 3556d3374675c22b8f995e9e793fda3b]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register 00000000000000000000000000000000]
+date_width=101
+trans-num_width=50
+reconcile_width=18
+transfer_width=213
+debit_width=88
+credit_width=88
+reg-run-balance_width=88
+
+[Register ae356412a462bb2d0439de60b36397cb]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register 436c296eb60f5c1b39434737993039c9]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register c141374aff7f04639e7a13b4424f7538]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
 [Window 1]
 PageCount=1
 FirstPage=1
@@ -262,7 +308,7 @@ PageName=Accounts
 AccountTypes=-1
 ShowHidden=false
 ShowZeroTotal=true
-SelectedAccount=Assets:Deutsche Bank:Savings
+SelectedAccount=Assets:Deutsche Bank:Utilities
 OpenAccount1=Assets
 OpenAccount2=Assets:Deutsche Bank
 NumberOfOpenAccounts=2
