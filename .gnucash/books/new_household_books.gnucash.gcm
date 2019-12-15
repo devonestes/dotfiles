@@ -291,12 +291,48 @@ transfer_width=213
 debit_width=88
 credit_width=88
 
+[Register 11dbb47489ee429017ef83edb2e62cab]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register 68cb46a7c7adf1f9bf859383375e927c]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register ac918547cc1928918e8ff3ebc721aed7]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register 0ff0fa519c40001e04df2329d0d70308]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
 [Window 1]
 PageCount=1
 FirstPage=1
 PageOrder=1;
 WindowPosition=0;0;
-WindowGeometry=1600;1015;
+WindowGeometry=1600;835;
 WindowMaximized=false
 ToolbarVisible=true
 SummarybarVisible=true
@@ -308,7 +344,6 @@ PageName=Accounts
 AccountTypes=-1
 ShowHidden=false
 ShowZeroTotal=true
-SelectedAccount=Assets:Deutsche Bank:Utilities
 OpenAccount1=Assets
 OpenAccount2=Assets:Deutsche Bank
 NumberOfOpenAccounts=2
