@@ -135,6 +135,11 @@ headphones() {
     quit" bluetoothctl
 }
 
+earbuds() {
+<<<"connect 00:23:01:42:C6:6E
+    quit" bluetoothctl
+}
+
 typeless() {
   history | tail -n 20000 | sed "s/.*  //" | sort | uniq -c | sort -g | tail -n 100
 }

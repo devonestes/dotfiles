@@ -327,6 +327,15 @@ transfer_width=213
 debit_width=88
 credit_width=88
 
+[Register 428f87a82d521c3a6c0763599b73fafa]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
 [Window 1]
 PageCount=1
 FirstPage=1
