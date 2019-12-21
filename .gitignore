@@ -160,3 +160,4 @@ core
 RetroPie/
 .password-store/
 .config/Franz/
+.var/
