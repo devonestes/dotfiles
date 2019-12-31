@@ -111,6 +111,7 @@ alias sudo='sudo '
 alias be='bundle exec'
 alias edit_crontab='env EDITOR=nano crontab -e'
 alias sandbox="cd ~/sandbox"
+alias save_stuff="cd ~/sandbox/save_stuff"
 alias gpo='git pull origin master'
 alias nand='cd ~/sandbox/nand2tetris'
 alias psql='pgcli -h 0.0.0.0'
