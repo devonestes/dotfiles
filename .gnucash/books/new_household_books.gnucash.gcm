@@ -336,12 +336,30 @@ transfer_width=213
 debit_width=88
 credit_width=88
 
+[Register 529bbfffdf97b62ff80a4ebb40b27251]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register 58230380f2074db794f3e169f3e2b3ae]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
 [Window 1]
 PageCount=1
 FirstPage=1
 PageOrder=1;
 WindowPosition=0;0;
-WindowGeometry=1600;835;
+WindowGeometry=1600;1015;
 WindowMaximized=false
 ToolbarVisible=true
 SummarybarVisible=true
@@ -353,6 +371,8 @@ PageName=Accounts
 AccountTypes=-1
 ShowHidden=false
 ShowZeroTotal=true
+SelectedAccount=Imbalance-EUR
 OpenAccount1=Assets
 OpenAccount2=Assets:Deutsche Bank
-NumberOfOpenAccounts=2
+OpenAccount3=Expenses
+NumberOfOpenAccounts=3

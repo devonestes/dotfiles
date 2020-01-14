@@ -1,5 +1,5 @@
 [global_config]
-  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  enabled_plugins = EditorPlugin,
 [keybindings]
   close_term = <Primary>w
   copy = <Primary>c
@@ -19,22 +19,12 @@
   switch_to_tab_9 = <Primary>9
 [layouts]
   [[default]]
-    [[[child0]]]
-      fullscreen = False
-      last_active_window = True
-      maximised = False
-      order = 0
-      parent = ""
-      position = 960:500
-      size = 959, 1024
-      title = devon@devon-XPS-13-9370: ~
-      type = Window
     [[[child1]]]
       active_page = 0
       labels = None, None
       last_active_term = ccd914ff-03a2-4402-85ed-830031360b70, 8b1879e1-03cb-4555-a676-cf752276447a
       order = 0
-      parent = child0
+      parent = window0
       type = Notebook
     [[[terminal2]]]
       command = ""
@@ -50,7 +40,21 @@
       profile = default
       type = Terminal
       uuid = 8b1879e1-03cb-4555-a676-cf752276447a
+    [[[window0]]]
+      fullscreen = False
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 320:0
+      size = 1600, 1200
+      title = devon@devon-XPS-13-9370: ~
+      type = Window
 [plugins]
+  [[EditorPlugin]]
+    command = gvim +{line} {filepath}
+    groups = file line
+    match = (\/?[a-zA-Z][a-zA-Z\.\/_-]+):?([0-9]*)
 [profiles]
   [[default]]
     background_color = "#132738"

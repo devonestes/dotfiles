@@ -32,35 +32,11 @@ augroup localneomake
   autocmd! BufRead * Neomake
 augroup END
 
-let g:neomake_ruby_enabled_makers = ['mri', 'rubocop']
-
 " Configure a nice credo setup, courtesy https://github.com/neomake/neomake/pull/300
-let g:neomake_elixir_enabled_makers = ['mix', 'mycredo']
-function! NeomakeCredoErrorType(entry)
-  if a:entry.type ==# 'F'      " Refactoring opportunities
-    let l:type = 'W'
-  elseif a:entry.type ==# 'D'  " Software design suggestions
-    let l:type = 'I'
-  elseif a:entry.type ==# 'W'  " Warnings
-    let l:type = 'W'
-  elseif a:entry.type ==# 'R'  " Readability suggestions
-    let l:type = 'I'
-  elseif a:entry.type ==# 'C'  " Convention violation
-    let l:type = 'W'
-  else
-    let l:type = 'M'           " Everything else is a message
-  endif
-  let a:entry.type = l:type
-endfunction
-
-let g:neomake_elixir_mycredo_maker = {
-      \ 'exe': 'mix',
-      \ 'args': ['credo', 'list', '%:p', '--format=oneline'],
-      \ 'errorformat': '[%t] %. %f:%l:%c %m,[%t] %. %f:%l %m',
-      \ 'postprocess': function('NeomakeCredoErrorType')
-      \ }
-let g:neomake_warning_sign={'text': '⚠️', 'texthl': 'NeomakeErrorMsg'}
-let g:neomake_error_sign={'text': '‼️', 'texthl': 'NeomakeErrorMsg'}
+let g:neomake_elixir_enabled_makers = ['mix', 'credo']
+let g:neomake_error_sign={'text': '‼️', 'texthl': 'ErrorMsg'}
+let g:neomake_warning_sign={'text': '⚠️', 'texthl': 'WarningMsg'}
+let g:neomake_info_sign={'text': '❓', 'texthl': 'InfoMsg'}
 
 call plug#end()
 
@@ -154,6 +130,9 @@ iab bandwith bandwidth
 " Add shortcut for pulling line up to previous line
 nnoremap <leader>J kJx
 
+" Goto next warning
+nnoremap <leader>ll :ll<CR>
+
 " Easier navigation between panes - Ctrl-h, Ctrl-j, Ctrl-k, & Ctrl-l
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -193,16 +172,13 @@ set nobackup
 set nowritebackup
 
 " Better display for messages
-set cmdheight=2
+set cmdheight=1
 
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
 
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
-
-" always show signcolumns
-set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -253,9 +229,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
-" Remap for format selected region
-xmap <leader>mf  <Plug>(coc-format-selected)
-nmap <leader>mf  <Plug>(coc-format-selected)
+nnoremap <leader>mf :!mix format %<enter>:syntax sync fromstart<enter>:redraw!<enter>
 
 augroup mygroup
   autocmd!
