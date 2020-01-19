@@ -49,6 +49,7 @@
                 "favbox-show",
                 "favbox-min-height",
                 "show-places",
+                "show-recents",
                 "menu-editor-button"
             ]
         },
@@ -69,23 +70,52 @@
     },
     "menu-custom": {
         "type": "switch",
-        "default": false,
+        "default": true,
         "description": "Use a custom icon and label",
         "tooltip": "Check this to specify a custom icon and label",
         "value": false
     },
     "menu-icon": {
         "type": "iconfilechooser",
-        "default": "cinnamon-symbolic",
+        "default": "linuxmint-logo-filled-ring",
         "description": "Icon",
         "tooltip": "Select an icon to show in the panel.",
+        "default_icon": "linuxmint-logo-filled-ring",
         "dependency": "menu-custom",
         "indent": true,
+        "icon_categories": [
+            {
+                "name": "Linux Mint",
+                "icons": [
+                    "linuxmint-logo",
+                    "linuxmint-logo-badge",
+                    "linuxmint-logo-badge-symbolic",
+                    "linuxmint-logo-filled-badge",
+                    "linuxmint-logo-filled-leaf-badge",
+                    "linuxmint-logo-filled-leaf",
+                    "linuxmint-logo-filled-ring",
+                    "linuxmint-logo-leaf-badge",
+                    "linuxmint-logo-leaf-badge-symbolic",
+                    "linuxmint-logo-leaf",
+                    "linuxmint-logo-leaf-symbolic",
+                    "linuxmint-logo-neon",
+                    "linuxmint-logo-ring",
+                    "linuxmint-logo-ring-symbolic",
+                    "linuxmint-logo-simple",
+                    "linuxmint-logo-simple-symbolic",
+                    "cinnamon-symbolic",
+                    "emblem-favorite-symbolic",
+                    "user-bookmarks-symbolic",
+                    "start-here-symbolic"
+                ]
+            }
+        ],
+        "default_category": "Linux Mint",
         "value": "/usr/share/cinnamon/theme/menu-symbolic.svg"
     },
     "menu-label": {
         "type": "entry",
-        "default": "Menu",
+        "default": "",
         "description": "Text",
         "tooltip": "Enter custom text to show in the panel.",
         "dependency": "menu-custom",
@@ -130,6 +160,13 @@
         "default": true,
         "description": "Show bookmarks and places",
         "tooltip": "Choose whether or not to show bookmarks and places in the menu.",
+        "value": true
+    },
+    "show-recents": {
+        "type": "switch",
+        "default": true,
+        "description": "Show recents",
+        "tooltip": "Choose whether or not to show recents in the menu.",
         "value": true
     },
     "enable-autoscroll": {
@@ -178,5 +215,5 @@
         "callback": "_launch_editor",
         "tooltip": "Press this button to customize your menu entries."
     },
-    "__md5__": "6cc971c5aa632de42d925009b211e2cf"
+    "__md5__": "cdf1aadcba32c461f6e1b3b7647f8411b899c7f9a6067037eeeabecd7e9fa0d8"
 }

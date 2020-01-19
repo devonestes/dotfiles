@@ -1,5 +1,6 @@
 [alias]
   l = log --pretty=oneline -n 100 --graph --abbrev-commit
+	dropbox = !git-dropbox-manage
 [color]
   ui = auto
 [push]

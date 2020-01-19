@@ -119,6 +119,7 @@ alias gb='git branch -v'
 alias gs='git status'
 alias vim='vim -v -w ~/.vimlog "$@"'
 alias benchee="cd ~/sandbox/benchee"
+alias sketchql="cd ~/sandbox/sketchql"
 alias mc="iex -S mix"
 alias po="cd ~/sandbox/potion"
 alias pdb="cd ~/sandbox/potion/apps/potion_db"
@@ -145,27 +146,11 @@ typeless() {
   history | tail -n 20000 | sed "s/.*  //" | sort | uniq -c | sort -g | tail -n 100
 }
 
-orchard_update() {
+upd() {
   pwd=`pwd`
-  cd ~/sandbox/potion
+  cd ~/sandbox/sketchql
   git checkout master
-  git pull upstream master
-  git push origin master
-  git_prune
-  cd ~/sandbox/potion_proxy
-  git checkout master
-  git pull upstream master
-  git push origin master
-  git_prune
-  cd ~/sandbox/orchard_office_frontend
-  git checkout master
-  git pull upstream master
-  git push origin master
-  git_prune
-  cd ~/sandbox/qtclient
-  git checkout master
-  git pull upstream master
-  git push origin master
+  git pull origin master
   git_prune
   cd $pwd
 }
@@ -182,7 +167,7 @@ git_prune() {
 git_prune_branch() {
   git checkout "$1"
   git fetch origin --prune
-  git fetch upstream --prune
+  git fetch upstream --prune > /dev/null 2>&1
   git branch --merged "$1" | grep -v "* $1" | xargs -n 1 git branch -d
 }
 
@@ -237,3 +222,18 @@ if [ -f '/home/devon/sandbox/google-cloud-sdk/path.zsh.inc' ]; then source '/hom
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/devon/sandbox/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/devon/sandbox/google-cloud-sdk/completion.zsh.inc'; fi
 if [ /home/devon/sandbox/google-cloud-sdk/bin/kubectl ]; then source <(kubectl completion zsh); fi
+
+# Magic command to make opening vim with ctrl-click:
+#
+# filepath, line, column = self.get_filepath(strmatch)
+# prefix = "xdotool getactivewindow windowactivate sleep 0.250 type --delay 10 "
+# if filepath:
+    # if line and column:
+        # command = "'vim +\"call cursor(" + line + ", " + column + ')" ' + filepath + "\n'"
+    # else:
+        # command = "'vim +" + line + " " + filepath + "\n'"
+    # command = prefix + command
+    # if self.open_url():
+        # os.system(command)
+        # return '--version'
+# return command

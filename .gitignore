@@ -163,3 +163,4 @@ RetroPie/
 .var/
 .config/MineTime
 .config/coc/extensions/db.json
+.config/git/git-remote-dropbox.json
