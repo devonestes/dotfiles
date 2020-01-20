@@ -1,22 +1,41 @@
 #!/bin/bash
 
-#define the height in px of the top system-bar:
-TOPMARGIN=40
-
 # get width of screen and height of screen
 SCREEN_WIDTH=$(xwininfo -root | awk '$1=="Width:" {print $2}')
 SCREEN_HEIGHT=$(xwininfo -root | awk '$1=="Height:" {print $2}')
-OFFSET=$(( $SCREEN_WIDTH / 6 ))
-W=$(( $SCREEN_WIDTH - $OFFSET ))
 
-# new width and height
-H=$(( $SCREEN_HEIGHT - $TOPMARGIN ))
-Y=$TOPMARGIN
-
-if [[ "$1" = "left" ]]; then
-  X=0
+if [[ "$SCREEN_WIDTH" -gt "2000" ]]; then
+  OFFSET=$(( $SCREEN_WIDTH / 12 ))
 else
-  X=$OFFSET
+  OFFSET=$(( $SCREEN_WIDTH / 6 ))
 fi
 
-wmctrl -r :ACTIVE: -e 0,$X,$Y,$W,$H
+W=$(( $OFFSET * 5 ))
+H=$(( $SCREEN_HEIGHT - 40 ))
+
+case "$1$SCREEN_WIDTH" in
+other3*)
+  echo "OTHER 3"
+  X=0
+  W=$(( $SCREEN_WIDTH / 2))
+  ;;
+left3*)
+  echo "LEFT 3"
+  X=0
+  X=$(( $OFFSET * 6 ))
+  ;;
+right3*)
+  echo "RIGHT 3"
+  X=$(( $OFFSET * 7 ))
+  ;;
+right*)
+  echo "RIGHT"
+  X=$(( $OFFSET ))
+  ;;
+*)
+  echo "LEFT"
+  X=0
+  ;;
+esac
+
+wmctrl -r :ACTIVE: -e 0,$X,0,$W,$H

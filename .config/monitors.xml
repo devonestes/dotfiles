@@ -284,7 +284,7 @@
       </output>
   </configuration>
   <configuration>
-      <clone>yes</clone>
+      <clone>no</clone>
       <output name="eDP-1">
           <vendor>SHP</vendor>
           <product>0x1484</product>
@@ -293,7 +293,7 @@
           <height>1080</height>
           <rate>60</rate>
           <x>0</x>
-          <y>20</y>
+          <y>0</y>
           <rotation>normal</rotation>
           <reflect_x>no</reflect_x>
           <reflect_y>no</reflect_y>
