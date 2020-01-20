@@ -32,8 +32,16 @@ augroup localneomake
   autocmd! BufRead * Neomake
 augroup END
 
-" Configure a nice credo setup, courtesy https://github.com/neomake/neomake/pull/300
-let g:neomake_elixir_enabled_makers = ['mix', 'credo']
+let g:neomake_elixir_my_mix_maker = {
+\ 'exe' : 'mix',
+\ 'args': ['compile', '--warnings-as-errors', '--ignore-module-conflict'],
+\ 'postprocess': function('neomake#makers#ft#elixir#PostprocessEnforceMaxBufferLine'),
+\ 'errorformat':
+  \ '** %s %f:%l: %m,'.
+  \ '%Ewarning: %m,%C  %f:%l,%Z'
+\ }
+
+let g:neomake_elixir_enabled_makers = ['my_mix', 'credo']
 let g:neomake_error_sign={'text': '‼️', 'texthl': 'ErrorMsg'}
 let g:neomake_warning_sign={'text': '⚠️', 'texthl': 'WarningMsg'}
 let g:neomake_info_sign={'text': '❓', 'texthl': 'InfoMsg'}
