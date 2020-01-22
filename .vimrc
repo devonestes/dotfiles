@@ -41,7 +41,16 @@ let g:neomake_elixir_my_mix_maker = {
   \ '%Ewarning: %m,%C  %f:%l,%Z'
 \ }
 
-let g:neomake_elixir_enabled_makers = ['my_mix', 'credo']
+let g:neomake_elixir_my_credo_maker = {
+\ 'exe': 'mix',
+\ 'args': ['credo', 'list', '%:p', '--format=oneline'],
+\ 'postprocess': function('neomake#makers#ft#elixir#PostprocessCredo'),
+\ 'errorformat':
+    \'[%t] %. %f:%l:%c %m,' .
+    \'[%t] %. %f:%l %m'
+\ }
+
+let g:neomake_elixir_enabled_makers = ['my_mix', 'my_credo']
 let g:neomake_error_sign={'text': '‼️', 'texthl': 'ErrorMsg'}
 let g:neomake_warning_sign={'text': '⚠️', 'texthl': 'WarningMsg'}
 let g:neomake_info_sign={'text': '❓', 'texthl': 'InfoMsg'}
