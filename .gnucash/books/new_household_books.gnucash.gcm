@@ -355,9 +355,9 @@ debit_width=88
 credit_width=88
 
 [Window 1]
-PageCount=2
+PageCount=1
 FirstPage=1
-PageOrder=2;1;
+PageOrder=1;
 WindowPosition=0;0;
 WindowGeometry=1600;835;
 WindowMaximized=false
@@ -374,17 +374,4 @@ ShowZeroTotal=true
 SelectedAccount=Imbalance-EUR
 OpenAccount1=Assets
 OpenAccount2=Assets:Deutsche Bank
-OpenAccount3=Expenses
-NumberOfOpenAccounts=3
-
-[Page 2]
-PageType=GncPluginPageBudget
-PageName=Budget: Unnamed Budget
-Budget GncGUID=de0dfef3d51fd4a37473bf0f8b62a417
-AccountTypes=-1
-ShowHidden=false
-ShowZeroTotal=true
-OpenAccount1=Expenses
-OpenAccount2=Expenses:Taxes
-OpenAccount3=Liabilities
-NumberOfOpenAccounts=3
+NumberOfOpenAccounts=2
