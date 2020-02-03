@@ -149,10 +149,14 @@ typeless() {
 upd() {
   pwd=`pwd`
   cd ~/sandbox/sketchql
+  update_repo()
+  cd $pwd
+}
+
+update_repo() {
   git checkout master
   git pull origin master
   git_prune
-  cd $pwd
 }
 
 gitcf() {
