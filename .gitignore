@@ -164,3 +164,6 @@ RetroPie/
 .config/MineTime
 .config/coc/extensions/db.json
 .config/git/git-remote-dropbox.json
+.config/gh/
+.config/transmission/
+.config/wireshark/

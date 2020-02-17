@@ -149,7 +149,7 @@ typeless() {
 upd() {
   pwd=`pwd`
   cd ~/sandbox/sketchql
-  update_repo()
+  update_repo
   cd $pwd
 }
 

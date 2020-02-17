@@ -1,5 +1,5 @@
 ruby 2.5.1
-elixir master-otp-22
+elixir 1.10.0-otp-22
 erlang 22.1.8
 python 3.7.0
 postgres 9.6.10

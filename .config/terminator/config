@@ -55,7 +55,7 @@
     command = '''xdotool getactivewindow windowactivate sleep 0.250 type --delay 1 'vim +{line} {filepath}
 ''''
     groups = file line column
-    match = ([\/\.]?[a-zA-Z_][a-zA-Z\.\/_-]+):?([0-9]*):?([0-9]*)
+    match = ([\/\.]?[a-zA-Z_0-9][0-9a-zA-Z\.\/_-]+):?([0-9]*):?([0-9]*)
 [profiles]
   [[default]]
     background_color = "#132738"
