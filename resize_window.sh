@@ -15,27 +15,33 @@ H=$(( $SCREEN_HEIGHT - 40 ))
 
 case "$1$SCREEN_WIDTH" in
 other3*)
-  echo "OTHER 3"
   X=0
   W=$(( $SCREEN_WIDTH / 2))
   ;;
 left3*)
-  echo "LEFT 3"
   X=0
   X=$(( $OFFSET * 6 ))
   ;;
 right3*)
-  echo "RIGHT 3"
   X=$(( $OFFSET * 7 ))
   ;;
 right*)
-  echo "RIGHT"
   X=$(( $OFFSET ))
   ;;
 *)
-  echo "LEFT"
   X=0
   ;;
 esac
 
-wmctrl -r :ACTIVE: -e 0,$X,0,$W,$H
+if [[ -z "$2" ]]
+then
+  wmctrl -r :ACTIVE: -b remove,maximized_vert,maximized_horz
+  sleep 0.1
+  wmctrl -r :ACTIVE: -e 0,$X,0,$W,$H
+  sleep 0.5
+else
+  wmctrl -i -r "$2" -b remove,maximized_vert,maximized_horz
+  sleep 0.1
+  wmctrl -i -r "$2" -e 0,$X,0,$W,$H
+  sleep 0.5
+fi

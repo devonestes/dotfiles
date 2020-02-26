@@ -220,6 +220,25 @@ blog() {
   vim .
 }
 
+windows() {
+  if [[ $(xwininfo -root | awk '$1=="Width:" {print $2}') -gt "2000" ]]; then
+    for visible_window in $(xdotool search --onlyvisible --desktop 0 --class .)
+    do
+      ~/resize_window.sh left "$visible_window"
+    done
+
+    xdotool search --onlyvisible --class spotify | xargs -I{} ~/resize_window.sh other {}
+    xdotool search --onlyvisible --class terminator | xargs -I{} ~/resize_window.sh right {}
+  else
+    for visible_window in $(xdotool search --onlyvisible --desktop 0 --class .)
+    do
+      ~/resize_window.sh left "$visible_window"
+    done
+
+    xdotool search --onlyvisible --class terminator | xargs -I{} ~/resize_window.sh right {}
+  fi
+}
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/devon/sandbox/google-cloud-sdk/path.zsh.inc' ]; then source '/home/devon/sandbox/google-cloud-sdk/path.zsh.inc'; fi
 

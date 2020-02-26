@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "coc-elixir": ">=0.2.1"
+    "coc-elixir": ">=0.2.3"
   }
 }

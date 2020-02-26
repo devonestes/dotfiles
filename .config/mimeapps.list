@@ -237,3 +237,4 @@ image/x-gray=xviewer.desktop;
 image/x-icb=xviewer.desktop;
 image/x-ico=xviewer.desktop;
 image/x-png=xviewer.desktop;
+application/pdf=google-chrome.desktop;

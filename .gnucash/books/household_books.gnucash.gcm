@@ -534,13 +534,22 @@ transfer_width=213
 debit_width=88
 credit_width=88
 
+[Register 5d500b7ebcdf7143880418bc9a8236a9]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
 [Window 1]
 PageCount=1
 FirstPage=1
 PageOrder=1;
 WindowPosition=0;0;
 WindowGeometry=1600;835;
-WindowMaximized=false
+WindowMaximized=true
 ToolbarVisible=true
 SummarybarVisible=true
 StatusbarVisible=true
@@ -551,9 +560,10 @@ PageName=Accounts
 AccountTypes=-1
 ShowHidden=false
 ShowZeroTotal=true
-SelectedAccount=Expenses:Business:Housing
+SelectedAccount=Expenses:Rent
 OpenAccount1=Assets
 OpenAccount2=Expenses
 OpenAccount3=Expenses:Business
-OpenAccount4=Income
-NumberOfOpenAccounts=4
+OpenAccount4=Expenses:Taxes
+OpenAccount5=Income
+NumberOfOpenAccounts=5
