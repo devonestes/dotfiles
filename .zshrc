@@ -116,6 +116,7 @@ alias gpo='git pull origin master'
 alias nand='cd ~/sandbox/nand2tetris'
 alias psql='pgcli -h 0.0.0.0'
 alias gb='git branch -v'
+alias gl='git log'
 alias gs='git status'
 alias vim='vim -v -w ~/.vimlog "$@"'
 alias benchee="cd ~/sandbox/benchee"

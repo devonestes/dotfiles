@@ -264,15 +264,6 @@ debit_width=88
 credit_width=88
 reg-run-balance_width=88
 
-[Register ae356412a462bb2d0439de60b36397cb]
-date_width=101
-num_width=50
-reconcile_width=18
-balance_width=88
-transfer_width=213
-debit_width=88
-credit_width=88
-
 [Register 436c296eb60f5c1b39434737993039c9]
 date_width=101
 num_width=50
@@ -293,12 +284,12 @@ credit_width=88
 
 [Register 11dbb47489ee429017ef83edb2e62cab]
 date_width=101
-num_width=50
 reconcile_width=18
-balance_width=88
 transfer_width=213
 debit_width=88
 credit_width=88
+trans-num_width=50
+reg-run-balance_width=88
 
 [Register 68cb46a7c7adf1f9bf859383375e927c]
 date_width=101
@@ -390,6 +381,132 @@ transfer_width=213
 debit_width=88
 credit_width=88
 
+[Register 9fb773646a4538bd7089024dfbfcbe32]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register 2d0b8ed02fd4e112aa06d2874267a387]
+date_width=101
+trans-num_width=50
+reconcile_width=18
+transfer_width=213
+debit_width=88
+credit_width=88
+reg-run-balance_width=88
+
+[Register 00add3d76e5f1f09d3f81b87b258218a]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register 325b9f49ecdf3e6db46600f5fd1a8ed2]
+date_width=101
+trans-num_width=50
+reconcile_width=18
+transfer_width=213
+debit_width=88
+credit_width=88
+reg-run-balance_width=88
+
+[Register dcd1f9b501edd7aa8537d1fbb9eb48d0]
+date_width=101
+trans-num_width=50
+reconcile_width=18
+transfer_width=213
+debit_width=88
+credit_width=88
+reg-run-balance_width=88
+
+[Register eeb1018b29f18fceb3e3533d11963b7b]
+date_width=101
+trans-num_width=50
+reconcile_width=18
+transfer_width=213
+debit_width=88
+credit_width=88
+reg-run-balance_width=88
+
+[Register cf00b7a7820e4bf5ebe1acfc5098075f]
+date_width=101
+trans-num_width=50
+reconcile_width=18
+transfer_width=213
+debit_width=88
+credit_width=88
+reg-run-balance_width=88
+
+[Register 1e98481d448764f978950ce2a666f69c]
+date_width=101
+trans-num_width=50
+reconcile_width=18
+transfer_width=213
+debit_width=88
+credit_width=88
+reg-run-balance_width=88
+
+[Register c925e6a23c2abe28f088c3559cefbb48]
+date_width=101
+trans-num_width=50
+reconcile_width=18
+transfer_width=213
+debit_width=88
+credit_width=88
+reg-run-balance_width=88
+
+[Register d2c1aa41fa8e119417b2aee748b984b4]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register 69a706a9e6cf91629ad09f8d81cab3b2]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register 4a9223f7e35e3dacafd95d5062d7a114]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register 8b6980992b9bb8af9fb3ef1e5f5702e6]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register 386f4f35858f3046b974202a6d637c44]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
 [Window 1]
 PageCount=1
 FirstPage=1
@@ -407,8 +524,6 @@ PageName=Accounts
 AccountTypes=-1
 ShowHidden=false
 ShowZeroTotal=true
-SelectedAccount=Income:Irene
+SelectedAccount=Assets:Vanguard
 OpenAccount1=Assets
-OpenAccount2=Assets:Deutsche Bank
-OpenAccount3=Income
-NumberOfOpenAccounts=3
+NumberOfOpenAccounts=1
