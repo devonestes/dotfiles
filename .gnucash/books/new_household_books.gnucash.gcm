@@ -507,13 +507,22 @@ transfer_width=213
 debit_width=88
 credit_width=88
 
+[Register 953737c390836ca06a14cdfd92b4890a]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
 [Window 1]
 PageCount=1
 FirstPage=1
 PageOrder=1;
-WindowPosition=0;0;
-WindowGeometry=1600;835;
-WindowMaximized=true
+WindowPosition=1920;0;
+WindowGeometry=1600;1015;
+WindowMaximized=false
 ToolbarVisible=true
 SummarybarVisible=true
 StatusbarVisible=true
@@ -524,6 +533,7 @@ PageName=Accounts
 AccountTypes=-1
 ShowHidden=false
 ShowZeroTotal=true
-SelectedAccount=Assets:Vanguard
+SelectedAccount=Assets:Deutsche Bank:Household
 OpenAccount1=Assets
-NumberOfOpenAccounts=1
+OpenAccount2=Assets:Deutsche Bank
+NumberOfOpenAccounts=2
