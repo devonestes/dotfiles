@@ -128,6 +128,7 @@ alias pw="cd ~/sandbox/potion/apps/potion_web"
 alias ppr="cd ~/sandbox/potion_proxy"
 alias heroku_deploy="git push heroku master -f && heroku run \"POOL_SIZE=2 mix ecto.migrate\""
 alias dropbox_upload="rclone sync /home/devon/Dropbox/save_stuff dropbox:save_stuff"
+alias vpn="sudo openvpn --config /etc/openvpn/do_vpn.conf"
 
 ###########################
 # CUSTOM SCRIPTS
@@ -239,6 +240,11 @@ windows() {
     xdotool search --onlyvisible --class terminator | xargs -I{} ~/resize_window.sh right {}
   fi
 }
+
+###################
+## TWITTER PRUNE ##
+###################
+ruby ~/sandbox/save_stuff/twitter_prune.rb
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/devon/sandbox/google-cloud-sdk/path.zsh.inc' ]; then source '/home/devon/sandbox/google-cloud-sdk/path.zsh.inc'; fi

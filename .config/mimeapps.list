@@ -122,6 +122,9 @@ x-scheme-handler/webcal=google-chrome.desktop
 x-scheme-handler/discord-424004941485572097=discord-424004941485572097.desktop
 x-scheme-handler/tg=telegramdesktop.desktop
 x-scheme-handler/mailto=google-chrome.desktop
+application/x-colpkg=anki.desktop
+application/x-apkg=anki.desktop
+application/x-ankiaddon=anki.desktop
 
 [Added Associations]
 text/plain=vim.desktop;
@@ -238,3 +241,4 @@ image/x-icb=xviewer.desktop;
 image/x-ico=xviewer.desktop;
 image/x-png=xviewer.desktop;
 application/pdf=google-chrome.desktop;
+application/json=gvim.desktop;
