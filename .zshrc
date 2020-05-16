@@ -241,11 +241,6 @@ windows() {
   fi
 }
 
-###################
-## TWITTER PRUNE ##
-###################
-ruby ~/sandbox/save_stuff/twitter_prune.rb
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/devon/sandbox/google-cloud-sdk/path.zsh.inc' ]; then source '/home/devon/sandbox/google-cloud-sdk/path.zsh.inc'; fi
 

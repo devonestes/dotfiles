@@ -576,6 +576,42 @@ tax-info_visible=false
 tax-info_width=0
 placeholder_visible=false
 
+[Register 6d1f4b7bd08deffd69a84949005879fe]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register 0cb0387c88308b775082ae5573004936]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register a6ea8b88670da03183959796efd888c9]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register d5c389b21992910a4359b45ecb3e83ae]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
 [Window 1]
 PageCount=1
 FirstPage=1
@@ -593,4 +629,5 @@ PageName=Accounts
 AccountTypes=-1
 ShowHidden=false
 ShowZeroTotal=true
-NumberOfOpenAccounts=0
+OpenAccount1=Assets
+NumberOfOpenAccounts=1
