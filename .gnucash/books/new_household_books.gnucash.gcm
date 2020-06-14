@@ -197,7 +197,7 @@ credit_width=88
 
 [Budget de0dfef3d51fd4a37473bf0f8b62a417]
 column_order=name;type;commodity;account-code;description;lastnum;present;present_report;balance;balance_report;balance-period;cleared;cleared_report;reconciled;reconciled_report;last-recon-date;future_min;future_min_report;total;total_report;total-period;account-color;notes;tax-info;placeholder;
-name_width=810
+name_width=823
 type_visible=false
 type_width=0
 commodity_visible=false
@@ -612,6 +612,69 @@ transfer_width=213
 debit_width=88
 credit_width=88
 
+[Register 9ae7893e08cf08025ee7e91f0a130865]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register e6a2538a9d1d9f6ca5adc339cfae3b3f]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register d2ebfee873d803319085d350f02ad743]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register 37a0450854553a2e5accfdd2ded8661a]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register b9f462d2639e151b0e01f5936241aaad]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register d271755d49a3a13eff149765f646bb9c]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register 0f732fc553e39a14c54d50f251371b64]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
 [Window 1]
 PageCount=1
 FirstPage=1
@@ -629,5 +692,7 @@ PageName=Accounts
 AccountTypes=-1
 ShowHidden=false
 ShowZeroTotal=true
+SelectedAccount=Expenses:Rent
 OpenAccount1=Assets
-NumberOfOpenAccounts=1
+OpenAccount2=Expenses
+NumberOfOpenAccounts=2
