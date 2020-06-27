@@ -141,8 +141,8 @@ set splitright
 " Split horizontal with <leader>-s
 nnoremap <leader>s :split<CR>
 
-" Add some custom words to avoid common misspellings
-iab bandwith bandwidth
+" Split in new tab with <leader>-t
+nnoremap <leader>t :tab split<CR>
 
 " Add shortcut for pulling line up to previous line
 nnoremap <leader>J kJx

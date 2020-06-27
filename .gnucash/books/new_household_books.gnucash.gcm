@@ -94,7 +94,7 @@ notes_width=0
 tax-info_visible=false
 tax-info_width=0
 placeholder_visible=false
-name_width=212
+name_width=270
 
 [Register 6856b5a28301edeb1275d7c35053e53b]
 date_width=101
@@ -675,6 +675,24 @@ transfer_width=213
 debit_width=88
 credit_width=88
 
+[Register 6c03391d323571fac792289cb2d5e2d8]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register 0c49fccc19cf9d1fa0d674f0c47d7c22]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
 [Window 1]
 PageCount=1
 FirstPage=1
@@ -692,8 +710,5 @@ PageName=Accounts
 AccountTypes=-1
 ShowHidden=false
 ShowZeroTotal=true
-SelectedAccount=Assets:Liquid:N26
 OpenAccount1=Assets
-OpenAccount2=Assets:Liquid
-OpenAccount3=Assets:Liquid:Deutsche Bank
-NumberOfOpenAccounts=3
+NumberOfOpenAccounts=1
