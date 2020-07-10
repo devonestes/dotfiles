@@ -197,7 +197,7 @@ credit_width=88
 
 [Budget de0dfef3d51fd4a37473bf0f8b62a417]
 column_order=name;type;commodity;account-code;description;lastnum;present;present_report;balance;balance_report;balance-period;cleared;cleared_report;reconciled;reconciled_report;last-recon-date;future_min;future_min_report;total;total_report;total-period;account-color;notes;tax-info;placeholder;
-name_width=823
+name_width=836
 type_visible=false
 type_width=0
 commodity_visible=false
@@ -711,4 +711,5 @@ AccountTypes=-1
 ShowHidden=false
 ShowZeroTotal=true
 OpenAccount1=Assets
-NumberOfOpenAccounts=1
+OpenAccount2=Liabilities
+NumberOfOpenAccounts=2

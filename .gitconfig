@@ -15,3 +15,5 @@
 	excludesfile = /home/devon/.gitignore.global
 [pager]
 	branch = false
+[pull]
+	rebease = false
