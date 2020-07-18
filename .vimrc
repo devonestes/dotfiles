@@ -25,6 +25,7 @@ Plug 'KabbAmine/zeavim.vim'
 Plug 'tpope/vim-projectionist'
 Plug 'neomake/neomake'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'gleam-lang/gleam.vim'
 
 " Run Neomake when I open or save any buffer
 augroup localneomake
