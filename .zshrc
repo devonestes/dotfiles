@@ -112,7 +112,7 @@ alias be='bundle exec'
 alias edit_crontab='env EDITOR=nano crontab -e'
 alias sandbox="cd ~/sandbox"
 alias save_stuff="cd ~/sandbox/save_stuff"
-alias gpo='git pull origin master'
+alias gpo='if [[ $(git branch -r | grep "origin.main") ]]; then; git pull origin main; else; git pull origin master; fi'
 alias nand='cd ~/sandbox/nand2tetris'
 alias psql='pgcli -h 0.0.0.0'
 alias gb='git branch -v'
@@ -156,8 +156,13 @@ upd() {
 }
 
 update_repo() {
-  git checkout master
-  git pull origin master
+  if [[ $(git branch -r | grep "origin.main") ]]; then;
+    git checkout main
+    git pull origin main
+  else
+    git checkout master
+    git pull origin master
+  fi
   git_prune
 }
 
@@ -167,7 +172,11 @@ gitcf() {
 }
 
 git_prune() {
-  git_prune_branch "master"
+  if [[ $(git branch -r | grep "origin.main") ]]; then;
+    git_prune_branch "main"
+  else
+    git_prune_branch "master"
+  fi
 }
 
 git_prune_branch() {
@@ -178,9 +187,15 @@ git_prune_branch() {
 }
 
 gitpu() {
-  git checkout master
-  git pull upstream master
-  git push origin master
+  if [[ $(git branch -r | grep "origin.main") ]]; then
+    git checkout main
+    git pull upstream main
+    git push origin main
+  else
+    git checkout master
+    git pull upstream master
+    git push origin master
+  fi
   git_prune
 }
 
