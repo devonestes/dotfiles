@@ -40,5 +40,17 @@
         "name": "DuckDuckGo",
         "trigger": "dd ",
         "url": "https://duckduckgo.com/?q=%s"
+    },
+    {
+        "iconPath": "/home/devon/.config/albert/org.albert.extension.websearch/{1e0081d7-24fd-441c-89ba-955e1abc9f27}.",
+        "name": "GH Notifications",
+        "trigger": "not",
+        "url": "https://github.com/notifications"
+    },
+    {
+        "iconPath": "/home/devon/.config/albert/org.albert.extension.websearch/{e0bee488-06ab-4200-80a0-06b8196efe70}.",
+        "name": "GH PRs",
+        "trigger": "pu",
+        "url": "https://github.com/pulls"
     }
 ]
