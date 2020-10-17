@@ -2,23 +2,21 @@
 
 load test_helpers
 
-. $(dirname $BATS_TEST_DIRNAME)/lib/commands/update.sh
-. $(dirname $BATS_TEST_DIRNAME)/lib/commands/reshim.sh
-. $(dirname $BATS_TEST_DIRNAME)/lib/commands/install.sh
-. $(dirname $BATS_TEST_DIRNAME)/lib/commands/uninstall.sh
-
 setup() {
-  setup_asdf_dir
-  install_dummy_plugin
+  BASE_DIR=$(mktemp -dt asdf.XXXX)
+  HOME=$BASE_DIR/home
+  ASDF_DIR=$HOME/.asdf
+  git clone -o local "$(dirname "$BATS_TEST_DIRNAME")" "$ASDF_DIR"
+  git --git-dir "$ASDF_DIR/.git" remote add origin https://github.com/asdf-vm/asdf.git
+  mkdir -p "$ASDF_DIR/plugins"
+  mkdir -p "$ASDF_DIR/installs"
+  mkdir -p "$ASDF_DIR/shims"
+  mkdir -p "$ASDF_DIR/tmp"
+  ASDF_BIN="$ASDF_DIR/bin"
 
-  # Copy over git repo so we have something to test with
-  cp -r .git $ASDF_DIR
-  (
-  cd $ASDF_DIR
-  git remote remove origin
-  git remote add origin https://github.com/asdf-vm/asdf.git
-  git checkout .
-  )
+  # shellcheck disable=SC2031
+  PATH=$ASDF_BIN:$ASDF_DIR/shims:$PATH
+  install_dummy_plugin
 
   PROJECT_DIR=$HOME/project
   mkdir $PROJECT_DIR
@@ -28,52 +26,82 @@ teardown() {
   clean_asdf_dir
 }
 
-@test "update_command --head should checkout the master branch" {
-  run update_command --head
+@test "asdf update --head should checkout the master branch" {
+  run asdf update --head
   [ "$status" -eq 0 ]
   cd $ASDF_DIR
-  # TODO: Figure out why this is failing
-  #[ $(git rev-parse --abbrev-ref HEAD) = "master" ]
+  [ $(git rev-parse --abbrev-ref HEAD) = "master" ]
 }
 
-@test "update_command should checkout the latest tag" {
-  run update_command
+@test "asdf update should checkout the latest non-RC tag" {
+  local tag=$(git tag | grep -vi "rc" | tail -1)
+  run asdf update
   [ "$status" -eq 0 ]
   cd $ASDF_DIR
-  local tag=$(git describe --tag)
-  echo $(git tag) | grep $tag
-  [ "$status" -eq 0 ]
+  git tag | grep $tag
+  [ "$?" -eq 0 ]
 }
 
-@test "update_command should not remove plugin versions" {
-  run install_command dummy 1.1
+@test "asdf update should checkout the latest tag when configured with use_release_candidates = yes" {
+  local tag=$(git tag | tail -1)
+  export ASDF_CONFIG_DEFAULT_FILE=$BATS_TMPDIR/asdfrc_defaults
+  echo "use_release_candidates = yes" > $ASDF_CONFIG_DEFAULT_FILE
+  run asdf update
+  [ "$status" -eq 0 ]
+  cd $ASDF_DIR
+  git tag | grep $tag
+  [ "$?" -eq 0 ]
+}
+
+@test "asdf update is a noop for when updates are disabled" {
+  touch $ASDF_DIR/asdf_updates_disabled
+  run asdf update
+  [ "$status" -eq 42 ]
+  [ "$(echo -e "Update command disabled. Please use the package manager that you used to install asdf to upgrade asdf.")" == "$output" ]
+}
+
+@test "asdf update is a noop for non-git repos" {
+  rm -rf $ASDF_DIR/.git/
+  run asdf update
+  [ "$status" -eq 42 ]
+  [ "$(echo -e "Update command disabled. Please use the package manager that you used to install asdf to upgrade asdf.")" == "$output" ]
+}
+
+@test "asdf update fails with exit code 1" {
+  git --git-dir "$ASDF_DIR/.git" remote set-url origin https://this-host-does-not-exist.xyz
+  run asdf update
+  [ "$status" -eq 1 ]
+}
+
+@test "asdf update should not remove plugin versions" {
+  run asdf install dummy 1.1
   [ "$status" -eq 0 ]
   [ $(cat $ASDF_DIR/installs/dummy/1.1/version) = "1.1" ]
-  run update_command
+  run asdf update
   [ "$status" -eq 0 ]
   [ -f $ASDF_DIR/installs/dummy/1.1/version ]
-  run update_command --head
+  run asdf update --head
   [ "$status" -eq 0 ]
   [ -f $ASDF_DIR/installs/dummy/1.1/version ]
 }
 
-@test "update_command should not remove plugins" {
+@test "asdf update should not remove plugins" {
   # dummy plugin is already installed
-  run update_command
+  run asdf update
   [ "$status" -eq 0 ]
   [ -d $ASDF_DIR/plugins/dummy ]
-  run update_command --head
+  run asdf update --head
   [ "$status" -eq 0 ]
   [ -d $ASDF_DIR/plugins/dummy ]
 }
 
-@test "update_command should not remove shims" {
-  run install_command dummy 1.1
+@test "asdf update should not remove shims" {
+  run asdf install dummy 1.1
   [ -f $ASDF_DIR/shims/dummy ]
-  run update_command
+  run asdf update
   [ "$status" -eq 0 ]
   [ -f $ASDF_DIR/shims/dummy ]
-  run update_command --head
+  run asdf update --head
   [ "$status" -eq 0 ]
   [ -f $ASDF_DIR/shims/dummy ]
 }

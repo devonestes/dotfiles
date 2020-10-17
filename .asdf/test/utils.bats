@@ -10,21 +10,69 @@ setup() {
 
   PROJECT_DIR=$HOME/project
   mkdir -p $PROJECT_DIR
+
+  cd $HOME
 }
 
 teardown() {
   clean_asdf_dir
 }
 
+@test "get_install_path should output version path when version is provided" {
+  run get_install_path foo version "1.0.0"
+  [ "$status" -eq 0 ]
+  install_path=${output#$HOME/}
+  [ "$install_path" = ".asdf/installs/foo/1.0.0" ]
+}
+
+@test "get_install_path should output custom path when custom install type is provided" {
+  run get_install_path foo custom "1.0.0"
+  [ "$status" -eq 0 ]
+  install_path=${output#$HOME/}
+  [ "$install_path" = ".asdf/installs/foo/custom-1.0.0" ]
+}
+
+@test "get_install_path should output path when path version is provided" {
+  run get_install_path foo path "/some/path"
+  [ "$status" -eq 0 ]
+  [ "$output" = "/some/path" ]
+}
+
+@test "get_download_path should output version path when version is provided" {
+  run get_download_path foo version "1.0.0"
+  [ "$status" -eq 0 ]
+  download_path=${output#$HOME/}
+  echo $download_path
+  [ "$download_path" = ".asdf/downloads/foo/1.0.0" ]
+}
+
+@test "get_download_path should output custom path when custom download type is provided" {
+  run get_download_path foo custom "1.0.0"
+  [ "$status" -eq 0 ]
+  download_path=${output#$HOME/}
+  [ "$download_path" = ".asdf/downloads/foo/custom-1.0.0" ]
+}
+
+@test "get_download_path should output nothing when path version is provided" {
+  run get_download_path foo path "/some/path"
+  [ "$status" -eq 0 ]
+  [ "$output" = "" ]
+}
+
 @test "check_if_version_exists should exit with 1 if plugin does not exist" {
   run check_if_version_exists "inexistent" "1.0.0"
   [ "$status" -eq 1 ]
-  [ "$output" = "No such plugin" ]
+  [ "$output" = "No such plugin: inexistent" ]
 }
 
 @test "check_if_version_exists should exit with 1 if version does not exist" {
   run check_if_version_exists "dummy" "1.0.0"
   [ "$status" -eq 1 ]
+}
+
+@test "version_not_installed_text is correct" {
+  run version_not_installed_text "dummy" "1.0.0"
+  [ "$status" -eq 0 ]
   [ "$output" = "version 1.0.0 is not installed for dummy" ]
 }
 
@@ -79,49 +127,108 @@ teardown() {
 }
 
 @test "parse_asdf_version_file should output path version with spaces" {
-    echo "dummy path:/some/dummy path" > $PROJECT_DIR/.tool-versions
-    run parse_asdf_version_file $PROJECT_DIR/.tool-versions dummy
-    [ "$status" -eq 0 ]
-    [ "$output" == "path:/some/dummy path" ]
+  echo "dummy path:/some/dummy path" > $PROJECT_DIR/.tool-versions
+  run parse_asdf_version_file $PROJECT_DIR/.tool-versions dummy
+  [ "$status" -eq 0 ]
+  [ "$output" == "path:/some/dummy path" ]
 }
 
-@test "find_version should return .tool-versions if legacy is disabled" {
+@test "find_versions should return .tool-versions if legacy is disabled" {
   echo "dummy 0.1.0" > $PROJECT_DIR/.tool-versions
   echo "0.2.0" > $PROJECT_DIR/.dummy-version
 
-  run find_version "dummy" $PROJECT_DIR
+  run find_versions "dummy" $PROJECT_DIR
   [ "$status" -eq 0 ]
   [ "$output" = "0.1.0|$PROJECT_DIR/.tool-versions" ]
 }
 
-@test "find_version should return the legacy file if supported" {
+@test "find_versions should return the legacy file if supported" {
   echo "legacy_version_file = yes" > $HOME/.asdfrc
   echo "dummy 0.1.0" > $HOME/.tool-versions
   echo "0.2.0" > $PROJECT_DIR/.dummy-version
 
-  run find_version "dummy" $PROJECT_DIR
+  run find_versions "dummy" $PROJECT_DIR
   [ "$status" -eq 0 ]
   [ "$output" = "0.2.0|$PROJECT_DIR/.dummy-version" ]
 }
 
-@test "find_version skips .tool-version file that don't list the plugin" {
+@test "find_versions skips .tool-version file that don't list the plugin" {
   echo "dummy 0.1.0" > $HOME/.tool-versions
   echo "another_plugin 0.3.0" > $PROJECT_DIR/.tool-versions
 
-  run find_version "dummy" $PROJECT_DIR
+  run find_versions "dummy" $PROJECT_DIR
   [ "$status" -eq 0 ]
   [ "$output" = "0.1.0|$HOME/.tool-versions" ]
 }
 
-@test "find_version should return .tool-versions if unsupported" {
+@test "find_versions should return .tool-versions if unsupported" {
   echo "dummy 0.1.0" > $HOME/.tool-versions
   echo "0.2.0" > $PROJECT_DIR/.dummy-version
   echo "legacy_version_file = yes" > $HOME/.asdfrc
   rm $ASDF_DIR/plugins/dummy/bin/list-legacy-filenames
 
-  run find_version "dummy" $PROJECT_DIR
+  run find_versions "dummy" $PROJECT_DIR
   [ "$status" -eq 0 ]
   [ "$output" = "0.1.0|$HOME/.tool-versions" ]
+}
+
+@test "find_versions should return the version set by envrionment variable" {
+  export ASDF_DUMMY_VERSION=0.2.0
+
+  run find_versions "dummy" $PROJECT_DIR
+  [ "$status" -eq 0 ]
+  echo $output
+  [ "$output" = "0.2.0|ASDF_DUMMY_VERSION environment variable" ]
+}
+
+@test "asdf_data_dir should return user dir if configured" {
+  ASDF_DATA_DIR="/tmp/wadus"
+
+  run asdf_data_dir
+  [ "$status" -eq 0 ]
+  [ "$output" = "$ASDF_DATA_DIR" ]
+}
+
+@test "asdf_data_dir should return ~/.asdf when ASDF_DATA_DIR is not set" {
+  unset ASDF_DATA_DIR
+
+  run asdf_data_dir
+  [ "$status" -eq 0 ]
+  [ "$output" = "$HOME/.asdf" ]
+}
+
+@test "check_if_plugin_exists should work with a custom data directory" {
+  ASDF_DATA_DIR=$HOME/asdf-data
+
+  mkdir -p "$ASDF_DATA_DIR/plugins"
+  mkdir -p "$ASDF_DATA_DIR/installs"
+
+  install_mock_plugin "dummy2" "$ASDF_DATA_DIR"
+  install_mock_plugin_version "dummy2" "0.1.0" "$ASDF_DATA_DIR"
+
+  run check_if_plugin_exists "dummy2"
+  [ "$status" -eq 0 ]
+  [ "$output" = "" ]
+}
+
+@test "find_versions should return \$ASDF_DEFAULT_TOOL_VERSIONS_FILENAME if set" {
+  ASDF_DEFAULT_TOOL_VERSIONS_FILENAME="$PROJECT_DIR/global-tool-versions"
+  echo "dummy 0.1.0" > $ASDF_DEFAULT_TOOL_VERSIONS_FILENAME
+
+  run find_versions "dummy" $PROJECT_DIR
+  [ "$status" -eq 0 ]
+  [ "$output" = "0.1.0|$ASDF_DEFAULT_TOOL_VERSIONS_FILENAME" ]
+}
+
+@test "find_versions should check \$HOME legacy files before \$ASDF_DEFAULT_TOOL_VERSIONS_FILENAME" {
+  ASDF_DEFAULT_TOOL_VERSIONS_FILENAME="$PROJECT_DIR/global-tool-versions"
+  echo "dummy 0.2.0" > $ASDF_DEFAULT_TOOL_VERSIONS_FILENAME
+  echo "dummy 0.1.0" > $HOME/.dummy-version
+  echo "legacy_version_file = yes" > $HOME/.asdfrc
+
+  run find_versions "dummy" $PROJECT_DIR
+  [ "$status" -eq 0 ]
+  [[ "$output" =~ "0.1.0|$HOME/.dummy-version" ]]
 }
 
 @test "get_preset_version_for returns the current version" {
@@ -206,4 +313,127 @@ teardown() {
   run get_executable_path "foo" "ref:master" "bin/dummy"
   [ "$status" -eq 0 ]
   [ "$output" = "$executable_path" ]
+}
+
+@test "find_tool_versions will find a .tool-versions path if it exists in current directory" {
+  echo "dummy 0.1.0" > $PROJECT_DIR/.tool-versions
+  cd $PROJECT_DIR
+
+  run find_tool_versions
+  [ "$status" -eq 0 ]
+  [ "$output" = "$PROJECT_DIR/.tool-versions" ]
+}
+
+@test "find_tool_versions will find a .tool-versions path if it exists in parent directory" {
+  echo "dummy 0.1.0" > $PROJECT_DIR/.tool-versions
+  mkdir -p $PROJECT_DIR/child
+  cd $PROJECT_DIR/child
+
+  run find_tool_versions
+  [ "$status" -eq 0 ]
+  [ "$output" = "$PROJECT_DIR/.tool-versions" ]
+}
+
+@test "get_version_from_env returns the version set in the environment variable" {
+  export ASDF_DUMMY_VERSION=0.1.0
+  run get_version_from_env 'dummy'
+
+  [ "$status" -eq 0 ]
+  [ "$output" = '0.1.0' ]
+}
+
+@test "get_version_from_env returns nothing when environment variable is not set" {
+  run get_version_from_env 'dummy'
+
+  [ "$status" -eq 0 ]
+  [ "$output" = '' ]
+}
+
+@test "resolve_symlink converts the symlink path to the real file path" {
+  touch foo
+  ln -s $(pwd)/foo bar
+
+  run resolve_symlink bar
+  [ "$status" -eq 0 ]
+  echo $status
+  [ "$output" = $(pwd)/foo ]
+  rm -f foo bar
+}
+
+@test "resolve_symlink converts relative symlink path to the real file path" {
+  touch foo
+  ln -s foo bar
+
+  run resolve_symlink bar
+  [ "$status" -eq 0 ]
+  echo $status
+  [ "$output" = $(pwd)/foo ]
+  rm -f foo bar
+}
+
+@test "strip_tool_version_comments removes lines that only contain comments" {
+  cat <<EOF > test_file
+# comment line
+ruby 2.0.0
+EOF
+  run strip_tool_version_comments test_file
+  [ "$status" -eq 0 ]
+  [ "$output" = "ruby 2.0.0" ]
+}
+@test "strip_tool_version_comments removes lines that only contain comments even with missing newline" {
+  echo -n "# comment line" > test_file
+  run strip_tool_version_comments test_file
+  [ "$status" -eq 0 ]
+  [ "$output" = "" ]
+}
+
+@test "strip_tool_version_comments removes trailing comments on lines containing version information" {
+  cat <<EOF > test_file
+ruby 2.0.0 # inline comment
+EOF
+  run strip_tool_version_comments test_file
+  [ "$status" -eq 0 ]
+  [ "$output" = "ruby 2.0.0" ]
+}
+
+@test "strip_tool_version_comments removes trailing comments on lines containing version information even with missing newline" {
+  echo -n "ruby 2.0.0 # inline comment" > test_file
+  run strip_tool_version_comments test_file
+  [ "$status" -eq 0 ]
+  [ "$output" = "ruby 2.0.0" ]
+}
+
+@test "strip_tool_version_comments removes all comments from the version file" {
+  cat <<EOF > test_file
+ruby 2.0.0 # inline comment
+# comment line
+erlang 18.2.1 # inline comment
+EOF
+  expected="$(cat <<EOF
+ruby 2.0.0
+erlang 18.2.1
+EOF
+)"
+  run strip_tool_version_comments test_file
+  [ "$status" -eq 0 ]
+  [ "$output" = "$expected" ]
+}
+
+@test "with_shim_executable doesn't crash when executable names contain dashes" {
+  cd $PROJECT_DIR
+  echo "dummy 0.1.0" > $PROJECT_DIR/.tool-versions
+  mkdir -p $ASDF_DIR/installs/dummy/0.1.0/bin
+  touch $ASDF_DIR/installs/dummy/0.1.0/bin/test-dash
+  chmod +x $ASDF_DIR/installs/dummy/0.1.0/bin/test-dash
+  run asdf reshim dummy 0.1.0
+
+  message="callback invoked"
+
+  function callback() {
+    echo $message
+  }
+
+  run with_shim_executable test-dash callback
+  [ "$status" -eq 0 ]
+  [ "$output" = "$message" ]
 }

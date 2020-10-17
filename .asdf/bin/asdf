@@ -1,97 +1,87 @@
 #!/usr/bin/env bash
 
-source $(dirname $(dirname $0))/lib/utils.sh
+# shellcheck source=lib/utils.bash
+source "$(dirname "$(dirname "$0")")/lib/utils.bash"
 
-source $(dirname $(dirname $0))/lib/commands/help.sh
-source $(dirname $(dirname $0))/lib/commands/update.sh
-source $(dirname $(dirname $0))/lib/commands/install.sh
-source $(dirname $(dirname $0))/lib/commands/uninstall.sh
-source $(dirname $(dirname $0))/lib/commands/current.sh
-source $(dirname $(dirname $0))/lib/commands/where.sh
-source $(dirname $(dirname $0))/lib/commands/which.sh
-source $(dirname $(dirname $0))/lib/commands/version_commands.sh
-source $(dirname $(dirname $0))/lib/commands/list.sh
-source $(dirname $(dirname $0))/lib/commands/list-all.sh
-source $(dirname $(dirname $0))/lib/commands/reshim.sh
-source $(dirname $(dirname $0))/lib/commands/plugin-add.sh
-source $(dirname $(dirname $0))/lib/commands/plugin-list.sh
-source $(dirname $(dirname $0))/lib/commands/plugin-list-all.sh
-source $(dirname $(dirname $0))/lib/commands/plugin-update.sh
-source $(dirname $(dirname $0))/lib/commands/plugin-remove.sh
+find_cmd() {
+  local cmd_dir="$1"
+  shift
 
-source $(dirname $(dirname $0))/lib/commands/plugin-push.sh
-source $(dirname $(dirname $0))/lib/commands/plugin-test.sh
+  local cmd_name
+  local args_offset="$#"
+  cmd_name="command-$(echo "${@:1:${args_offset}}" | tr ' ' '-').bash"
+  while [ ! -f "$cmd_dir/$cmd_name" ] && [ "$args_offset" -gt 0 ]; do
+    args_offset=$((args_offset - 1))
+    cmd_name="command-$(echo "${@:1:${args_offset}}" | tr ' ' '-').bash"
+  done
 
+  if [ -f "$cmd_dir/$cmd_name" ]; then
+    echo "$cmd_dir/$cmd_name" "$((args_offset + 1))"
+  elif [ -f "$cmd_dir/command.bash" ]; then
+    echo "$cmd_dir/command.bash" 1
+  fi
+}
 
-callback_args="${@:2}"
+find_asdf_cmd() {
+  local asdf_cmd_dir
+  asdf_cmd_dir="$(asdf_dir)/lib/commands"
+  case "$1" in
+  'exec' | 'current' | 'env' | 'global' | 'install' | 'latest' | 'local' | \
+    'reshim' | 'uninstall' | 'update' | 'where' | 'which' | \
+    'export-shell-version')
+    echo "$asdf_cmd_dir/command-$1.bash" 2
+    ;;
 
-case $1 in
+  '' | '--help' | '-h' | 'help')
+    echo "$asdf_cmd_dir/command-help.bash" 2
+    ;;
 
-"--version")
-  asdf_version $callback_args;;
+  '--version' | 'version')
+    echo "$asdf_cmd_dir/command-version.bash" 2
+    ;;
 
-"help")
-    help_command $callback_args;;
+  *)
+    find_cmd "$asdf_cmd_dir" "$@"
+    ;;
+  esac
+}
 
-"update")
-    update_command $callback_args;;
+find_plugin_cmd() {
+  local ASDF_CMD_FILE args_offset
+  if [ -d "$(get_plugin_path "$1")/bin" ]; then
+    IFS=' ' read -r ASDF_CMD_FILE args_offset <<<"$(find_cmd "$(get_plugin_path "$1")/lib/commands" "${@:2}")"
+    if [ -n "$ASDF_CMD_FILE" ]; then
+      args_offset=$((args_offset + 1)) # since the first argument is the plugin name
+      echo "$ASDF_CMD_FILE" "$args_offset"
+    fi
+  fi
+}
 
-"install")
-    install_command $callback_args;;
+asdf_cmd() {
+  local ASDF_CMD_FILE args_offset
 
-"uninstall")
-    uninstall_command $callback_args;;
+  if [ "shell" == "$1" ]; then
+    echo "Shell integration is not enabled. Please ensure you source asdf in your shell setup." >&2
+    exit 1
+  fi
 
-"current")
-    current_command $callback_args;;
+  IFS=' ' read -r ASDF_CMD_FILE args_offset <<<"$(find_asdf_cmd "$@")"
+  if [ -z "$ASDF_CMD_FILE" ]; then
+    IFS=' ' read -r ASDF_CMD_FILE args_offset <<<"$(find_plugin_cmd "$@")"
+  fi
 
-"where")
-    where_command $callback_args;;
+  if [ -x "$ASDF_CMD_FILE" ]; then
+    exec "$ASDF_CMD_FILE" "${@:${args_offset}}"
+  elif [ -f "$ASDF_CMD_FILE" ]; then
+    set -- "${@:${args_offset}}"
+    source "$ASDF_CMD_FILE"
+  else
+    local asdf_cmd_dir
+    asdf_cmd_dir="$(asdf_dir)/lib/commands"
+    echo "Unknown command: \`asdf ${*}\`" >&2
+    source "$asdf_cmd_dir/command-help.bash" >&2
+    return 127
+  fi
+}
 
-"which")
-    which_command $callback_args;;
-
-"local")
-    local_command $callback_args;;
-
-"global")
-    global_command $callback_args;;
-
-"list")
-    list_command $callback_args;;
-
-"list-all")
-    list_all_command $callback_args;;
-
-"shim")
-    shim_command $callback_args;;
-
-"reshim")
-    reshim_command $callback_args;;
-
-"plugin-add")
-    plugin_add_command $callback_args;;
-
-"plugin-list")
-    plugin_list_command $callback_args;;
-
-"plugin-list-all")
-    plugin_list_all_command $callback_args;;
-
-"plugin-update")
-    plugin_update_command $callback_args;;
-
-"plugin-remove")
-    plugin_remove_command $callback_args;;
-
-# Undocumented commands for development
-"plugin-push")
-    plugin_push_command $callback_args;;
-
-"plugin-test")
-    plugin_test_command $callback_args;;
-
-*)
-  help_command
-  exit 1;;
-esac
+asdf_cmd "$@"

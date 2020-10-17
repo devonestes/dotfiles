@@ -202,13 +202,13 @@ debit_width=79
 credit_width=79
 
 [Register b8311bd45a542d573154bb64f552afb1]
-date_width=92
+date_width=140
 num_width=45
 reconcile_width=17
 balance_width=79
 transfer_width=200
 debit_width=79
-credit_width=79
+credit_width=117
 
 [Register 4d941a1cb3cc7085f9c06fe39b0c724c]
 date_width=92
@@ -373,13 +373,13 @@ debit_width=79
 credit_width=79
 
 [Register 6a2d94e92dba2fe0428eb29ebf5ad842]
-date_width=92
+date_width=128
 num_width=45
 reconcile_width=17
 balance_width=79
 transfer_width=200
-debit_width=79
-credit_width=79
+debit_width=113
+credit_width=71
 
 [Register eda2b8b204366bd7758428d85148f10c]
 date_width=92
@@ -544,11 +544,11 @@ debit_width=88
 credit_width=88
 
 [Window 1]
-PageCount=1
+PageCount=2
 FirstPage=1
-PageOrder=1;
+PageOrder=2;1;
 WindowPosition=0;0;
-WindowGeometry=1600;835;
+WindowGeometry=1600;829;
 WindowMaximized=true
 ToolbarVisible=true
 SummarybarVisible=true
@@ -560,7 +560,15 @@ PageName=Accounts
 AccountTypes=-1
 ShowHidden=false
 ShowZeroTotal=true
-SelectedAccount=Income:Devon
+SelectedAccount=Income:Irene
 OpenAccount1=Assets
 OpenAccount2=Income
 NumberOfOpenAccounts=2
+
+[Page 2]
+PageType=GncPluginPageRegister
+PageName=Irene
+RegisterType=Account
+AccountName=Income:Irene
+RegisterStyle=Ledger
+DoubleLineMode=false

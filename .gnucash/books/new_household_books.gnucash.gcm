@@ -1,11 +1,10 @@
 [Register ac5d0d9320dd58e6a0a824e0dedaa9a9]
-date_width=101
+date_width=146
 num_width=50
-reconcile_width=18
 balance_width=88
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=138
+credit_width=70
 
 [Register d95b89329077429b11f0481ebd3b10b8]
 date_width=101
@@ -197,7 +196,7 @@ credit_width=88
 
 [Budget de0dfef3d51fd4a37473bf0f8b62a417]
 column_order=name;type;commodity;account-code;description;lastnum;present;present_report;balance;balance_report;balance-period;cleared;cleared_report;reconciled;reconciled_report;last-recon-date;future_min;future_min_report;total;total_report;total-period;account-color;notes;tax-info;placeholder;
-name_width=836
+name_width=862
 type_visible=false
 type_width=0
 commodity_visible=false
@@ -256,12 +255,12 @@ debit_width=88
 credit_width=88
 
 [Register 00000000000000000000000000000000]
-date_width=101
-trans-num_width=50
-reconcile_width=18
-transfer_width=213
-debit_width=88
-credit_width=88
+date_width=145
+trans-num_width=63
+reconcile_width=67
+transfer_width=504
+debit_width=125
+credit_width=110
 reg-run-balance_width=88
 
 [Register 436c296eb60f5c1b39434737993039c9]
@@ -382,13 +381,13 @@ debit_width=88
 credit_width=88
 
 [Register 9fb773646a4538bd7089024dfbfcbe32]
-date_width=101
-num_width=50
-reconcile_width=18
+date_width=133
+num_width=80
+reconcile_width=36
 balance_width=88
-transfer_width=213
-debit_width=88
-credit_width=88
+transfer_width=433
+debit_width=112
+credit_width=110
 
 [Register 2d0b8ed02fd4e112aa06d2874267a387]
 date_width=101
@@ -577,7 +576,7 @@ tax-info_width=0
 placeholder_visible=false
 
 [Register 6d1f4b7bd08deffd69a84949005879fe]
-date_width=101
+date_width=167
 num_width=50
 reconcile_width=18
 balance_width=88
@@ -595,7 +594,7 @@ debit_width=88
 credit_width=88
 
 [Register a6ea8b88670da03183959796efd888c9]
-date_width=101
+date_width=140
 num_width=50
 reconcile_width=18
 balance_width=88
@@ -604,13 +603,13 @@ debit_width=88
 credit_width=88
 
 [Register d5c389b21992910a4359b45ecb3e83ae]
-date_width=101
+date_width=152
 num_width=50
-reconcile_width=18
+reconcile_width=52
 balance_width=88
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=150
+credit_width=104
 
 [Register 9ae7893e08cf08025ee7e91f0a130865]
 date_width=101
@@ -693,13 +692,85 @@ transfer_width=213
 debit_width=88
 credit_width=88
 
+[Register 247e51e5001b486c019dee8d19784e63]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register 29cdc2d68b9f8b1b891cd4bc97a3849f]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register 9295f8ec6e060dd488339f0f6ea3a57f]
+date_width=101
+num_width=50
+reconcile_width=18
+balance_width=88
+transfer_width=213
+debit_width=88
+credit_width=88
+
+[Register a7c009ab23dfd3899557febbb9dea0c7]
+date_width=135
+num_width=65
+reconcile_width=22
+balance_width=119
+transfer_width=295
+debit_width=119
+credit_width=119
+
+[Register 2928c79e065ff9eef96334cfb3b2fb60]
+date_width=135
+num_width=65
+reconcile_width=22
+balance_width=119
+transfer_width=295
+debit_width=119
+credit_width=119
+
+[Register e053fb74e14c7286897b34bc0f8557f1]
+date_width=135
+num_width=65
+reconcile_width=22
+balance_width=119
+transfer_width=295
+debit_width=119
+credit_width=119
+
+[Register 698b5da05b9119f6514782ce02fec659]
+date_width=135
+num_width=65
+reconcile_width=22
+balance_width=119
+transfer_width=295
+debit_width=119
+credit_width=119
+
+[Register 8abc45a6f59b4e2ecf7eb7a9a2ee8267]
+date_width=135
+num_width=65
+reconcile_width=22
+balance_width=119
+transfer_width=295
+debit_width=119
+credit_width=119
+
 [Window 1]
-PageCount=1
+PageCount=2
 FirstPage=1
-PageOrder=1;
-WindowPosition=0;0;
-WindowGeometry=1600;835;
-WindowMaximized=true
+PageOrder=2;1;
+WindowPosition=1920;0;
+WindowGeometry=1600;1009;
+WindowMaximized=false
 ToolbarVisible=true
 SummarybarVisible=true
 StatusbarVisible=true
@@ -710,6 +781,15 @@ PageName=Accounts
 AccountTypes=-1
 ShowHidden=false
 ShowZeroTotal=true
+SelectedAccount=Assets:Liquid:N26
 OpenAccount1=Assets
-OpenAccount2=Liabilities
+OpenAccount2=Assets:Liquid
 NumberOfOpenAccounts=2
+
+[Page 2]
+PageType=GncPluginPageRegister
+PageName=N26
+RegisterType=Account
+AccountName=Assets:Liquid:N26
+RegisterStyle=Ledger
+DoubleLineMode=false

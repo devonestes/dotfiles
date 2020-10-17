@@ -3,11 +3,21 @@
       xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
       xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
 >
-  <bookmark href="file:///home/devon/sandbox/testmetrics/assets/static/images" added="2018-12-30T12:01:19Z" modified="2018-12-30T12:01:19Z" visited="2018-12-30T12:01:19.025188Z">
+  <bookmark href="file:///home/devon/Downloads" added="2020-08-27T17:53:32Z" modified="2020-08-27T17:53:32Z" visited="2020-08-27T17:53:32.479033Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <bookmark:applications>
-          <bookmark:application name="Pix" exec="&apos;pix %u&apos;" modified="2018-12-30T12:01:19Z" count="1"/>
+          <bookmark:application name="Pix" exec="&apos;pix %u&apos;" modified="2020-08-27T17:53:32Z" count="1"/>
+        </bookmark:applications>
+        <bookmark:private/>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/devon/sandbox/testmetrics/assets/static/images" added="2020-08-27T17:53:32Z" modified="2020-08-27T17:53:32Z" visited="2020-08-27T17:53:32.479039Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="Pix" exec="&apos;pix %u&apos;" modified="2020-08-27T17:53:32Z" count="1"/>
         </bookmark:applications>
         <bookmark:private/>
       </metadata>

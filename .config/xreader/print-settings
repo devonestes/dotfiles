@@ -3,7 +3,21 @@ xreader-print-setting-page-scale=1
 xreader-print-setting-page-autorotate=true
 xreader-print-setting-page-size=false
 output-file-format=pdf
-printer=Print to File
+printer=EPSON_ET_2750_Series
+
+cover-after=none
+print-at=now
+print-at-time=
+duplex=simplex
+cups-Duplex=None
+cups-job-sheets=none,none
+cups-ColorModel=RGB
+cups-cupsPrintQuality=Normal
+cups-MediaType=Stationery
+cups-job-priority=50
+media-type=Stationery
+cover-before=none
+cups-number-up=1
 
 [Page Setup]
 PPDName=A4

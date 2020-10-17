@@ -95,7 +95,6 @@ xcape -e 'Control_L=Escape'
 # Path for asdf
 # Path to your oh-my-zsh installation.
 . $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
 
 # Path for Heroku
 test -d /usr/local/heroku/ && export PATH="/usr/local/heroku/bin:$PATH"
@@ -237,6 +236,15 @@ blog() {
   vim .
 }
 
+update_zeal() {
+  cd ~/sandbox/ex_doc_zeal
+  for package in bamboo benchee bypass decimal ecto ecto_sql ex_machina phoenix phoenix_html timex wallaby
+  do
+    ./generate.sh $package
+  done
+  cd -
+}
+
 windows() {
   if [[ $(xwininfo -root | awk '$1=="Width:" {print $2}') -gt "2000" ]]; then
     for visible_window in $(xdotool search --onlyvisible --desktop 0 --class .)
@@ -245,6 +253,7 @@ windows() {
     done
 
     xdotool search --onlyvisible --class spotify | xargs -I{} ~/resize_window.sh other {}
+    xdotool search --onlyvisible --class telegram | xargs -I{} ~/resize_window.sh right {}
     xdotool search --onlyvisible --class terminator | xargs -I{} ~/resize_window.sh right {}
   else
     for visible_window in $(xdotool search --onlyvisible --desktop 0 --class .)
@@ -252,6 +261,7 @@ windows() {
       ~/resize_window.sh left "$visible_window"
     done
 
+    xdotool search --onlyvisible --class telegram | xargs -I{} ~/resize_window.sh right {}
     xdotool search --onlyvisible --class terminator | xargs -I{} ~/resize_window.sh right {}
   fi
 }

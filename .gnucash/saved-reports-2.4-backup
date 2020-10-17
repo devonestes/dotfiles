@@ -275,15 +275,10 @@
 (let ((option (gnc:lookup-option options
                                  "Accounts"
                                  "Accounts")))
-  ((lambda (option) (if option ((gnc:option-setter option) '("9a61a3759a4b8476b61fabb134ac8512")))) option))
+  ((lambda (option) (if option ((gnc:option-setter option) '("9a61a3759a4b8476b61fabb134ac8512" "2c739d92e0163de7438c612fa148fc60")))) option))
 
 
 ; Section: Display
-
-(let ((option (gnc:lookup-option options
-                                 "Display"
-                                 "Use Stacked Bars")))
-  ((lambda (option) (if option ((gnc:option-setter option) #f))) option))
 
 (let ((option (gnc:lookup-option options
                                  "Display"
