@@ -1,19 +1,20 @@
 [Register ac5d0d9320dd58e6a0a824e0dedaa9a9]
-date_width=146
+date_width=120
 num_width=50
-balance_width=88
-transfer_width=213
-debit_width=138
-credit_width=70
+balance_width=120
+transfer_width=300
+debit_width=120
+credit_width=120
+reconcile_width=25
 
 [Register d95b89329077429b11f0481ebd3b10b8]
-date_width=101
+date_width=120
 num_width=50
-reconcile_width=18
-balance_width=88
-transfer_width=213
-debit_width=88
-credit_width=88
+balance_width=120
+transfer_width=300
+debit_width=120
+credit_width=120
+reconcile_width=25
 
 [Top]
 BookGuid=e25ab74398ad5b3f9106d3d8842d40c9
@@ -96,107 +97,107 @@ placeholder_visible=false
 name_width=270
 
 [Register 6856b5a28301edeb1275d7c35053e53b]
-date_width=101
+date_width=120
 num_width=50
-reconcile_width=18
-balance_width=88
-transfer_width=213
-debit_width=88
-credit_width=88
+balance_width=120
+transfer_width=300
+debit_width=120
+credit_width=120
+reconcile_width=25
 
 [Register 9effc194220ca36c92a13dc6253f262f]
-date_width=101
+date_width=120
 num_width=50
-reconcile_width=18
-balance_width=88
-transfer_width=213
-debit_width=88
-credit_width=88
+balance_width=120
+transfer_width=300
+debit_width=120
+credit_width=120
+reconcile_width=25
 
 [Register a453d1b0b5e362881c6ba3c0a633e905]
-date_width=101
+date_width=120
 num_width=50
-reconcile_width=18
-balance_width=88
-transfer_width=213
-debit_width=88
-credit_width=88
+balance_width=120
+transfer_width=300
+debit_width=120
+credit_width=120
+reconcile_width=25
 
 [Register b207ec3f77836ed339c99fc47fef9833]
-date_width=101
+date_width=120
 num_width=50
-reconcile_width=18
-balance_width=88
-transfer_width=213
-debit_width=88
-credit_width=88
+balance_width=120
+transfer_width=300
+debit_width=120
+credit_width=120
+reconcile_width=25
 
 [Register 4555eaa446071fb3c7757a6d5addf580]
-date_width=101
+date_width=120
 num_width=50
-reconcile_width=18
-balance_width=88
-transfer_width=213
-debit_width=88
-credit_width=88
+balance_width=120
+transfer_width=300
+debit_width=120
+credit_width=120
+reconcile_width=25
 
 [Register 3eb124fe4f9b96f0efe3acf0458ab2b6]
-date_width=101
+date_width=120
 num_width=50
-reconcile_width=18
-balance_width=88
-transfer_width=213
-debit_width=88
-credit_width=88
+balance_width=120
+transfer_width=300
+debit_width=120
+credit_width=120
+reconcile_width=25
 
 [Register 3c5f8a9b31847226b3728f445a02b7cf]
-date_width=101
+date_width=120
 num_width=50
-reconcile_width=18
-balance_width=88
-transfer_width=213
-debit_width=88
-credit_width=88
+balance_width=120
+transfer_width=300
+debit_width=120
+credit_width=120
+reconcile_width=25
 
 [Register 98a670145b0ade36c61f5344ff541230]
-date_width=101
+date_width=120
 num_width=50
-reconcile_width=18
-balance_width=88
-transfer_width=213
-debit_width=88
-credit_width=88
+balance_width=120
+transfer_width=300
+debit_width=120
+credit_width=120
+reconcile_width=25
 
 [Register aa7fa9742d957873b646c9d71653898f]
-date_width=101
+date_width=120
 num_width=50
-reconcile_width=18
-balance_width=88
-transfer_width=213
-debit_width=88
-credit_width=88
+balance_width=120
+transfer_width=300
+debit_width=120
+credit_width=120
+reconcile_width=25
 
 [Register dde8b7f2a1d4f683c9d346a9bfb4c8c9]
-date_width=101
+date_width=120
 num_width=50
-reconcile_width=18
-balance_width=88
-transfer_width=213
-debit_width=88
-credit_width=88
+balance_width=120
+transfer_width=300
+debit_width=120
+credit_width=120
+reconcile_width=25
 
 [Register d5ff5ce60d2a2ad4751bbefcdf7a6629]
-date_width=101
+date_width=120
 num_width=50
-reconcile_width=18
-balance_width=88
-transfer_width=213
-debit_width=88
-credit_width=88
+balance_width=120
+transfer_width=300
+debit_width=120
+credit_width=120
+reconcile_width=25
 
 [Budget de0dfef3d51fd4a37473bf0f8b62a417]
 column_order=name;type;commodity;account-code;description;lastnum;present;present_report;balance;balance_report;balance-period;cleared;cleared_report;reconciled;reconciled_report;last-recon-date;future_min;future_min_report;total;total_report;total-period;account-color;notes;tax-info;placeholder;
-name_width=862
+name_width=888
 type_visible=false
 type_width=0
 commodity_visible=false
@@ -246,13 +247,13 @@ tax-info_width=0
 placeholder_visible=false
 
 [Register 3556d3374675c22b8f995e9e793fda3b]
-date_width=101
+date_width=120
 num_width=50
-reconcile_width=18
-balance_width=88
-transfer_width=213
-debit_width=88
-credit_width=88
+balance_width=120
+transfer_width=300
+debit_width=120
+credit_width=120
+reconcile_width=25
 
 [Register 00000000000000000000000000000000]
 date_width=145
@@ -261,268 +262,268 @@ reconcile_width=67
 transfer_width=504
 debit_width=125
 credit_width=110
-reg-run-balance_width=88
+reg-run-balance_width=120
 
 [Register 436c296eb60f5c1b39434737993039c9]
-date_width=101
+date_width=120
 num_width=50
-reconcile_width=18
-balance_width=88
-transfer_width=213
-debit_width=88
-credit_width=88
+balance_width=120
+transfer_width=300
+debit_width=120
+credit_width=120
+reconcile_width=25
 
 [Register c141374aff7f04639e7a13b4424f7538]
-date_width=101
+date_width=120
 num_width=50
-reconcile_width=18
-balance_width=88
-transfer_width=213
-debit_width=88
-credit_width=88
+balance_width=120
+transfer_width=300
+debit_width=120
+credit_width=120
+reconcile_width=25
 
 [Register 11dbb47489ee429017ef83edb2e62cab]
-date_width=101
-reconcile_width=18
+date_width=135
+reconcile_width=25
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 trans-num_width=50
-reg-run-balance_width=88
+reg-run-balance_width=120
 
 [Register 68cb46a7c7adf1f9bf859383375e927c]
-date_width=101
+date_width=120
 num_width=50
-reconcile_width=18
-balance_width=88
-transfer_width=213
-debit_width=88
-credit_width=88
+balance_width=120
+transfer_width=300
+debit_width=120
+credit_width=120
+reconcile_width=25
 
 [Register ac918547cc1928918e8ff3ebc721aed7]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register 0ff0fa519c40001e04df2329d0d70308]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register 428f87a82d521c3a6c0763599b73fafa]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register 529bbfffdf97b62ff80a4ebb40b27251]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register 58230380f2074db794f3e169f3e2b3ae]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register fe7bf1f355bd65c59c61866656d84898]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register 2d3c9c78789684503d0a297c0a04808a]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register 36c55d7981cca867fd64665412250a04]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register 81958db26a17466a1c2212e8dbb9b00f]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register 9fb773646a4538bd7089024dfbfcbe32]
 date_width=133
 num_width=80
 reconcile_width=36
-balance_width=88
+balance_width=120
 transfer_width=433
 debit_width=112
 credit_width=110
 
 [Register 2d0b8ed02fd4e112aa06d2874267a387]
-date_width=101
+date_width=135
 trans-num_width=50
-reconcile_width=18
+reconcile_width=25
 transfer_width=213
-debit_width=88
-credit_width=88
-reg-run-balance_width=88
+debit_width=120
+credit_width=120
+reg-run-balance_width=120
 
 [Register 00add3d76e5f1f09d3f81b87b258218a]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register 325b9f49ecdf3e6db46600f5fd1a8ed2]
-date_width=101
+date_width=135
 trans-num_width=50
-reconcile_width=18
+reconcile_width=25
 transfer_width=213
-debit_width=88
-credit_width=88
-reg-run-balance_width=88
+debit_width=120
+credit_width=120
+reg-run-balance_width=120
 
 [Register dcd1f9b501edd7aa8537d1fbb9eb48d0]
-date_width=101
+date_width=135
 trans-num_width=50
-reconcile_width=18
+reconcile_width=25
 transfer_width=213
-debit_width=88
-credit_width=88
-reg-run-balance_width=88
+debit_width=120
+credit_width=120
+reg-run-balance_width=120
 
 [Register eeb1018b29f18fceb3e3533d11963b7b]
-date_width=101
+date_width=135
 trans-num_width=50
-reconcile_width=18
+reconcile_width=25
 transfer_width=213
-debit_width=88
-credit_width=88
-reg-run-balance_width=88
+debit_width=120
+credit_width=120
+reg-run-balance_width=120
 
 [Register cf00b7a7820e4bf5ebe1acfc5098075f]
-date_width=101
+date_width=135
 trans-num_width=50
-reconcile_width=18
+reconcile_width=25
 transfer_width=213
-debit_width=88
-credit_width=88
-reg-run-balance_width=88
+debit_width=120
+credit_width=120
+reg-run-balance_width=120
 
 [Register 1e98481d448764f978950ce2a666f69c]
-date_width=101
+date_width=135
 trans-num_width=50
-reconcile_width=18
+reconcile_width=25
 transfer_width=213
-debit_width=88
-credit_width=88
-reg-run-balance_width=88
+debit_width=120
+credit_width=120
+reg-run-balance_width=120
 
 [Register c925e6a23c2abe28f088c3559cefbb48]
-date_width=101
+date_width=135
 trans-num_width=50
-reconcile_width=18
+reconcile_width=25
 transfer_width=213
-debit_width=88
-credit_width=88
-reg-run-balance_width=88
+debit_width=120
+credit_width=120
+reg-run-balance_width=120
 
 [Register d2c1aa41fa8e119417b2aee748b984b4]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register 69a706a9e6cf91629ad09f8d81cab3b2]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register 4a9223f7e35e3dacafd95d5062d7a114]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register 8b6980992b9bb8af9fb3ef1e5f5702e6]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register 386f4f35858f3046b974202a6d637c44]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register 953737c390836ca06a14cdfd92b4890a]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register 14960398606cb2b5cda95740eb96fe0f]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Budget 8beb05f667ba9a8337726b18ad645867]
 column_order=name;type;commodity;account-code;description;lastnum;present;present_report;balance;balance_report;balance-period;cleared;cleared_report;reconciled;reconciled_report;last-recon-date;future_min;future_min_report;total;total_report;total-period;account-color;notes;tax-info;placeholder;
@@ -578,146 +579,146 @@ placeholder_visible=false
 [Register 6d1f4b7bd08deffd69a84949005879fe]
 date_width=167
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register 0cb0387c88308b775082ae5573004936]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register a6ea8b88670da03183959796efd888c9]
 date_width=140
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register d5c389b21992910a4359b45ecb3e83ae]
 date_width=152
 num_width=50
 reconcile_width=52
-balance_width=88
+balance_width=120
 transfer_width=213
 debit_width=150
 credit_width=104
 
 [Register 9ae7893e08cf08025ee7e91f0a130865]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register e6a2538a9d1d9f6ca5adc339cfae3b3f]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register d2ebfee873d803319085d350f02ad743]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register 37a0450854553a2e5accfdd2ded8661a]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register b9f462d2639e151b0e01f5936241aaad]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register d271755d49a3a13eff149765f646bb9c]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register 0f732fc553e39a14c54d50f251371b64]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register 6c03391d323571fac792289cb2d5e2d8]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register 0c49fccc19cf9d1fa0d674f0c47d7c22]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register 247e51e5001b486c019dee8d19784e63]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register 29cdc2d68b9f8b1b891cd4bc97a3849f]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register 9295f8ec6e060dd488339f0f6ea3a57f]
-date_width=101
+date_width=135
 num_width=50
-reconcile_width=18
-balance_width=88
+reconcile_width=25
+balance_width=120
 transfer_width=213
-debit_width=88
-credit_width=88
+debit_width=120
+credit_width=120
 
 [Register a7c009ab23dfd3899557febbb9dea0c7]
 date_width=135
@@ -764,10 +765,37 @@ transfer_width=295
 debit_width=119
 credit_width=119
 
+[Register fffabfb3a281ffade8ce9d4a187e988d]
+date_width=135
+num_width=65
+reconcile_width=22
+balance_width=119
+transfer_width=295
+debit_width=119
+credit_width=119
+
+[Register 05bd66009e04b7b4d0ede6e815e4d3bf]
+date_width=135
+num_width=65
+reconcile_width=22
+balance_width=119
+transfer_width=295
+debit_width=119
+credit_width=119
+
+[Register c348130c42d83789cacf259bb7b01751]
+date_width=135
+num_width=65
+reconcile_width=22
+balance_width=119
+transfer_width=295
+debit_width=119
+credit_width=119
+
 [Window 1]
-PageCount=2
+PageCount=1
 FirstPage=1
-PageOrder=2;1;
+PageOrder=1;
 WindowPosition=1920;0;
 WindowGeometry=1600;1009;
 WindowMaximized=false
@@ -781,15 +809,7 @@ PageName=Accounts
 AccountTypes=-1
 ShowHidden=false
 ShowZeroTotal=true
-SelectedAccount=Assets:Liquid:N26
 OpenAccount1=Assets
 OpenAccount2=Assets:Liquid
-NumberOfOpenAccounts=2
-
-[Page 2]
-PageType=GncPluginPageRegister
-PageName=N26
-RegisterType=Account
-AccountName=Assets:Liquid:N26
-RegisterStyle=Ledger
-DoubleLineMode=false
+OpenAccount3=Assets:Liquid:Deutsche Bank
+NumberOfOpenAccounts=3

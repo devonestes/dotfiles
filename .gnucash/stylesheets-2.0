@@ -26,8 +26,33 @@
 
 ; Section: Tables
 
+(let ((option (gnc:lookup-option options
+                                 "Tables"
+                                 "Table cell padding")))
+  ((lambda (option) (if option ((gnc:option-setter option) 5.0))) option))
+
 
 ; Section: Fonts
+
+(let ((option (gnc:lookup-option options
+                                 "Fonts"
+                                 "Number header")))
+  ((lambda (option) (if option ((gnc:option-setter option) "Ubuntu 12"))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "Fonts"
+                                 "Text cell")))
+  ((lambda (option) (if option ((gnc:option-setter option) "Ubuntu 12"))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "Fonts"
+                                 "Account link")))
+  ((lambda (option) (if option ((gnc:option-setter option) "Ubuntu Italic 12"))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "Fonts"
+                                 "Number cell")))
+  ((lambda (option) (if option ((gnc:option-setter option) "Ubuntu 12"))) option))
 
 
 ; Section: Colors
