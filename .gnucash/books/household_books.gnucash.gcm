@@ -125,7 +125,7 @@ credit_width=79
 
 [Budget 473ccb869e48d28e6396bd5c05013f70]
 column_order=name;type;commodity;account-code;description;lastnum;present;present_report;balance;balance_report;balance-period;cleared;cleared_report;reconciled;reconciled_report;last-recon-date;future_min;future_min_report;total;total_report;total-period;account-color;notes;tax-info;placeholder;
-name_width=737
+name_width=750
 type_visible=false
 type_width=0
 commodity_visible=false
@@ -544,12 +544,12 @@ debit_width=88
 credit_width=88
 
 [Window 1]
-PageCount=2
+PageCount=1
 FirstPage=1
-PageOrder=2;1;
-WindowPosition=0;0;
-WindowGeometry=1600;829;
-WindowMaximized=true
+PageOrder=1;
+WindowPosition=1920;0;
+WindowGeometry=1600;1009;
+WindowMaximized=false
 ToolbarVisible=true
 SummarybarVisible=true
 StatusbarVisible=true
@@ -564,11 +564,3 @@ SelectedAccount=Income:Irene
 OpenAccount1=Assets
 OpenAccount2=Income
 NumberOfOpenAccounts=2
-
-[Page 2]
-PageType=GncPluginPageRegister
-PageName=Irene
-RegisterType=Account
-AccountName=Income:Irene
-RegisterStyle=Ledger
-DoubleLineMode=false

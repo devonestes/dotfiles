@@ -1,0 +1,9 @@
+{
+    "settings": {
+        "bwtest": false,
+        "key": "j688-djfp-b5v1-c0pt-0kzp",
+        "server": "rtmp://b.rtmp.youtube.com/live2?backup=1",
+        "service": "YouTube - RTMP"
+    },
+    "type": "rtmp_common"
+}

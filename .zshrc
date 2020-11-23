@@ -92,9 +92,7 @@ xcape -e 'Control_L=Escape'
 # PATH VARIABLES
 ###########################
 
-# Path for asdf
-# Path to your oh-my-zsh installation.
-. $HOME/.asdf/asdf.sh
+
 
 # Path for Heroku
 test -d /usr/local/heroku/ && export PATH="/usr/local/heroku/bin:$PATH"
@@ -272,6 +270,11 @@ if [ -f '/home/devon/sandbox/google-cloud-sdk/path.zsh.inc' ]; then source '/hom
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/devon/sandbox/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/devon/sandbox/google-cloud-sdk/completion.zsh.inc'; fi
 if [ /home/devon/sandbox/google-cloud-sdk/bin/kubectl ]; then source <(kubectl completion zsh); fi
+
+# Path for asdf
+# Path to your oh-my-zsh installation.
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
 
 # Magic command to make opening vim with ctrl-click:
 #

@@ -197,7 +197,7 @@ reconcile_width=25
 
 [Budget de0dfef3d51fd4a37473bf0f8b62a417]
 column_order=name;type;commodity;account-code;description;lastnum;present;present_report;balance;balance_report;balance-period;cleared;cleared_report;reconciled;reconciled_report;last-recon-date;future_min;future_min_report;total;total_report;total-period;account-color;notes;tax-info;placeholder;
-name_width=888
+name_width=652
 type_visible=false
 type_width=0
 commodity_visible=false
@@ -792,6 +792,42 @@ transfer_width=295
 debit_width=119
 credit_width=119
 
+[Register 697970b55adbc02a769b4ff3e1db0f83]
+date_width=135
+num_width=65
+reconcile_width=22
+balance_width=119
+transfer_width=295
+debit_width=119
+credit_width=119
+
+[Register 962210c531442322bec96fe5b8e603c4]
+date_width=135
+num_width=65
+reconcile_width=22
+balance_width=119
+transfer_width=295
+debit_width=119
+credit_width=119
+
+[Register 10785153f805b5ad0e75780f5eee8e9f]
+date_width=135
+num_width=65
+reconcile_width=22
+balance_width=119
+transfer_width=295
+debit_width=119
+credit_width=119
+
+[Register 8b7b649decc3f6ad9ee89ccf64bb48ec]
+date_width=135
+num_width=65
+reconcile_width=22
+balance_width=119
+transfer_width=295
+debit_width=119
+credit_width=119
+
 [Window 1]
 PageCount=1
 FirstPage=1
@@ -811,5 +847,5 @@ ShowHidden=false
 ShowZeroTotal=true
 OpenAccount1=Assets
 OpenAccount2=Assets:Liquid
-OpenAccount3=Assets:Liquid:Deutsche Bank
+OpenAccount3=Liabilities
 NumberOfOpenAccounts=3
