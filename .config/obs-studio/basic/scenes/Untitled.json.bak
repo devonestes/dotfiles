@@ -4,33 +4,6 @@
         "deinterlace_field_order": 0,
         "deinterlace_mode": 0,
         "enabled": true,
-        "filters": [
-            {
-                "balance": 0.5,
-                "deinterlace_field_order": 0,
-                "deinterlace_mode": 0,
-                "enabled": true,
-                "flags": 0,
-                "hotkeys": {},
-                "id": "noise_suppress_filter",
-                "mixers": 255,
-                "monitoring_type": 0,
-                "muted": false,
-                "name": "Noise Suppression",
-                "prev_ver": 436207618,
-                "private_settings": {},
-                "push-to-mute": false,
-                "push-to-mute-delay": 0,
-                "push-to-talk": false,
-                "push-to-talk-delay": 0,
-                "settings": {
-                    "method": "speex"
-                },
-                "sync": 0,
-                "versioned_id": "noise_suppress_filter_v2",
-                "volume": 1.0
-            }
-        ],
         "flags": 0,
         "hotkeys": {
             "libobs.mute": [],
@@ -50,7 +23,7 @@
         "push-to-talk": false,
         "push-to-talk-delay": 0,
         "settings": {
-            "device_id": "default"
+            "device_id": "alsa_input.usb-Solid_State_System_Co._Ltd._FIFINE_K669_Microphone_000000000000-00.analog-mono"
         },
         "sync": 0,
         "versioned_id": "pulse_input_capture",
@@ -154,6 +127,32 @@
             "enabled": true,
             "flags": 0,
             "hotkeys": {},
+            "id": "xcomposite_input",
+            "mixers": 0,
+            "monitoring_type": 0,
+            "muted": false,
+            "name": "slide_deck",
+            "prev_ver": 436207618,
+            "private_settings": {},
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "settings": {
+                "capture_window": "138412200\r\nlocalhost:4000/mutation_testing/#20 - Google Chrome\r\ngoogle-chrome",
+                "swap_redblue": true
+            },
+            "sync": 0,
+            "versioned_id": "xcomposite_input",
+            "volume": 1.0
+        },
+        {
+            "balance": 0.5,
+            "deinterlace_field_order": 0,
+            "deinterlace_mode": 0,
+            "enabled": true,
+            "flags": 0,
+            "hotkeys": {},
             "id": "v4l2_input",
             "mixers": 0,
             "monitoring_type": 0,
@@ -166,9 +165,10 @@
             "push-to-talk": false,
             "push-to-talk-delay": 0,
             "settings": {
-                "device_id": "/dev/video0",
+                "device_id": "/dev/video4",
                 "input": 0,
-                "pixelformat": 861030210
+                "pixelformat": 842094169,
+                "resolution": 83887040
             },
             "sync": 0,
             "versioned_id": "v4l2_input",
@@ -211,8 +211,10 @@
                 "OBSBasic.SelectScene": [],
                 "libobs.hide_scene_item.Terminal": [],
                 "libobs.hide_scene_item.Video Capture Device (V4L2)": [],
+                "libobs.hide_scene_item.slide_deck": [],
                 "libobs.show_scene_item.Terminal": [],
-                "libobs.show_scene_item.Video Capture Device (V4L2)": []
+                "libobs.show_scene_item.Video Capture Device (V4L2)": [],
+                "libobs.show_scene_item.slide_deck": []
             },
             "id": "scene",
             "mixers": 0,
@@ -227,8 +229,37 @@
             "push-to-talk-delay": 0,
             "settings": {
                 "custom_size": false,
-                "id_counter": 4,
+                "id_counter": 6,
                 "items": [
+                    {
+                        "align": 5,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_align": 0,
+                        "bounds_type": 0,
+                        "crop_bottom": 0,
+                        "crop_left": 0,
+                        "crop_right": 0,
+                        "crop_top": 0,
+                        "group_item_backup": false,
+                        "id": 6,
+                        "locked": false,
+                        "name": "slide_deck",
+                        "pos": {
+                            "x": 2.0,
+                            "y": -78.0
+                        },
+                        "private_settings": {},
+                        "rot": 0.0,
+                        "scale": {
+                            "x": 0.89812499284744263,
+                            "y": 0.89799809455871582
+                        },
+                        "scale_filter": "disable",
+                        "visible": true
+                    },
                     {
                         "align": 5,
                         "bounds": {
@@ -247,16 +278,16 @@
                         "name": "Terminal",
                         "pos": {
                             "x": 0.0,
-                            "y": 0.0
+                            "y": 77.0
                         },
                         "private_settings": {},
                         "rot": 0.0,
                         "scale": {
-                            "x": 1.1456903219223022,
-                            "y": 1.1456860303878784
+                            "x": 1.0537500381469727,
+                            "y": 1.0531697273254395
                         },
                         "scale_filter": "disable",
-                        "visible": true
+                        "visible": false
                     },
                     {
                         "align": 5,
@@ -271,18 +302,18 @@
                         "crop_right": 0,
                         "crop_top": 0,
                         "group_item_backup": false,
-                        "id": 4,
+                        "id": 5,
                         "locked": false,
                         "name": "Video Capture Device (V4L2)",
                         "pos": {
-                            "x": 564.0,
-                            "y": 153.0
+                            "x": 1104.0,
+                            "y": 621.0
                         },
                         "private_settings": {},
                         "rot": 0.0,
                         "scale": {
-                            "x": 1.3687499761581421,
-                            "y": 1.3687499761581421
+                            "x": 0.26249998807907104,
+                            "y": 0.26249998807907104
                         },
                         "scale_filter": "disable",
                         "visible": true

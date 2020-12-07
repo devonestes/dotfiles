@@ -74,6 +74,9 @@ fi
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Make docker-compose happy
+export COMPOSE_TLS_VERSION=TLSv1_2
 #
 # Save iex history
 export ERL_AFLAGS="-kernel shell_history enabled"
@@ -110,22 +113,16 @@ alias edit_crontab='env EDITOR=nano crontab -e'
 alias sandbox="cd ~/sandbox"
 alias save_stuff="cd ~/sandbox/save_stuff"
 alias gpo='if [[ $(git branch -r | grep "origin.main") ]]; then; git pull origin main; else; git pull origin master; fi'
-alias nand='cd ~/sandbox/nand2tetris'
 alias psql='pgcli -h 0.0.0.0'
 alias gb='git branch -v'
 alias gl='git log'
 alias gs='git status'
 alias vim='vim -v -w ~/.vimlog "$@"'
-alias benchee="cd ~/sandbox/benchee"
-alias sketchql="cd ~/sandbox/sketchql"
 alias mc="iex -S mix"
-alias po="cd ~/sandbox/potion"
-alias pdb="cd ~/sandbox/potion/apps/potion_db"
-alias pw="cd ~/sandbox/potion/apps/potion_web"
-alias ppr="cd ~/sandbox/potion_proxy"
+alias pb="cd ~/sandbox/pitch-backend"
+alias gc="git commit --no-verify"
 alias heroku_deploy="git push heroku master -f && heroku run \"POOL_SIZE=2 mix ecto.migrate\""
 alias dropbox_upload="rclone sync /home/devon/Dropbox/save_stuff dropbox:save_stuff"
-alias vpn="sudo openvpn --config /etc/openvpn/do_vpn.conf"
 
 ###########################
 # CUSTOM SCRIPTS
@@ -147,8 +144,9 @@ typeless() {
 
 upd() {
   pwd=`pwd`
-  cd ~/sandbox/sketchql
-  update_repo
+  cd ~/sandbox/pitch-backend
+  git checkout master
+  git pull origin master
   cd $pwd
 }
 
@@ -164,8 +162,13 @@ update_repo() {
 }
 
 gitcf() {
-  git add .
-  git commit --no-verify --amend --no-edit
+  if [[ `pwd` == "/home/devon/sandbox/pitch-backend" ]]; then
+    git add .
+    git commit --no-verify -m 'small updates'
+  else
+    git add .
+    git commit --no-verify --amend --no-edit
+  fi
 }
 
 git_prune() {

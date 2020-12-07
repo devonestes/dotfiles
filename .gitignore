@@ -167,3 +167,5 @@ RetroPie/
 .config/gh/
 .config/transmission/
 .config/wireshark/
+.config/obs-studio/logs
+.config/obs-studio/profiler_data
