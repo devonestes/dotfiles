@@ -1,0 +1,233 @@
+" ###############################
+"          VUNDLE SETUP
+" ###############################
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'sheerun/vim-polyglot'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'Lokaltog/vim-powerline'
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-airline/vim-airline'
+Plug 'elixir-lang/vim-elixir'
+Plug 'KabbAmine/zeavim.vim'
+Plug 'tpope/vim-projectionist'
+Plug 'neomake/neomake'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'gleam-lang/gleam.vim'
+
+" Run Neomake when I open or save any buffer
+augroup localneomake
+  autocmd! BufWritePost * Neomake
+  autocmd! BufRead * Neomake
+augroup END
+
+let g:neomake_elixir_my_mix_maker = {
+\ 'exe' : 'mix',
+\ 'args': ['compile', '--warnings-as-errors', '--ignore-module-conflict'],
+\ 'postprocess': function('neomake#makers#ft#elixir#PostprocessEnforceMaxBufferLine'),
+\ 'errorformat':
+  \ '** %s %f:%l: %m,'.
+  \ '%Ewarning: %m,%C  %f:%l,%Z'
+\ }
+
+let g:neomake_elixir_my_credo_maker = {
+\ 'exe': 'mix',
+\ 'args': ['credo', 'list', '%:p', '--format=oneline'],
+\ 'postprocess': function('neomake#makers#ft#elixir#PostprocessCredo'),
+\ 'errorformat':
+    \'[%t] %. %f:%l:%c %m,' .
+    \'[%t] %. %f:%l %m'
+\ }
+
+let g:neomake_elixir_enabled_makers = ['my_mix', 'my_credo']
+let g:neomake_error_sign={'text': '‼️', 'texthl': 'ErrorMsg'}
+let g:neomake_warning_sign={'text': '⚠️', 'texthl': 'WarningMsg'}
+let g:neomake_info_sign={'text': '❓', 'texthl': 'InfoMsg'}
+
+call plug#end()
+
+" ######################
+"      CUSTOM SETUP
+" ######################
+
+" Leader
+let mapleader = ","
+
+set backspace=2   " Backspace deletes like most programs in insert mode
+set nobackup
+set nowritebackup
+set history=50
+set ruler         " show the cursor position all the time
+set showcmd       " display incomplete commands
+set laststatus=2  " Always display the status line
+set autowrite     " Automatically :write before running commands
+:au FocusLost * silent! wa   " Autosave all buffers when window loses focus
+set autoread      " Automatically refresh anytime something else changes a file
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
+set lazyredraw
+
+" Softtabs, 2 spaces
+set tabstop=2
+set shiftwidth=2
+set shiftround
+set expandtab
+
+" Search stuff
+set incsearch           " search as characters are entered
+set hlsearch            " highlight matches
+
+" Use one space, not two, after punctuation.
+set nojoinspaces
+
+" Make it obvious where 80 characters is
+set textwidth=98
+set colorcolumn=+1
+
+" Numbers
+set relativenumber
+set number
+set numberwidth=5
+
+" Spell check
+set spell spelllang=en_us
+
+" Folding
+nnoremap <leader>f zc
+nnoremap <leader>uf zo
+
+" Automatically delete trailing whitespace
+autocmd BufWritePre *.exs :%s/\s\+$//e
+autocmd BufWritePre *.ex :%s/\s\+$//e
+
+" Get off my lawn
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Down> ddp
+nnoremap <Up> ddkP
+
+vnoremap <Left> :echoe "Use h"<CR>
+vnoremap <Right> :echoe "Use l"<CR>
+vnoremap <Up> :echoe "Use k"<CR>
+vnoremap <Down> :echoe "Use j"<CR>
+
+" Space for colon in normal mode
+nnoremap <space> :
+
+" Open Zeal with <leader>-d
+nnoremap <leader>d :Zeavim<CR>
+
+" Toggle NERDTree with <leader>-nt
+nnoremap <leader>nt :NERDTreeToggle<CR>
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+" Split horizontal with <leader>-s
+nnoremap <leader>s :split<CR>
+
+" Split in new tab with <leader>-t
+nnoremap <leader>t :tab split<CR>
+
+" Add shortcut for pulling line up to previous line
+nnoremap <leader>J kJx
+
+" Goto next warning
+nnoremap <leader>ll :ll<CR>
+
+" Easier navigation between panes - Ctrl-h, Ctrl-j, Ctrl-k, & Ctrl-l
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Toggle paste and nopaste mode
+nnoremap <leader>p :set paste<CR>
+nnoremap <leader>np :set nopaste<CR>
+
+" Enabling Solarized dark color scheme
+syntax enable
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
+
+" Set clipboard to be system clipboard by default
+set clipboard=unnamedplus
+
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" Format the current buffer
+nnoremap <leader>mf :!mix format %<enter>:syntax sync fromstart<enter>:redraw!<enter>
+
+" #########################################
+" #########################################
+" ########### Elixir-LS Config ############
+" #########################################
+" #########################################
+
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+" Better display for messages
+set cmdheight=1
+
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+
+" Use K to show documentation in preview window
+nnoremap <leader>k :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+syntax on
+set syntax=dbout

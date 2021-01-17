@@ -260,8 +260,9 @@ date_width=145
 trans-num_width=63
 reconcile_width=67
 transfer_width=504
-credit-formula_width=180
-debit-formula_width=180
+debit_width=119
+credit_width=119
+reg-run-balance_width=119
 
 [Register 436c296eb60f5c1b39434737993039c9]
 date_width=120
@@ -287,8 +288,8 @@ reconcile_width=25
 transfer_width=213
 debit_width=120
 credit_width=120
-trans-num_width=50
-reg-run-balance_width=120
+num_width=65
+balance_width=119
 
 [Register 68cb46a7c7adf1f9bf859383375e927c]
 date_width=120
@@ -391,12 +392,12 @@ credit_width=110
 
 [Register 2d0b8ed02fd4e112aa06d2874267a387]
 date_width=135
-trans-num_width=50
 reconcile_width=25
 transfer_width=213
 debit_width=120
 credit_width=120
-reg-run-balance_width=120
+num_width=65
+balance_width=119
 
 [Register 00add3d76e5f1f09d3f81b87b258218a]
 date_width=135
@@ -829,7 +830,7 @@ credit_width=119
 
 [Budget c9902a29edd56c819e57750bef56905e]
 column_order=name;type;commodity;account-code;description;lastnum;present;present_report;balance;balance_report;balance-period;cleared;cleared_report;reconciled;reconciled_report;last-recon-date;future_min;future_min_report;total;total_report;total-period;account-color;notes;tax-info;placeholder;
-name_width=256
+name_width=321
 type_visible=false
 type_width=0
 commodity_visible=false
@@ -905,12 +906,30 @@ transfer_width=295
 debit_width=119
 credit_width=119
 
+[Register aa1e4850028f0cff38fa8c19d7b8100c]
+date_width=135
+num_width=65
+reconcile_width=22
+balance_width=119
+transfer_width=295
+debit_width=119
+credit_width=119
+
+[SX Transaction List]
+sort_column=next-occur
+column_order=name;enabled;frequency;last-occur;next-occur;
+name_width=259
+enabled_visible=true
+frequency_visible=true
+last-occur_visible=true
+next-occur_visible=true
+
 [Window 1]
-PageCount=2
+PageCount=1
 FirstPage=1
-PageOrder=2;1;
-WindowPosition=0;0;
-WindowGeometry=1440;739;
+PageOrder=1;
+WindowPosition=1920;0;
+WindowGeometry=1600;1009;
 WindowMaximized=false
 ToolbarVisible=true
 SummarybarVisible=true
@@ -922,16 +941,8 @@ PageName=Accounts
 AccountTypes=-1
 ShowHidden=false
 ShowZeroTotal=true
+SelectedAccount=Liabilities:AmEx
 OpenAccount1=Assets
 OpenAccount2=Assets:Liquid
-NumberOfOpenAccounts=2
-
-[Page 2]
-PageType=GncPluginPageBudget
-PageName=Budget: 2021 Budget
-Budget GncGUID=c9902a29edd56c819e57750bef56905e
-AccountTypes=-1
-ShowHidden=false
-ShowZeroTotal=true
-OpenAccount1=Expenses
-NumberOfOpenAccounts=1
+OpenAccount3=Liabilities
+NumberOfOpenAccounts=3

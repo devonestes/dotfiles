@@ -113,16 +113,19 @@ alias edit_crontab='env EDITOR=nano crontab -e'
 alias sandbox="cd ~/sandbox"
 alias save_stuff="cd ~/sandbox/save_stuff"
 alias gpo='if [[ $(git branch -r | grep "origin.main") ]]; then; git pull origin main; else; git pull origin master; fi'
-alias psql='pgcli -h 0.0.0.0'
+alias psql="PAGER='vim -R -u ~/.vimrcpg -' pgcli -h 0.0.0.0"
 alias gb='git branch -v'
 alias gl='git log'
 alias gs='git status'
 alias vim='vim -v -w ~/.vimlog "$@"'
 alias mc="iex -S mix"
 alias pb="cd ~/sandbox/pitch-backend"
+alias pbd="cd ~/sandbox/pitch-backend-2"
 alias gc="git commit --no-verify"
-alias heroku_deploy="git push heroku master -f && heroku run \"POOL_SIZE=2 mix ecto.migrate\""
+alias heroku_deploy='git push heroku master -f && heroku run "POOL_SIZE=2 mix ecto.migrate"'
 alias dropbox_upload="rclone sync /home/devon/Dropbox/save_stuff dropbox:save_stuff"
+alias pbcopy="tr --delete '\n' | xclip -selection c"
+alias 1pass="pass show 1password.com/devon@forzafc.football | tr --delete '\n' | xclip -selection c"
 
 ###########################
 # CUSTOM SCRIPTS
@@ -246,6 +249,13 @@ update_zeal() {
   cd -
 }
 
+deploy_production() {
+  cd ~/sandbox/pitch-backend-2
+  git checkout production
+  git pull origin production
+  mix deploy.production
+}
+
 windows() {
   if [[ $(xwininfo -root | awk '$1=="Width:" {print $2}') -gt "2000" ]]; then
     for visible_window in $(xdotool search --onlyvisible --desktop 0 --class .)
@@ -293,3 +303,5 @@ if [ /home/devon/sandbox/google-cloud-sdk/bin/kubectl ]; then source <(kubectl c
         # os.system(command)
         # return '--version'
 # return command
+
+

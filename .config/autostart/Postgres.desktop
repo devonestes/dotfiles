@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=pg_ctl -s -l /dev/null start
+Exec=/home/devon/.asdf/shims/pg_ctl -s -l /dev/null start
 X-GNOME-Autostart-enabled=true
 NoDisplay=false
 Hidden=false
