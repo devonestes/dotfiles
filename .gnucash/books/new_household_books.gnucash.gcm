@@ -924,13 +924,22 @@ frequency_visible=true
 last-occur_visible=true
 next-occur_visible=true
 
+[Register df28b4c1cfbdb80c9a13cc04d7dec1d0]
+date_width=135
+num_width=65
+reconcile_width=22
+balance_width=119
+transfer_width=295
+debit_width=119
+credit_width=119
+
 [Window 1]
 PageCount=1
 FirstPage=1
 PageOrder=1;
-WindowPosition=1920;0;
-WindowGeometry=1600;1009;
-WindowMaximized=false
+WindowPosition=0;0;
+WindowGeometry=1440;739;
+WindowMaximized=true
 ToolbarVisible=true
 SummarybarVisible=true
 StatusbarVisible=true
@@ -941,8 +950,5 @@ PageName=Accounts
 AccountTypes=-1
 ShowHidden=false
 ShowZeroTotal=true
-SelectedAccount=Liabilities:AmEx
 OpenAccount1=Assets
-OpenAccount2=Assets:Liquid
-OpenAccount3=Liabilities
-NumberOfOpenAccounts=3
+NumberOfOpenAccounts=1

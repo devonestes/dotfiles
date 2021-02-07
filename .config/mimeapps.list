@@ -242,3 +242,4 @@ image/x-ico=xviewer.desktop;
 image/x-png=xviewer.desktop;
 application/pdf=google-chrome.desktop;
 application/json=gvim.desktop;
+audio/x-wav=vlc.desktop;

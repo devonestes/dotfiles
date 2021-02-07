@@ -150,6 +150,9 @@ upd() {
   cd ~/sandbox/pitch-backend
   git checkout master
   git pull origin master
+  cd ~/sandbox/pitch-backend-2
+  git checkout master
+  git pull origin master
   cd $pwd
 }
 

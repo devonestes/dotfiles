@@ -101,12 +101,12 @@
 (let ((option (gnc:lookup-option options
                                  "General"
                                  "End Date")))
-  ((lambda (option) (if option ((gnc:option-setter option) '(absolute 1609369200 . 0)))) option))
+  ((lambda (option) (if option ((gnc:option-setter option) '(absolute 1617141600 . 0)))) option))
 
 (let ((option (gnc:lookup-option options
                                  "General"
                                  "Start Date")))
-  ((lambda (option) (if option ((gnc:option-setter option) '(absolute 1577833200 . 0)))) option))
+  ((lambda (option) (if option ((gnc:option-setter option) '(absolute 1585692000 . 0)))) option))
 
 (let ((option (gnc:lookup-option options
                                  "General"
@@ -166,4 +166,196 @@
   'options-generator options-gen
   'menu-path (list gnc:menuname-custom)
   'renderer (gnc:report-template-renderer/report-guid "b1f15b2052c149df93e698fe85a81ea6" "Expense Over Time")))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Options for saved report "Weekly Status Report", based on template "d8ba4a2e89e8479ca9f6eccdeb164588"
+(let ()
+ (define (options-gen)
+  (let ((options (gnc:report-template-new-options/report-guid "d8ba4a2e89e8479ca9f6eccdeb164588" "Multicolumn View")))
+
+; Section: General
+
+(let ((option (gnc:lookup-option options
+                                 "General"
+                                 "Report name")))
+  ((lambda (option) (if option ((gnc:option-setter option) "Weekly Status Report"))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "General"
+                                 "Number of columns")))
+  ((lambda (option) (if option ((gnc:option-setter option) 2.0))) option))
+
+
+; Section: __general
+
+(let ((option (gnc:lookup-option options
+                                 "__general"
+                                 "report-list")))
+  ((lambda (option) (if option ((gnc:option-setter option) '((73 2 1 #f) (84 1 1 #f) (71 1 1 #f))))) option))
+
+;;;; Options for embedded report
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; options for report "Monthly Discretionary Expenses"
+(let ((options (gnc:report-template-new-options/report-guid "b1f15b2052c149df93e698fe85a81ea6" "Expense Over Time")))
+
+; Section: General
+
+(let ((option (gnc:lookup-option options
+                                 "General"
+                                 "Report name")))
+  ((lambda (option) (if option ((gnc:option-setter option) "Monthly Discretionary Expenses"))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "General"
+                                 "End Date")))
+  ((lambda (option) (if option ((gnc:option-setter option) '(relative . end-this-month)))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "General"
+                                 "Start Date")))
+  ((lambda (option) (if option ((gnc:option-setter option) '(relative . start-prev-month)))) option))
+
+
+; Section: Accounts
+
+(let ((option (gnc:lookup-option options
+                                 "Accounts"
+                                 "Show Accounts until level")))
+  ((lambda (option) (if option ((gnc:option-setter option) '3))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "Accounts"
+                                 "Accounts")))
+  ((lambda (option) (if option ((gnc:option-setter option) '("9a84180b320873855f68dfe9425a0f10" "9d213752a0598d327af3bd69e2423d35" "4429f8be5dcf51eb4ced6fed2b20e770" "a2c9ff04658d58f8dbffd7ed8f57ef57" "c4d43d2d2970bd0adf34d33eb236bbe9" "a7510f805efb13dbc28c3a11ce7f2e6a" "c141374aff7f04639e7a13b4424f7538" "79a18a38b2cd387a57f3eb8fdfab2e38" "29cdc2d68b9f8b1b891cd4bc97a3849f" "0c49fccc19cf9d1fa0d674f0c47d7c22" "247e51e5001b486c019dee8d19784e63" "00add3d76e5f1f09d3f81b87b258218a" "e49341696eaf7e5dba16a5f6934f0711" "3481a5f8188c0413845df9dbde4b8c1f" "8b7b649decc3f6ad9ee89ccf64bb48ec" "df28b4c1cfbdb80c9a13cc04d7dec1d0" "867a21a988edffaa0d3c8e85c291f2a8" "f7fbedf26e0fda91e37ff94085e7bcde" "1f6997113a4707a27f738688db82bf45" "e66956dc34598cd789bf0c7f999bd70a")))) option))
+
+
+; Section: Display
+
+(let ((option (gnc:lookup-option options
+                                 "Display"
+                                 "Plot Height")))
+  ((lambda (option) (if option ((gnc:option-setter option) 500.0))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "Display"
+                                 "Plot Width")))
+  ((lambda (option) (if option ((gnc:option-setter option) 1000.0))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "Display"
+                                 "Show table")))
+  ((lambda (option) (if option ((gnc:option-setter option) #t))) option))
+
+
+; Section: __report
+
+(if (defined? 'gnc:restore-report-by-guid-with-custom-template)
+  (gnc:restore-report-by-guid-with-custom-template 73 "b1f15b2052c149df93e698fe85a81ea6" "Expense Over Time" "" options)
+  (gnc:restore-report-by-guid 73 "b1f15b2052c149df93e698fe85a81ea6" "Expense Over Time" options))
+);;;; Options for embedded report
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; options for report "Weekly Cash Expenses"
+(let ((options (gnc:report-template-new-options/report-guid "b1f15b2052c149df93e698fe85a81ea6" "Expense Over Time")))
+
+; Section: General
+
+(let ((option (gnc:lookup-option options
+                                 "General"
+                                 "Report name")))
+  ((lambda (option) (if option ((gnc:option-setter option) "Weekly Cash Expenses"))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "General"
+                                 "End Date")))
+  ((lambda (option) (if option ((gnc:option-setter option) '(relative . end-this-month)))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "General"
+                                 "Start Date")))
+  ((lambda (option) (if option ((gnc:option-setter option) '(relative . start-this-month)))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "General"
+                                 "Step Size")))
+  ((lambda (option) (if option ((gnc:option-setter option) 'WeekDelta))) option))
+
+
+; Section: Accounts
+
+(let ((option (gnc:lookup-option options
+                                 "Accounts"
+                                 "Show Accounts until level")))
+  ((lambda (option) (if option ((gnc:option-setter option) '3))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "Accounts"
+                                 "Accounts")))
+  ((lambda (option) (if option ((gnc:option-setter option) '("0c49fccc19cf9d1fa0d674f0c47d7c22" "247e51e5001b486c019dee8d19784e63" "00add3d76e5f1f09d3f81b87b258218a" "3481a5f8188c0413845df9dbde4b8c1f" "8b7b649decc3f6ad9ee89ccf64bb48ec" "df28b4c1cfbdb80c9a13cc04d7dec1d0")))) option))
+
+
+; Section: Display
+
+(let ((option (gnc:lookup-option options
+                                 "Display"
+                                 "Plot Height")))
+  ((lambda (option) (if option ((gnc:option-setter option) 500.0))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "Display"
+                                 "Plot Width")))
+  ((lambda (option) (if option ((gnc:option-setter option) 500.0))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "Display"
+                                 "Show table")))
+  ((lambda (option) (if option ((gnc:option-setter option) #t))) option))
+
+
+; Section: __report
+
+(if (defined? 'gnc:restore-report-by-guid-with-custom-template)
+  (gnc:restore-report-by-guid-with-custom-template 84 "b1f15b2052c149df93e698fe85a81ea6" "Expense Over Time" "" options)
+  (gnc:restore-report-by-guid 84 "b1f15b2052c149df93e698fe85a81ea6" "Expense Over Time" options))
+);;;; Options for embedded report
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; options for report "Monthly Budget Status"
+(let ((options (gnc:report-template-new-options/report-guid "e6e34fa3b6e748debde3cb3bc76d3e53" "Budget Flow")))
+
+; Section: General
+
+(let ((option (gnc:lookup-option options
+                                 "General"
+                                 "Budget")))
+  ((lambda (option) (if option ((gnc:option-setter option) (gnc-budget-lookup "c9902a29edd56c819e57750bef56905e" (gnc-get-current-book))))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "General"
+                                 "Period")))
+  ((lambda (option) (if option ((gnc:option-setter option) 1.0))) option))
+
+(let ((option (gnc:lookup-option options
+                                 "General"
+                                 "Report name")))
+  ((lambda (option) (if option ((gnc:option-setter option) "Monthly Budget Status"))) option))
+
+
+; Section: Accounts
+
+(let ((option (gnc:lookup-option options
+                                 "Accounts"
+                                 "Account")))
+  ((lambda (option) (if option ((gnc:option-setter option) '("9d213752a0598d327af3bd69e2423d35" "4429f8be5dcf51eb4ced6fed2b20e770" "a2c9ff04658d58f8dbffd7ed8f57ef57" "a7510f805efb13dbc28c3a11ce7f2e6a" "c141374aff7f04639e7a13b4424f7538" "79a18a38b2cd387a57f3eb8fdfab2e38" "0c49fccc19cf9d1fa0d674f0c47d7c22" "247e51e5001b486c019dee8d19784e63" "00add3d76e5f1f09d3f81b87b258218a" "3481a5f8188c0413845df9dbde4b8c1f" "8b7b649decc3f6ad9ee89ccf64bb48ec" "df28b4c1cfbdb80c9a13cc04d7dec1d0" "f7fbedf26e0fda91e37ff94085e7bcde" "1f6997113a4707a27f738688db82bf45" "e66956dc34598cd789bf0c7f999bd70a")))) option))
+
+(if (defined? 'gnc:restore-report-by-guid-with-custom-template)
+  (gnc:restore-report-by-guid-with-custom-template 71 "e6e34fa3b6e748debde3cb3bc76d3e53" "Budget Flow" "" options)
+  (gnc:restore-report-by-guid 71 "e6e34fa3b6e748debde3cb3bc76d3e53" "Budget Flow" options))
+)  options))
+ (gnc:define-report 
+  'version 1
+  'name "Weekly Status Report"
+  'report-guid "eb30533111f0d10630facd1999dd83d5"
+  'parent-type "d8ba4a2e89e8479ca9f6eccdeb164588"
+  'options-generator options-gen
+  'menu-path (list gnc:menuname-custom)
+  'renderer (gnc:report-template-renderer/report-guid "d8ba4a2e89e8479ca9f6eccdeb164588" "Multicolumn View")))
 

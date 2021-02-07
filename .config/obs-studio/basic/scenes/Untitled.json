@@ -59,16 +59,108 @@
         "versioned_id": "pulse_output_capture",
         "volume": 1.0
     },
-    "current_program_scene": "Scene",
-    "current_scene": "Scene",
-    "current_transition": "Fade",
+    "current_program_scene": "Full desktop",
+    "current_scene": "Full desktop",
+    "current_transition": "Cut",
     "groups": [],
     "modules": {
+        "advanced-scene-switcher": {
+            "active": true,
+            "audioFallbackDuration": 0.0,
+            "audioFallbackEnable": false,
+            "audioFallbackScene": "",
+            "audioFallbackTargetType": 0,
+            "audioFallbackTransition": "",
+            "audioSwitches": [],
+            "audioTabPos": 12,
+            "autoStartEvent": 3,
+            "cooldown": 0.0,
+            "defaultTransitions": [],
+            "disableHints": false,
+            "exeTabPos": 4,
+            "executableSwitches": [],
+            "fileSwitches": [],
+            "fileTabPos": 7,
+            "generalTabPos": 0,
+            "idleEnable": false,
+            "idleSceneName": "",
+            "idleTabPos": 10,
+            "idleTargetType": 0,
+            "idleTime": 60,
+            "idleTransitionName": "",
+            "ignoreIdleWindows": [],
+            "ignoreWindows": [],
+            "interval": 300,
+            "mediaSwitches": [],
+            "mediaTabPos": 6,
+            "noMatchDelay": 0.0,
+            "non_matching_scene": "",
+            "oldPauseValuesImported": 1,
+            "pauseEntries": [],
+            "pauseTabPos": 2,
+            "priority0": 0,
+            "priority1": 1,
+            "priority2": 2,
+            "priority3": 3,
+            "priority4": 4,
+            "priority5": 5,
+            "priority6": 6,
+            "priority7": 7,
+            "priority8": 8,
+            "randomSwitches": [],
+            "randomTabPos": 8,
+            "readEnabled": false,
+            "readPath": "",
+            "regionTabPos": 5,
+            "sceneGroupTabPos": 13,
+            "sceneGroups": [],
+            "sceneRoundTrip": [],
+            "sceneTransitions": [],
+            "screenRegion": [],
+            "sequenceTabPos": 11,
+            "startHotkey": [],
+            "startup_behavior": 2,
+            "stopHotkey": [],
+            "switch_if_not_matching": 0,
+            "switches": [
+                {
+                    "focus": true,
+                    "fullscreen": false,
+                    "maximized": false,
+                    "target": "Terminal scene",
+                    "targetType": 0,
+                    "transition": "Cut",
+                    "windowTitle": "devon@devon-XPS-13-9370: ~"
+                },
+                {
+                    "focus": true,
+                    "fullscreen": false,
+                    "maximized": false,
+                    "target": "Full desktop",
+                    "targetType": 0,
+                    "transition": "Cut",
+                    "windowTitle": "^.+(?!(devon-XPS))$"
+                }
+            ],
+            "tansitionOverrideOverride": false,
+            "threadPriority": 3,
+            "timeSwitches": [],
+            "timeTabPos": 9,
+            "titleTabPos": 3,
+            "toggleHotkey": [],
+            "transitionTabPos": 1,
+            "triggerTabPos": 14,
+            "triggers": [],
+            "verbose": false,
+            "version": "81d91a913905f03367b8946183b2510b0c6874f6",
+            "writeEnabled": false,
+            "writePath": ""
+        },
         "auto-scene-switcher": {
             "active": false,
             "interval": 300,
-            "non_matching_scene": "",
-            "switch_if_not_matching": false,
+            "non_matching_scene": "Full desktop",
+            "switch_if_not_matching": true,
             "switches": []
         },
         "output-timer": {
@@ -116,91 +208,13 @@
     "scaling_off_y": 0.0,
     "scene_order": [
         {
-            "name": "Scene"
+            "name": "Terminal scene"
+        },
+        {
+            "name": "Full desktop"
         }
     ],
     "sources": [
-        {
-            "balance": 0.5,
-            "deinterlace_field_order": 0,
-            "deinterlace_mode": 0,
-            "enabled": true,
-            "flags": 0,
-            "hotkeys": {},
-            "id": "xcomposite_input",
-            "mixers": 0,
-            "monitoring_type": 0,
-            "muted": false,
-            "name": "slide_deck",
-            "prev_ver": 436207618,
-            "private_settings": {},
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "settings": {
-                "capture_window": "138412200\r\nlocalhost:4000/mutation_testing/#20 - Google Chrome\r\ngoogle-chrome",
-                "swap_redblue": true
-            },
-            "sync": 0,
-            "versioned_id": "xcomposite_input",
-            "volume": 1.0
-        },
-        {
-            "balance": 0.5,
-            "deinterlace_field_order": 0,
-            "deinterlace_mode": 0,
-            "enabled": true,
-            "flags": 0,
-            "hotkeys": {},
-            "id": "v4l2_input",
-            "mixers": 0,
-            "monitoring_type": 0,
-            "muted": false,
-            "name": "Video Capture Device (V4L2)",
-            "prev_ver": 436207618,
-            "private_settings": {},
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "settings": {
-                "device_id": "/dev/video4",
-                "input": 0,
-                "pixelformat": 842094169,
-                "resolution": 83887040
-            },
-            "sync": 0,
-            "versioned_id": "v4l2_input",
-            "volume": 1.0
-        },
-        {
-            "balance": 0.5,
-            "deinterlace_field_order": 0,
-            "deinterlace_mode": 0,
-            "enabled": true,
-            "flags": 0,
-            "hotkeys": {},
-            "id": "xcomposite_input",
-            "mixers": 0,
-            "monitoring_type": 0,
-            "muted": false,
-            "name": "Terminal",
-            "prev_ver": 436207618,
-            "private_settings": {},
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "settings": {
-                "capture_window": "83886087\r\ndevon@devon-XPS-13-9370: ~\r\nterminator",
-                "cut_top": 31,
-                "swap_redblue": true
-            },
-            "sync": 0,
-            "versioned_id": "xcomposite_input",
-            "volume": 1.0
-        },
         {
             "balance": 0.5,
             "deinterlace_field_order": 0,
@@ -211,16 +225,14 @@
                 "OBSBasic.SelectScene": [],
                 "libobs.hide_scene_item.Terminal": [],
                 "libobs.hide_scene_item.Video Capture Device (V4L2)": [],
-                "libobs.hide_scene_item.slide_deck": [],
                 "libobs.show_scene_item.Terminal": [],
-                "libobs.show_scene_item.Video Capture Device (V4L2)": [],
-                "libobs.show_scene_item.slide_deck": []
+                "libobs.show_scene_item.Video Capture Device (V4L2)": []
             },
             "id": "scene",
             "mixers": 0,
             "monitoring_type": 0,
             "muted": false,
-            "name": "Scene",
+            "name": "Terminal scene",
             "prev_ver": 436207618,
             "private_settings": {},
             "push-to-mute": false,
@@ -254,37 +266,8 @@
                         "private_settings": {},
                         "rot": 0.0,
                         "scale": {
-                            "x": 0.82937502861022949,
-                            "y": 0.82924336194992065
-                        },
-                        "scale_filter": "disable",
-                        "visible": true
-                    },
-                    {
-                        "align": 5,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "bounds_align": 0,
-                        "bounds_type": 0,
-                        "crop_bottom": 0,
-                        "crop_left": 0,
-                        "crop_right": 0,
-                        "crop_top": 0,
-                        "group_item_backup": false,
-                        "id": 6,
-                        "locked": false,
-                        "name": "slide_deck",
-                        "pos": {
-                            "x": 2.0,
-                            "y": -78.0
-                        },
-                        "private_settings": {},
-                        "rot": 0.0,
-                        "scale": {
-                            "x": 0.89812499284744263,
-                            "y": 0.89799809455871582
+                            "x": 0.89999997615814209,
+                            "y": 0.89979547262191772
                         },
                         "scale_filter": "disable",
                         "visible": true
@@ -322,6 +305,211 @@
             },
             "sync": 0,
             "versioned_id": "scene",
+            "volume": 1.0
+        },
+        {
+            "balance": 0.5,
+            "deinterlace_field_order": 0,
+            "deinterlace_mode": 0,
+            "enabled": true,
+            "flags": 0,
+            "hotkeys": {},
+            "id": "xcomposite_input",
+            "mixers": 0,
+            "monitoring_type": 0,
+            "muted": false,
+            "name": "Terminal",
+            "prev_ver": 436207618,
+            "private_settings": {},
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "settings": {
+                "capture_window": "83886087\r\ndevon@devon-XPS-13-9370: ~\r\nterminator",
+                "cut_top": 31,
+                "swap_redblue": true
+            },
+            "sync": 0,
+            "versioned_id": "xcomposite_input",
+            "volume": 1.0
+        },
+        {
+            "balance": 0.5,
+            "deinterlace_field_order": 0,
+            "deinterlace_mode": 0,
+            "enabled": true,
+            "flags": 0,
+            "hotkeys": {},
+            "id": "v4l2_input",
+            "mixers": 0,
+            "monitoring_type": 0,
+            "muted": false,
+            "name": "Video Capture Device (V4L2)",
+            "prev_ver": 436207618,
+            "private_settings": {},
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "settings": {
+                "Backlight Compensation": 0,
+                "device_id": "/dev/video4",
+                "input": 0,
+                "pixelformat": 842094169,
+                "resolution": 83887040
+            },
+            "sync": 0,
+            "versioned_id": "v4l2_input",
+            "volume": 1.0
+        },
+        {
+            "balance": 0.5,
+            "deinterlace_field_order": 0,
+            "deinterlace_mode": 0,
+            "enabled": true,
+            "flags": 0,
+            "hotkeys": {
+                "OBSBasic.SelectScene": [],
+                "libobs.hide_scene_item.Full Desktop": [],
+                "libobs.hide_scene_item.Mic/Aux": [],
+                "libobs.hide_scene_item.Video Capture Device (V4L2)": [],
+                "libobs.show_scene_item.Full Desktop": [],
+                "libobs.show_scene_item.Mic/Aux": [],
+                "libobs.show_scene_item.Video Capture Device (V4L2)": []
+            },
+            "id": "scene",
+            "mixers": 0,
+            "monitoring_type": 0,
+            "muted": false,
+            "name": "Full desktop",
+            "prev_ver": 436207618,
+            "private_settings": {},
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "settings": {
+                "custom_size": false,
+                "id_counter": 4,
+                "items": [
+                    {
+                        "align": 5,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_align": 0,
+                        "bounds_type": 0,
+                        "crop_bottom": 0,
+                        "crop_left": 0,
+                        "crop_right": 0,
+                        "crop_top": 0,
+                        "group_item_backup": false,
+                        "id": 1,
+                        "locked": false,
+                        "name": "Mic/Aux",
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "private_settings": {},
+                        "rot": 0.0,
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "scale_filter": "disable",
+                        "visible": true
+                    },
+                    {
+                        "align": 5,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_align": 0,
+                        "bounds_type": 0,
+                        "crop_bottom": 0,
+                        "crop_left": 0,
+                        "crop_right": 0,
+                        "crop_top": 0,
+                        "group_item_backup": false,
+                        "id": 3,
+                        "locked": false,
+                        "name": "Full Desktop",
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "private_settings": {},
+                        "rot": 0.0,
+                        "scale": {
+                            "x": 0.75,
+                            "y": 0.75
+                        },
+                        "scale_filter": "disable",
+                        "visible": true
+                    },
+                    {
+                        "align": 5,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_align": 0,
+                        "bounds_type": 0,
+                        "crop_bottom": 0,
+                        "crop_left": 0,
+                        "crop_right": 0,
+                        "crop_top": 0,
+                        "group_item_backup": false,
+                        "id": 4,
+                        "locked": false,
+                        "name": "Video Capture Device (V4L2)",
+                        "pos": {
+                            "x": 1104.0,
+                            "y": 558.0
+                        },
+                        "private_settings": {},
+                        "rot": 0.0,
+                        "scale": {
+                            "x": 0.26249998807907104,
+                            "y": 0.26249998807907104
+                        },
+                        "scale_filter": "disable",
+                        "visible": true
+                    }
+                ]
+            },
+            "sync": 0,
+            "versioned_id": "scene",
+            "volume": 1.0
+        },
+        {
+            "balance": 0.5,
+            "deinterlace_field_order": 0,
+            "deinterlace_mode": 0,
+            "enabled": true,
+            "flags": 0,
+            "hotkeys": {},
+            "id": "xshm_input",
+            "mixers": 0,
+            "monitoring_type": 0,
+            "muted": false,
+            "name": "Full Desktop",
+            "prev_ver": 436207618,
+            "private_settings": {},
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "settings": {
+                "advanced": true,
+                "cut_bot": 40
+            },
+            "sync": 0,
+            "versioned_id": "xshm_input",
             "volume": 1.0
         }
     ],
