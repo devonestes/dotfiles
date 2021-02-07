@@ -162,7 +162,7 @@ RetroPie/
 .config/Franz/
 .var/
 .config/MineTime
-.config/coc/extensions/db.json
+.config/coc/extensions/**/*
 .config/git/git-remote-dropbox.json
 .config/gh/
 .config/transmission/
