@@ -60,16 +60,16 @@
             "_id": 7,
             "availability": 1.0,
             "default": false,
-            "name": "Europe: Sweden, Stockholm",
-            "url_template": "rtmp://arn.contribute.live-video.net/app/{stream_key}",
+            "name": "Europe: Italy, Milan",
+            "url_template": "rtmp://mil.contribute.live-video.net/app/{stream_key}",
             "priority": 7
         },
         {
             "_id": 8,
             "availability": 1.0,
             "default": false,
-            "name": "Europe: Italy, Milan",
-            "url_template": "rtmp://mil.contribute.live-video.net/app/{stream_key}",
+            "name": "Europe: Sweden, Stockholm",
+            "url_template": "rtmp://arn.contribute.live-video.net/app/{stream_key}",
             "priority": 8
         },
         {

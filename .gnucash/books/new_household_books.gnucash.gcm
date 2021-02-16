@@ -951,4 +951,6 @@ AccountTypes=-1
 ShowHidden=false
 ShowZeroTotal=true
 OpenAccount1=Assets
-NumberOfOpenAccounts=1
+OpenAccount2=Assets:Savings
+OpenAccount3=Liabilities
+NumberOfOpenAccounts=3
