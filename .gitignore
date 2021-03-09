@@ -172,3 +172,4 @@ RetroPie/
 .config/obs-studio/basic/profiles/**/*
 .config/obs-studio/basic/profiles/Untitled/service.json
 .config/obs-studio/basic/profiles/Untitled/service.json.bak
+.aws/
